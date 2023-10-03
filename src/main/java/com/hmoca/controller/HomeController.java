@@ -1,4 +1,4 @@
-package com.hmoca.mvc;
+package com.hmoca.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
