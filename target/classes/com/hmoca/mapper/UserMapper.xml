@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hmoca.mapper.UserMapper">
+	<select id="UserList" resultType="com.hmoca.entity.User">
+	    select * from user_info order by user_id desc
+	</select>
+	
+	<insert id="UserInsert" parameterType="com.hmoca.entity.User">
+	    insert into user_info (user_id, user_pw, user_name, user_nick, user_email, user_phone)
+		values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_email},#{user_phone})
+	</insert>
+
+</mapper>
