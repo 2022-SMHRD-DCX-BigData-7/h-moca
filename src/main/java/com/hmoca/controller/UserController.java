@@ -21,7 +21,7 @@ public class UserController {
 	
 	@RequestMapping("/UserInsertForm.do")
 	public String UserInsertForm() { return "join"; }	
-	// 스프링에서는 메소드 이름과 일치한 jsp가 있는지 확인 후 연결
+
 	
 	
 	@RequestMapping("/UserInsert.do")
@@ -29,6 +29,6 @@ public class UserController {
 		
 		mapper.UserInsert(vo); 
 
-		return "redirect:/UserList.do"; 
+		return "redirect:/Main.do"; 
 	}	
 }
