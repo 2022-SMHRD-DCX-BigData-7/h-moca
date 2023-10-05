@@ -12,7 +12,7 @@
 					<div class="row">
 						<div class="col-12">
 							<!-- Logo -->
-							<h1><a href="main.jsp" id="logo"><img class="logoimg" src="resources/css/images/logo.png">MOCA</a></h1>
+							<h1><a href="${cpath}/Main.do" id="logo"><img class="logoimg" src="resources/css/images/logo.png">MOCA</a></h1>
 							<!-- Nav -->
 							<nav id="nav">
 								<a href="#">URL검색</a>
@@ -26,13 +26,13 @@
 								<c:when test="${not empty loginmember}">
 									<div class="loginmenu">
 										<a href="#">Mypage</a>
-										<a href="#">Logout</a>
+										<a href="${cpath}/Logout.do">Logout</a>
 									</div>
 								</c:when>
 								<c:otherwise>
 									<div class="loginmenu">
-										<a href="#">Log in</a>
-										<a href="/UserInsertForm.do" class="signup">Sign up</a>
+										<a href="${cpath}/UserLoginForm.do">Log in</a>
+										<a href="${cpath}/UserInsertForm.do" class="signup">Sign up</a>
 									</div>
 								</c:otherwise>
 							</c:choose>

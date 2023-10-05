@@ -77,28 +77,34 @@
 							<form action="${cpath}/UserInsert.do" method="post"">
 								<div class="input-group">
 									<p>아이디</p>
-									<input type="text" name="id" class="form-control">
+									<input type="text" id="user_id" name="user_id" class="form-control">
 								</div>
 								<div class="checkId">
 									<button id="checkId" class="checkId">중복확인</button>
 								</div>
 								<div class="input-group">
 									<p>비밀번호</p>
-									<input type="password" name="pw" class="form-control">
+									<input type="password" id="user_pw" name="user_pw" class="form-control">
 								</div>
 								<div class="input-group">
 									<p>비밀번호 확인</p>
-									<input type="password" name="ckpw" class="form-control">
+									<input type="password" id="ckuser_pw" name="ckuser_pw" class="form-control">
 								</div>
 								<div class="input-group">
 									<p>이름</p>
-									<input type="text" name="name" class="form-control">
-								</div><div class="input-group">
+									<input type="text" id="user_name" name="user_name" class="form-control">
+								</div>
+								<div class="input-group">
 									<p>닉네임</p>
-									<input type="text" name="nick" class="form-control">
-								</div><div class="input-group">
+									<input type="text" id="user_nick" name="user_nick" class="form-control">
+								</div>
+								<div class="input-group">
 									<p>이메일</p>
-									<input type="email" name="email" class="form-control">
+									<input type="email" id="user_email" name="user_email" class="form-control">
+								</div>
+								<div class="input-group">
+									<p>전화번호</p>
+									<input type="email" id="user_phone" name="user_phone" class="form-control">
 								</div>
 								<div class="submit-group">
 									<input type="submit" value="회원가입">

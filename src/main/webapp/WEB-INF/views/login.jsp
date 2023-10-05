@@ -61,11 +61,11 @@
 							<form action="#">
 								<div class="input-group">
 									<p>아이디</p>
-									<input type="text" name="id" class="form-control" placeholder="아이디를 입력하세요.">
+									<input type="text" id="user_id" name="user_id" class="form-control" placeholder="아이디를 입력하세요.">
 								</div>
 								<div class="input-group">
 									<p>비밀번호</p>
-									<input type="password" name="pw" class="form-control" placeholder="비밀번호를 입력하세요.">
+									<input type="password" id="user_pw" name="user_pw" class="form-control" placeholder="비밀번호를 입력하세요.">
 								</div>
 								<div class="input-group">
 									<input type="submit" value="로그인">

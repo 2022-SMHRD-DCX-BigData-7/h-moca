@@ -11,4 +11,6 @@ public interface UserMapper {
 
 	public String UserInsert(User vo);
 
+	public User UserLogin(User vo);
+
 }
