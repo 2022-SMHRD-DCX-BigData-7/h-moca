@@ -25,14 +25,16 @@
 							<c:choose>
 								<c:when test="${not empty loginmember}">
 									<div class="loginmenu">
-										<a href="#">Mypage</a>
-										<a href="${cpath}/Logout.do">Logout</a>
+										<a href="#">게시판</a>
+										<a href="#">마이페이지</a>
+										<a href="${cpath}/Logout.do">로그아웃</a>
 									</div>
 								</c:when>
 								<c:otherwise>
 									<div class="loginmenu">
-										<a href="${cpath}/UserLoginForm.do">Log in</a>
-										<a href="${cpath}/UserInsertForm.do" class="signup">Sign up</a>
+										<a href="#">게시판</a>
+										<a href="${cpath}/UserLoginForm.do">로그인</a>
+										<a href="${cpath}/UserInsertForm.do" class="signup">회원가입</a>
 									</div>
 								</c:otherwise>
 							</c:choose>

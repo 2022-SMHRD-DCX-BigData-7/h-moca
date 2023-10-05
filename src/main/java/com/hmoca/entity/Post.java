@@ -5,10 +5,10 @@ public class Post {
 	private int post_idx;
 	private String post_title;
 	private String post_content;
-	private String created_at;
-	private int post_views;
+	private String created_at; // 작성일자
+	private int post_views; // 조회수
 	private String user_id;
-	private int dist_idx;
+	private int dist_idx; // 판별고유번호
 	
 	public int getPost_idx() {
 		return post_idx;
