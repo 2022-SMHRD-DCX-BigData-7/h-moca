@@ -17,4 +17,24 @@ UPDATE TABLE user_info (
    primary key (user_id)
 );
 
+
+CREATE TABLE post_info (
+    post_idx INT AUTO_INCREMENT PRIMARY KEY,
+    post_title VARCHAR(500) NOT NULL,
+    post_content VARCHAR(4000) NOT NULL,
+    created_at DATE NOT NULL,
+    post_views INT NOT NULL,
+    user_id VARCHAR(20) NOT NULL,
+    dist_idx INT NOT NULL
+);
+
+
+DROP TABLE post_info;
+
+ALTER TABLE post_info MODIFY post_idx INT AUTO_INCREMENT PRIMARY KEY;
+
+insert into post_info(post_title, post_content, created_at, post_views, user_id, dist_idx) values
+('게시글테스트1', '테스트중', '2023-10-04 15:30:00', 0, 'user1', 0);
+
 select * from user_info;
+select * from post_info;
