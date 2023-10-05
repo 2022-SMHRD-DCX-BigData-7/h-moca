@@ -32,7 +32,7 @@
 								<c:otherwise>
 									<div class="loginmenu">
 										<a href="#">Log in</a>
-										<a href="#" class="signup">Sign up</a>
+										<a href="/UserInsertForm.do" class="signup">Sign up</a>
 									</div>
 								</c:otherwise>
 							</c:choose>

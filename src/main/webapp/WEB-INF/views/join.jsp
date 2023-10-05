@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>FAKETUBE</title>
@@ -74,7 +74,7 @@
 							<header>
 								<h2>회원가입</h2>
 							</header>
-							<form action="#">
+							<form action="${cpath}/UserInsert.do" method="post"">
 								<div class="input-group">
 									<p>아이디</p>
 									<input type="text" name="id" class="form-control">
