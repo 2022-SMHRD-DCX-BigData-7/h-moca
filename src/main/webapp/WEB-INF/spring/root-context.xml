@@ -28,7 +28,7 @@
 	</bean>	
 	
 	<!-- SQL관련 mapper를 메모리에 올리는 태그(scan) -->	
-	<mybatis-spring:scan base-package="kr.board.mapper"/>
+	<mybatis-spring:scan base-package="com.hmoca.mapper"/>
 	
 </beans>
 

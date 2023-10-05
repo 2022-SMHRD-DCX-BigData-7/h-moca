@@ -8,8 +8,7 @@ import com.hmoca.entity.User;
 public interface UserMapper {
 	// ***** interface의 이름과 xml의 이름이 같아야 연결이 된다
 	
-	public List<User> UserList();
 
-	public void UserInsert(User vo);
+	public String UserInsert(User vo);
 
 }
