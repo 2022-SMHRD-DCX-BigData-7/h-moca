@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title>FAKETUBE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="${cpath}/resources/css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" href="resources/css/main.css">
 <style>
 
 	.input-group{
@@ -130,11 +131,11 @@
 </div>
 	
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="resources/js/jquery.min.js"></script>
+<script src="resources/js/browser.min.js"></script>
+<script src="resources/js/breakpoints.min.js"></script>
+<script src="resources/js/util.js"></script>
+<script src="resources/js/main.js"></script>
 	
 </body>
 </html>

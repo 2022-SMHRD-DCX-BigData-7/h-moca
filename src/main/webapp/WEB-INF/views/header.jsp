@@ -23,16 +23,16 @@
 							<!-- 로그인X -->
 							<!-- 로그인하면 로그아웃, 마이페이지 -->
 							<c:choose>
-								<c:when test="${not empty loginmember}">
+								<c:when test="${not empty loginUser}">
 									<div class="loginmenu">
-										<a href="#">게시판</a>
+										<a href="${cpath}/postList.do">게시판</a>
 										<a href="#">마이페이지</a>
 										<a href="${cpath}/Logout.do">로그아웃</a>
 									</div>
 								</c:when>
 								<c:otherwise>
 									<div class="loginmenu">
-										<a href="#">게시판</a>
+										<a href="${cpath}/postList.do">게시판</a>
 										<a href="${cpath}/UserLoginForm.do">로그인</a>
 										<a href="${cpath}/UserInsertForm.do" class="signup">회원가입</a>
 									</div>
