@@ -89,7 +89,7 @@
 								</div>
 								<div class="input-group">
 									<p>비밀번호 확인</p>
-									<input type="password" id="ckuser_pw" name="ckuser_pw" class="form-control">
+									<input type="password" id="ckuser_pw" class="form-control">
 								</div>
 								<div class="input-group">
 									<p>이름</p>
@@ -101,11 +101,11 @@
 								</div>
 								<div class="input-group">
 									<p>이메일</p>
-									<input type="email" id="user_email" name="user_email" class="form-control">
+									<input type="text" id="user_email" name="user_email" class="form-control">
 								</div>
 								<div class="input-group">
 									<p>전화번호</p>
-									<input type="email" id="user_phone" name="user_phone" class="form-control">
+									<input type="text" id="user_phone" name="user_phone" class="form-control">
 								</div>
 								<div class="submit-group">
 									<input type="submit" value="회원가입">
