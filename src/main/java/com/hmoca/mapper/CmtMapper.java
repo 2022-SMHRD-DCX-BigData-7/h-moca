@@ -8,5 +8,7 @@ public interface CmtMapper {
 	public List<Comment> commentList();
 	public void insertComment(Comment vo);
 	public Comment selectComment(int cmt_idx);
+	public void DeleteComment(int cmt_idx);
+
 
 }

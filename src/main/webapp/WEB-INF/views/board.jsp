@@ -163,7 +163,7 @@
   			data : fData,
   			// dataType : 받아올 데이터 업없음
   			// 글쓰고나면 새로 데이터베이스에서 게시글 목록 가져 오는 일
-  			success : boardList,
+  			success : postList,
   			error : function(){
   				alert("글쓰기 통신 실패");
   			}
