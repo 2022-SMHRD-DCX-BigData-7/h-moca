@@ -59,7 +59,7 @@
 							<header>
 								<h2>로그인</h2>
 							</header>
-							<form action="#">
+							<form action="${cpath}/UserLogin.do" method='post'>
 								<div class="input-group">
 									<p>아이디</p>
 									<input type="text" id="user_id" name="user_id" class="form-control" placeholder="아이디를 입력하세요.">
