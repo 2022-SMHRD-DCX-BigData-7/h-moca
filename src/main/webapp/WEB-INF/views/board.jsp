@@ -69,16 +69,55 @@
   			
   		}); // each 끝
   		
+  		bList += "</div>"; // 게시판 목록 끝부분
   		// 글쓰기 버튼
   		bList += "<div class='btn_wrap'>";
   		bList += "<a href='#' class='on' onclick='goForm()'>글쓰기</a>"
   		bList += "</div>";
   		
-  		bList += "</div>"; // 게시판 목록 끝부분
+  		
   		
   		$("#list").html(bList);
   	} // callBack 함수 끝
-
+	
+ 	// 글쓰기 버튼을 누르면 게시글 목록은 없어지고 글쓰기 폼은 보여주고
+  	function goForm(){
+  		// 게시글 목록 div의 아이디는 list
+  		// 글쓰기 폼 div의 아이디는 wform
+  		$("#list").css("display", "none");
+  		$("#wform").css("display", "block");
+  	}
+  	
+ // 글쓰기 폼에서 등록버튼을 누르면
+  	// form태그에 담긴 데이터는 js코드로 가져오고
+  	// 글쓰기 폼은 없어지고, 게시글 목록이 보여지도록
+  	function insertFn(){
+  		// title, content, writer 다 가져오려면 반복해야하는데 한꺼번에 하고싶음
+  		// form 태그에 담겨있는 내용을 가지고 온다.
+  		var fData = $("#frm").serialize(); // 직렬화
+  		console.log(fData);
+  		
+  		$.ajax({
+  			url : "${cpath}/post",
+  			type : "post",
+  			data : fData,
+  			// dataType : 받아올 데이터 업없음
+  			// 글쓰고나면 새로 데이터베이스에서 게시글 목록 가져 오는 일
+  			success : boardList,
+  			error : function(){
+  				alert("글쓰기 통신 실패");
+  			}
+  		}); // ajax 끝
+  		
+  		$("#list").css("display", "block");
+  		$("#wform").css("display", "none");
+  		
+  		// 글쓰기 등록을 하고 나면 아직도 input 태그들에 내용이 남아있음
+  		// 글 리셋
+  		// .trigger("click") : 클릭을 강제로 실행한다.
+  		$("#reset").trigger("click");
+  	} // insertFn 함수 끝
+  	
 </script>
 </head>
 <body>
