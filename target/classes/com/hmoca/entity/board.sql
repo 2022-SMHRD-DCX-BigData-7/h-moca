@@ -28,6 +28,13 @@ CREATE TABLE post_info (
     dist_idx INT NOT NULL
 );
 
+CREATE TABLE comment_info (
+	cmt_idx INT AUTO_INCREMENT PRIMARY KEY,
+	cmt_content VARCHAR(4000) NOT NULL,
+	created_at DATE NOT NULL,
+	user_id VARCHAR(20) NOT NULL,
+	post_idx INT NOT NULL
+)
 
 DROP TABLE post_info;
 
@@ -36,5 +43,10 @@ ALTER TABLE post_info MODIFY post_idx INT AUTO_INCREMENT PRIMARY KEY;
 insert into post_info(post_title, post_content, created_at, post_views, user_id, dist_idx) values
 ('게시글테스트1', '테스트중', '2023-10-04 15:30:00', 0, 'user1', 0);
 
+insert into post_info(post_title, post_content, created_at, post_views, user_id, dist_idx) values
+('게시글테스트2', '테스트중', '2023-10-06 15:30:00', 0, 'user1', 0);
+
 select * from user_info;
 select * from post_info;
+select * from comment_info;
+

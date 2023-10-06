@@ -7,7 +7,7 @@
 	<!--게시물  -->
 	
 	<select id="postList" resultType="com.hmoca.entity.Post"> 
-	    select * from user_info order by post_idx desc
+	    select * from post_info order by post_idx desc
 	</select>
 	
 <!-- 	<insert id ="insertPost" parameterType="com.smhrd.entity.Post">
