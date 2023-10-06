@@ -36,6 +36,8 @@ CREATE TABLE comment_info (
 	post_idx INT NOT NULL
 )
 
+ALTER TABLE user_info ADD user_email VARCHAR(500);
+ALTER TABLE user_info ADD user_phone VARCHAR(500);
 DROP TABLE post_info;
 
 ALTER TABLE post_info MODIFY post_idx INT AUTO_INCREMENT PRIMARY KEY;
