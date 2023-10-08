@@ -80,65 +80,7 @@
   		$("#list").html(bList);
   	} // callBack 함수 끝
 	
-  	// 게시글 제목 누르면 게시글 보여줌
-  	function cview(){
-  		$("#list").css("display", "none");
-  		$("#view").css("display", "block");
-  		
-  		$.ajax({
-  			
-  			url : "${cpath}/post"+idx,
-  			type : "post",
-  			// data:
-  			dataType: "json",
-  			success : viewcallBack,
-  			error: function(){
-  				alert("게시글 불러오기 실패");
-  			}
-  			
-  		});
-  	} // cview 끝
-	
-  	function viewcallBack(data){
-  		
-  		$.each(data, function(index, obj){
-  			
-  			var vList = "<div class='board_view'>";
-  	  		vList += "<div class='title'>"+obj.title+"</div>"
-  	  		vList += "<div class='info'>"
-  			vList += "<dl>"
-  			vList += "<dt>번호</dt>"
-  			vList += "<dd>"+obj.post_idx+"</dd>"
-  			vList += "</dl>"
-			vList += "<dl>"
-			vList += "<dt>작성자</dt>"
-			vList += "<dd>"+obj.post_idx+"</dd>"
-			vList += "</dl>"
-			vList += "<dl>"
-			vList += "<dt>작성일</dt>"
-			vList += "<dd>"+obj.created_at+"</dd>"
-			vList += "</dl>"
-			vList += "<dl>"
-  			vList += "<dt>조회수</dt>"
-  			vList += "<dd>"+obj.post_views+"</dd>"
-  			vList += "</dl>"
-  			vList += "</div>"
-  			vList += "<div class='cont'>"+obj.content+"</div>"
-  			
-  			if("${loginUser.user_id}" == obj.user_id){
-  				vList += "<div class='btn_wrap'>";
-  				vList += "<a>수정</a>";
-				vList += "<a>삭제</a>";
-  			}else{
-  				vList += "<div class='btn_wrap'>";
-  				vList += "<a>목록</a>"
-  			}
-  			
-  		}); // each 끝
-  		
-  		 		
-  		$("#view").html(vList);
-  	} // viewcallBack
+  	
   	
  	// 글쓰기 버튼을 누르면 게시글 목록은 없어지고 글쓰기 폼은 보여주고
   	function goForm(){
