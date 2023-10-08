@@ -16,7 +16,7 @@
 	</insert> -->
 	
 	<insert id ="insertPost" parameterType="com.hmoca.entity.Post">
-	 	insert into post_info(post_title, post_content, user_id, dist_idx) 
+	 	insert into post_info(post_title, post_content, user_id,  dist_idx) 
 	 	values(#{post_title}, #{post_content}, #{user_id}, #{dist_idx})
 	</insert>
    
@@ -31,5 +31,10 @@
 	<delete id="DeletePost" parameterType="int">
 	    delete from post_info where post_idx=#{post_idx}
 	</delete>
+	
+	<!-- 게시물 총 갯수 -->
+	<select id="PageCount" resultType="int">
+	    select count(post_idx) from post_info
+	</select>
 	
 </mapper>
