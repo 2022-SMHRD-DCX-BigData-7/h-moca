@@ -20,6 +20,7 @@ public class PostController {
 	@Autowired
 	private PostMapper mapper;
 	
+	// 게시판 리스트 불러오기
 	@GetMapping("/post")
 	public List<Post> postAjaxList(){
 		// @RestController 표시 덕분에 @ResponseBody 안 써도 됨
