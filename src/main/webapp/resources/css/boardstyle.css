@@ -31,7 +31,7 @@ ul, li{
     min-width: 80px;
     margin-left: 10px;
     padding: 5px;
-    border: solid 1px #000;
+    border: solid 1px #373f42;
     border-radius: 5px;
     font-size: 1.2rem;
 }
@@ -41,13 +41,13 @@ ul, li{
 }
 
 .btn_wrap a.on{
-    background: #000;
+    background: #373f42;
     color: #fff !important;
 }
 
 .board_list {
     width: 100%;
-    border-top: solid 2px #000;
+    border-top: solid 2px #373f42;
 }
 
 .board_list>div{
@@ -59,7 +59,7 @@ ul, li{
 }
 
 .board_list>div:last-child{
-    border-bottom: solid 1px #000;
+    border-bottom: solid 1px #373f42;
 }
 
 .board_list>div>div {
@@ -130,8 +130,8 @@ ul, li{
 }
 
 .board_page a.num.on {
-    border-color: #000;
-    background: #000;
+    border-color: #373f42;
+    background: #373f42;
     color: #fff !important;
 }
 
@@ -144,7 +144,7 @@ ul, li{
 
 .board_view {
     width: 100%;
-    border-top: solid 2px #000;
+    border-top: solid 2px #373f42;
     
 }
 
@@ -196,12 +196,12 @@ ul, li{
 
 .board_view .info dl dd {
     margin-left: 10px;
-    color: #777;
+    color: #96a9b5;
 }
 
 .board_view .cont {
     padding: 15px;
-    border-bottom: solid 1px #000;
+    border-bottom: solid 1px #373f42;
     line-height: 160%;
     font-size: 1.1rem;
 }
@@ -210,7 +210,7 @@ ul, li{
 /* boardinsert */
 
 .board_insert {
-    border-top: solid 2px #000;
+    border-top: solid 2px #373f42;
 }
 
 .board_insert .title,
@@ -221,7 +221,7 @@ ul, li{
 
 .board_insert .info {
     border-top: dashed 1px #ddd;
-    border-bottom: solid 1px #000;
+    border-bottom: solid 1px #373f42;
     
 }
 
@@ -262,7 +262,7 @@ ul, li{
 }
 
 .board_insert .cont {
-    border-bottom: solid 1px #000;
+    border-bottom: solid 1px #373f42;
 }
 
 .board_insert .cont textarea {

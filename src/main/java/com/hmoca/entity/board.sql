@@ -22,10 +22,21 @@ CREATE TABLE post_info (
     post_idx INT AUTO_INCREMENT PRIMARY KEY,
     post_title VARCHAR(500) NOT NULL,
     post_content VARCHAR(4000) NOT NULL,
-    created_at DATE NOT NULL,
-    post_views INT NOT NULL,
+    created_at datetime not null default now(),
+    post_views INT NOT NULL default 0,
     user_id VARCHAR(20) NOT NULL,
     dist_idx INT NOT NULL
+);
+
+
+CREATE TABLE post_info (
+    post_idx INT AUTO_INCREMENT PRIMARY KEY,
+    post_title VARCHAR(500) NOT NULL,
+    user_id VARCHAR(20) NOT NULL,
+    dist_idx INT NOT NULL,
+    post_content VARCHAR(4000) NOT NULL,
+    created_at datetime not null default now(),
+    post_views INT NOT NULL default 0
 );
 
 CREATE TABLE comment_info (
@@ -47,6 +58,9 @@ insert into post_info(post_title, post_content, created_at, post_views, user_id,
 
 insert into post_info(post_title, post_content, created_at, post_views, user_id, dist_idx) values
 ('게시글테스트2', '테스트중', '2023-10-06 15:30:00', 0, 'user1', 0);
+
+insert into post_info(post_title, post_content, user_id,  dist_idx) values
+('제발', '되라ㅠ', 'sk', 0);
 
 select * from user_info;
 select * from post_info;

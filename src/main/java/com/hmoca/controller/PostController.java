@@ -3,6 +3,7 @@ package com.hmoca.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,39 +20,12 @@ public class PostController {
 	
 	@Autowired
 	private PostMapper mapper;
-	
-	// 게시판 리스트 불러오기
-	@GetMapping("/post")
-	public List<Post> postAjaxList(){
-		// @RestController 표시 덕분에 @ResponseBody 안 써도 됨
-		List<Post> list = mapper.postList();
-		return list;
 		
-	}
-	
-	@PostMapping("/post")
-	// 돌려줄 데이터 없어서 void로 !
-	public void postAjaxInsert(Post vo){  
-		System.out.println("vo에 담긴 content : "+vo.getPost_content());
-		mapper.insertPost(vo);
-		// 돌려줄 데이터 없음   -> 돌려줄 데이터는 없지만 결과물을 boarList가 실행됨 ( success : boardList 에 의해서 ~)
-	}
-	
-	@DeleteMapping("/post/{post_idx}")
+	@DeleteMapping("/boardDelete.do/{post_idx}")
 	public void postAjaxDelete(@PathVariable int post_idx) {
 		mapper.DeletePost(post_idx);
 	}
-	
-	@PutMapping("/post")
-	public void postAjaxUpdate(@RequestBody Post vo) {
-		// 전에는 contentType이 지정되어있지 않아서 넘어오는 값을
-		// 바로 Board객체로 묶어 줄 수 있었음
-		// json 형식으로 넘어노는 값은 표시를 해줘야함 (@RequestBody)
-		
-		mapper.Updatepost(vo);
-		
-	}
-	
+			
 	////////////
 	@GetMapping("/updateCount/{idx}")  //idx를 요청에 의해 가져오기 때문에 PathVariable로 받아와야함
 	public Post updateCount(@PathVariable int post_idx) {

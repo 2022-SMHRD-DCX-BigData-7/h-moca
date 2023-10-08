@@ -15,13 +15,13 @@
 	 	values (post_info_SEQ.nextval, #{post_title}, #{post_content}, TO_CHAR(SYSDATE,'YYYY-MM-DD') , 0, #{user_id}, #{dist_idx})
 	</insert> -->
 	
-		<insert id ="insertPost" parameterType="com.hmoca.entity.Post">
-	 	insert into post_info (post_title, post_content, created_at, post_views, user_id, dist_idx) 
-	 	values (#{post_title}, #{post_content}, DATE_FORMAT(SYSDATE(), '%Y-%m-%d'), 0, #{user_id}, #{dist_idx})
+	<insert id ="insertPost" parameterType="com.hmoca.entity.Post">
+	 	insert into post_info(post_title, post_content, user_id, dist_idx) 
+	 	values(#{post_title}, #{post_content}, #{user_id}, #{dist_idx})
 	</insert>
-  
+   
   	<select id ="selectPost" parameterType="int" resultType="com.hmoca.entity.Post">
-		select * from post_info where post_idx = #{post_idx}
+		select * from post_info where post_idx=#{post_idx}
 	</select> 
   
   	<update id="UpdatePost" parameterType="com.hmoca.entity.Post">
