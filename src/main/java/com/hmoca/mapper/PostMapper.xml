@@ -33,8 +33,8 @@
 	</delete>
 	
 	<!-- 게시물 총 갯수 -->
-	<select id="PageCount" resultType="int">
-	    select count(post_idx) from post_info
-	</select>
+	<!-- <select id="PageCount" resultType="int">
+	    select count(post_idx)
+	</select> -->
 	
 </mapper>

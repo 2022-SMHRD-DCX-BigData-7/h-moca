@@ -97,11 +97,11 @@
 </div>
 	
 <!-- Scripts -->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/browser.min.js"></script>
-<script src="resources/js/breakpoints.min.js"></script>
-<script src="resources/js/util.js"></script>
-<script src="resources/js/main.js"></script>
+<script src="${cpath}/resources/js/jquery.min.js"></script>
+<script src="${cpath}/resources/js/browser.min.js"></script>
+<script src="${cpath}/resources/js/breakpoints.min.js"></script>
+<script src="${cpath}/resources/js/util.js"></script>
+<script src="${cpath}/resources/js/main.js"></script>
 	
 </body>
 </html>

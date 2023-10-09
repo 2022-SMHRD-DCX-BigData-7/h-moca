@@ -55,11 +55,12 @@
 						<div class="cont">
 							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요."></textarea>
 						</div>
+						<div class="btn_wrap">
+							<button type="submit" class="on" >등록</button>
+							<button type="reset" id="reset">취소</button>
+						</div>
 					</form>
-					<div class="btn_wrap">
-						<button type="submit" class="on" >등록</button>
-						<button type="reset" id="reset">취소</button>
-					</div>
+					
 				</div>
 					
 			</div>
@@ -71,10 +72,10 @@
 </div>
 	
 <!-- Scripts -->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/browser.min.js"></script>
-<script src="resources/js/breakpoints.min.js"></script>
-<script src="resources/js/util.js"></script>
-<script src="resources/js/main.js"></script>	
+<script src="${cpath}/resources/js/jquery.min.js"></script>
+<script src="${cpath}/resources/js/browser.min.js"></script>
+<script src="${cpath}/resources/js/breakpoints.min.js"></script>
+<script src="${cpath}/resources/js/util.js"></script>
+<script src="${cpath}/resources/js/main.js"></script>	
 </body>
 </html>

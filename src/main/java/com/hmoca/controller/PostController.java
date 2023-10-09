@@ -3,6 +3,7 @@ package com.hmoca.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,29 +16,69 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hmoca.entity.Post;
 import com.hmoca.mapper.PostMapper;
-@RestController
+@Controller
 public class PostController {
 	
 	@Autowired
 	private PostMapper mapper;
 		
-	@DeleteMapping("/boardDelete.do/{post_idx}")
-	public void postAjaxDelete(@PathVariable int post_idx) {
-		mapper.DeletePost(post_idx);
+	// 게시판 리스트 불러오기
+	@RequestMapping("/boardList.do")
+	public String boardList(Model model) {
+		
+		List<Post> list = mapper.postList();
+		model.addAttribute("list", list);
+		
+		return "boardList";
 	}
-			
-	////////////
-	@GetMapping("/updateCount/{idx}")  //idx를 요청에 의해 가져오기 때문에 PathVariable로 받아와야함
-	public Post updateCount(@PathVariable int post_idx) {
-		// 조회수 +1 하는 메소드
-		mapper.postCount(post_idx); //해당 게시글에 있는 조회수를 하나 올리겠다 !
+	
+	// 게시글 내용
+	@RequestMapping("/boardContent.do/{post_idx}")
+	public String boardContent(@PathVariable("post_idx") int post_idx, Model model) {
 		
-		// 기존에 idx를 이용해서 해당 게시글 하나 가져오는 메소드 만들적 있음
-		// +1 된 조회수가 반영된 게시글 DB
-		Post vo =mapper.selectPost(post_idx);
-		System.out.println(vo.toString()); // xml에서 디버깅 요소를 만들었기 때문에 확인 가능
+		mapper.postCount(post_idx);	// 조회수 1증가	
 		
-		return vo;
+		Post vo = mapper.selectPost(post_idx);
+		model.addAttribute("vo", vo);
+		return "boardContent";
+	}
+	
+	// 게시글 작성
+	@RequestMapping("/boardInsertForm.do")
+	public void boardInsertForm() {	}
+	
+	@PostMapping("/boardInsert.do")
+	public String boardInsert(Post vo) {
+		
+		mapper.insertPost(vo);
+		
+		return "redirect:/boardList.do";
+	}
+	
+	// 게시글 삭제
+	@RequestMapping("/boardDelete.do/{post_idx}")
+	public String boardDelete(@PathVariable("post_idx") int post_idx) {
+		
+		mapper.DeletePost(post_idx);
+		
+		return "redirect:/boardList.do"; // 삭제 완료하고 나면 boardList.jsp로 이동
+	}
+	
+	// 게시글 수정	
+	@RequestMapping("/boardUpdateForm.do")
+	public String boardUpdateForm(int post_idx, Model model) {
+		Post vo = mapper.selectPost(post_idx);
+		model.addAttribute("vo", vo);
+		
+		return "boardUpdateForm";
+	}
+	
+	@RequestMapping("/boardUpdate.do")
+	public String boardUpdate(Post vo) {
+		
+		mapper.UpdatePost(vo);
+		
+		return "redirect:/boardList.do";
 	}
 	
 	

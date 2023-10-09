@@ -42,7 +42,7 @@ ul, li{
 
 .btn_wrap a.on{
     background: #373f42;
-    color: #fff !important;
+    color: whitesmoke !important;
 }
 
 .board_list {
@@ -51,11 +51,11 @@ ul, li{
 }
 
 .board_list>div{
-    border-bottom: solid 1px #ddd;
+    border-bottom: solid 1px #778899;
 }
 
 .board_list>div.top{
-    border-bottom: solid 1px #999;
+    border-bottom: solid 1px #778899;
 }
 
 .board_list>div:last-child{
@@ -111,7 +111,7 @@ ul, li{
     width: 32px;
     height: 32px;
     box-sizing: border-box;
-    border: solid 1px #999;
+    border: solid 1px #778899;
     border-left: 0;
     vertical-align: middle;
     line-height: 100%;
@@ -132,11 +132,11 @@ ul, li{
 .board_page a.num.on {
     border-color: #373f42;
     background: #373f42;
-    color: #fff !important;
+    color: whitesmoke !important;
 }
 
 .board_page a:first-child {
-    border-left: solid 1px #999;
+    border-left: solid 1px #778899;
 }
 
 
@@ -150,18 +150,19 @@ ul, li{
 
 .board_view .title {
     padding: 20px 15px;
-    border-bottom: dashed 1px #ddd;
+    border-bottom: solid 1px #778899;
     font-size: 1.5rem;
 }
 
 .board_view .info{
-    padding: 15px;
-    border-bottom: solid 1px #999;
+    padding: 5px 15px;
+    border-bottom: solid 1px #778899;
     font-size: 0;
 }
 
 .board_view .info dl{
     position: relative;
+    top: 5px;
     display: inline-block;
     padding: 0 20px;
     margin: 0;
@@ -201,7 +202,7 @@ ul, li{
 
 .board_view .cont {
     padding: 15px;
-    border-bottom: solid 1px #373f42;
+    border-bottom: solid 2px #373f42;
     line-height: 160%;
     font-size: 1.1rem;
 }
@@ -220,7 +221,7 @@ ul, li{
 }
 
 .board_insert .info {
-    border-top: dashed 1px #ddd;
+    border-top: dashed 1px #778899;
     border-bottom: solid 1px #373f42;
     
 }
@@ -369,14 +370,72 @@ ul, li{
 
 }
 
+.cmt_wrap {
+	width: 100%;
+	padding-top: 15px;
+}
+
+.cmt_view>div {
+	padding: 15px;
+	border-bottom: solid 1px #373f42;
+}
+
+.cmt_view ul {
+	display: flex;
+}
+
+.cmt_view ul li {
+	width: 80%;
+}
+
+.cmt_view ul li:first-child {
+	width: 15%;
+}
 
 
+.cmt_view ul li:last-child::before {
+    content: "|";
+    padding-right: 15px;
+         
+}
 
+.cmt_writer {
+	width: 15%;
+}
 
+.cmt_text {
+	width: 80%;
+}
 
+.cmt_text button {
+	width: 50px;
+	height: 35px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.5s;
+	background-color: #373f42;
+	color: whitesmoke;
+}
 
+.cmt_input {
+	width: 100%;
+	padding: 15px;
+}
 
+.cmt_input input {
+	border: none;
+	width: 90%;
+}
 
+.cmt_input input:disabled {
+	background: none;
+}
 
-
+.cmt_input form{
+	display: flex;
+}
 

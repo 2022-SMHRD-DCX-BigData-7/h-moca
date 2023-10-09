@@ -55,13 +55,20 @@
 							</c:forEach>
 						</div>
 					</div>
+					
+					<div class="board_page">
+						<a href="#" class="btn first"><<</a>
+						<a href="#" class="btn prev"><</a>
+						<a href="#" class="btn next">></a>
+						<a href="#" class="btn last">>></a>
+					</div>
+					
 					<div class="btn_wrap">
 						<c:choose>
 							<c:when test="${not empty loginUser}">
 								<a href="#" onclick="goForm()" class="on">글쓰기</a>
 							</c:when>
-							<c:otherwise>
-								
+							<c:otherwise>		
 							</c:otherwise>
 						</c:choose>
 						
@@ -74,10 +81,10 @@
 </div>
 	
 <!-- Scripts -->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/browser.min.js"></script>
-<script src="resources/js/breakpoints.min.js"></script>
-<script src="resources/js/util.js"></script>
-<script src="resources/js/main.js"></script>	
+<script src="${cpath}/resources/js/jquery.min.js"></script>
+<script src="${cpath}/resources/js/browser.min.js"></script>
+<script src="${cpath}/resources/js/breakpoints.min.js"></script>
+<script src="${cpath}/resources/js/util.js"></script>
+<script src="${cpath}/resources/js/main.js"></script>	
 </body>
 </html>

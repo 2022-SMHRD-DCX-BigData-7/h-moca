@@ -24,7 +24,7 @@
 			<div class="row">
 				<div class="col-6 col-12-medium imp-medium">
 					<!-- Banner Image -->
-					<a href="#" class="bordered-feature-image"><img src="resources/images/banner.jpg" alt="" /></a>
+					<a href="#" class="bordered-feature-image"><img src="resources/css/images/banner.jpg" alt="" /></a>
 				</div>
 				<div class="col-6 col-12-medium">
 					<!-- Banner Copy -->
@@ -77,11 +77,11 @@
 </div>
 	
 <!-- Scripts -->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/browser.min.js"></script>
-<script src="resources/js/breakpoints.min.js"></script>
-<script src="resources/js/util.js"></script>
-<script src="resources/js/main.js"></script>
+<script src="${cpath}/resources/js/jquery.min.js"></script>
+<script src="${cpath}/resources/js/browser.min.js"></script>
+<script src="${cpath}/resources/js/breakpoints.min.js"></script>
+<script src="${cpath}/resources/js/util.js"></script>
+<script src="${cpath}/resources/js/main.js"></script>
 	
 </body>
 </html>

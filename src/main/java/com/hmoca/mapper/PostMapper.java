@@ -11,8 +11,8 @@ public interface PostMapper {
 	// 게시물 
 		public List<Post> postList();
 		public void insertPost(Post vo);
-		public Post selectPost(int post_idx);
-		public void Updatepost(Post vo);
+		public Post selectPost(int post_idx); // content 
+		public void UpdatePost(Post vo);
 		public void DeletePost(int post_idx);
 		
 		
