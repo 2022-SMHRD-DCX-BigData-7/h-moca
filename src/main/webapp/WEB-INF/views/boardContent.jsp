@@ -53,6 +53,25 @@
 		
 		$("#cmtList").html(cList);
 	}
+	
+	// 댓글 등록
+	function insertFn(){
+		var fData = $("#frm").serialize(); // 직렬화...?
+		console.log(fData);
+		
+		$.ajax({
+			url : "${cpath}/cmt",
+			type : "post",
+			data : fData,
+			success : commentList,
+			error : function(){
+				alert("ㅋ");
+			}
+		});
+		
+	}
+	
+	// 댓글 삭제 - 아직 안됨
 
 	function goDel(cmt_idx){
 		$.ajax({
@@ -64,6 +83,7 @@
 			}
 		})
 	}
+	
 	
 	// 게시글
 	function goUpdate() {
@@ -121,10 +141,12 @@
 					<!-- 댓글 -->
 					
 					<div class="cmt_wrap">
+						<!-- 댓글 목록 -->
 						<div id="cmtList" class="cmt_view">
 						</div>
+						<!-- 댓글추가 -->
 						<div class="cmt_input">
-							<form>
+							<form id="frm">
 								<div class="cmt_writer">
 									<c:choose>
 										<c:when test="${not empty loginUser}">
@@ -136,14 +158,15 @@
 									</c:choose>
 								</div>
 								<div class="cmt_text">
-								<input type="text" name="cmt_content" placeholder="댓글 추가"></input>
-								<button type="submit">작성</button>
+									<input type="text" name="cmt_content" placeholder="댓글 추가">
+									<input type="text" name="post_idx" value="${vo.post_idx}" style="display:none">
+									<button type="button" onclick="insertFn()">작성</button>
 								</div>
 							</form>
 						</div>
 					</div>
 					
-					<!-- 버튼 -->
+					<!-- 게시물 버튼 -->
 					<div class="btn_wrap">
 						<c:choose>
 							<c:when test="${not empty loginUser and loginUser.user_id eq user_id }">
