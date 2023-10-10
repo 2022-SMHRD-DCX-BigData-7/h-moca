@@ -24,7 +24,7 @@
 	<!-- 댓글 삭제 -->	
   	<delete id="DeleteComment" parameterType="int">
     	delete from comment_info 
-    	where cmt_idx=#{cmt_idx} and post_idx=#{post_idx}
+    	where cmt_idx=#{cmt_idx}
 	</delete>
 	
 	  	

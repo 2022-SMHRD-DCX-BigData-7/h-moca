@@ -42,6 +42,7 @@
 		
 		$.each(data, function(index, obj){
 			cList += "<ul>";
+			cList += "<li>"+obj.post_idx+"</li>";
 			cList += "<li>"+obj.user_id+"</li>";
 			cList += "<li>"+obj.cmt_content+"</li>";
 			if("${loginUser.user_id}" == obj.user_id){
