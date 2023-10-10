@@ -33,7 +33,7 @@ public class UserController {
 	}
 	
 	// 회원가입
-	@RequestMapping("/UserInsert.do")
+	@PostMapping("/UserInsert.do")
 	public String UserInsert(User vo) {
 		
 		mapper.UserInsert(vo); 

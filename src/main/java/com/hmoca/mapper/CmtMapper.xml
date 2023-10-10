@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hmoca.mapper.CmtMapper">
+	  
+    <!-- 댓글 조회 -->
+    <select id="commentList" resultType="com.hmoca.entity.Comment"> 
+	    select * from comment_info 
+	</select>
+	
+    <!-- 댓글 작성 -->
+	<insert id ="insertComment" parameterType="com.hmoca.entity.Comment">
+		insert into comment_info (cmt_content, user_id, post_idx) 
+		values (#{cmt_content}, #{user_id}, #{post_idx})
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComment" parameterType="com.hmoca.entity.Comment">
+	    update comment_info set cmt_content=#{cmt_content} 
+	    where cmt_idx=#{cmt_idx} and post_idx=#{post_idx}
+	</update>
+
+	<!-- 댓글 삭제 -->	
+  	<delete id="DeleteComment" parameterType="int">
+    	delete from comment_info 
+    	where cmt_idx=#{cmt_idx} and post_idx=#{post_idx}
+	</delete>
+	
+	  	
+
+
+</mapper>

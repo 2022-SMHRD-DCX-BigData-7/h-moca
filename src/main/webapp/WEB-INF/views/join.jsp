@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>FAKETUBE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
 
@@ -88,7 +89,7 @@
 								</div>
 								<div class="input-group">
 									<p>비밀번호 확인</p>
-									<input type="password" id="ckuser_pw" name="ckuser_pw" class="form-control">
+									<input type="password" id="ckuser_pw" class="form-control">
 								</div>
 								<div class="input-group">
 									<p>이름</p>
@@ -100,11 +101,11 @@
 								</div>
 								<div class="input-group">
 									<p>이메일</p>
-									<input type="email" id="user_email" name="user_email" class="form-control">
+									<input type="text" id="user_email" name="user_email" class="form-control">
 								</div>
 								<div class="input-group">
 									<p>전화번호</p>
-									<input type="email" id="user_phone" name="user_phone" class="form-control">
+									<input type="text" id="user_phone" name="user_phone" class="form-control">
 								</div>
 								<div class="submit-group">
 									<input type="submit" value="회원가입">
@@ -130,11 +131,11 @@
 </div>
 	
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="${cpath}/resources/js/jquery.min.js"></script>
+<script src="${cpath}/resources/js/browser.min.js"></script>
+<script src="${cpath}/resources/js/breakpoints.min.js"></script>
+<script src="${cpath}/resources/js/util.js"></script>
+<script src="${cpath}/resources/js/main.js"></script>
 	
 </body>
 </html>

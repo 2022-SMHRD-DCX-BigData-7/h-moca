@@ -9,8 +9,10 @@ public interface UserMapper {
 	// ***** interface의 이름과 xml의 이름이 같아야 연결이 된다
 	
 
-	public String UserInsert(User vo);
+	public void UserInsert(User vo);
 
 	public User UserLogin(User vo);
+	
+	
 
 }

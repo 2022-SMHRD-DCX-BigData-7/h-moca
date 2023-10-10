@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>FAKETUBE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
 	.input-group{
@@ -58,7 +59,7 @@
 							<header>
 								<h2>로그인</h2>
 							</header>
-							<form action="#">
+							<form action="${cpath}/UserLogin.do" method='post'>
 								<div class="input-group">
 									<p>아이디</p>
 									<input type="text" id="user_id" name="user_id" class="form-control" placeholder="아이디를 입력하세요.">
@@ -96,11 +97,11 @@
 </div>
 	
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="${cpath}/resources/js/jquery.min.js"></script>
+<script src="${cpath}/resources/js/browser.min.js"></script>
+<script src="${cpath}/resources/js/breakpoints.min.js"></script>
+<script src="${cpath}/resources/js/util.js"></script>
+<script src="${cpath}/resources/js/main.js"></script>
 	
 </body>
 </html>
