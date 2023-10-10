@@ -1616,30 +1616,7 @@ input, select, textarea {
 		}
 		
 	/* banner 추가부분 */
-	#banner {
-		overflow: hidden;
-	}	
 	
-	#banner article {
-		height: 100vh;
-		font-size: 20px;
-		padding-top: 20%;
-		padding-left: 50%;
-		box-sizing: border-box;
-		background-color: pink;
-	}
-	
-	#banner article:nth-child(1){
-		background-color: skyblue;
-	}
-	
-	#banner article:nth-child(2){
-		background-color: steelblue;
-	}
-	
-	#banner article:nth-child(3){
-		background-color: ;
-	}
 	/* banner 추가부분 끝 */	
 		
 
