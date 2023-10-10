@@ -19,20 +19,7 @@
 	<%@include file = "header.jsp" %>
 		
 	<!-- Banner -->
-	<div id="banner">
-		<div class="container">
-			<div class="row">
-				<div class="col-6 col-12-medium imp-medium">
-					<!-- Banner Image -->
-					<a href="#" class="bordered-feature-image"><img src="resources/css/images/banner.jpg" alt="" /></a>
-				</div>
-				<div class="col-6 col-12-medium">
-					<!-- Banner Copy -->
-					<p>뭐하는 홈페이지인지에 대한 설명이 필요할거 같은데...?</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	
 	<!-- Content -->
 	<section id="content">
