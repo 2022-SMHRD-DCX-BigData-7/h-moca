@@ -146,7 +146,7 @@
 					<!-- 버튼 -->
 					<div class="btn_wrap">
 						<c:choose>
-							<c:when test="${not empty loginUser and loginuser.user_id eq user_id }">
+							<c:when test="${not empty loginUser and loginUser.user_id eq user_id }">
 								<a href="<c:url value='/boardList.do' />" class="on">목록</a>
 								<a href="#" onclick="goUpdate()">수정</a>
 								<a href="<c:url value='/boardDelete.do/${vo.post_idx}' />" class="on">삭제</a>
