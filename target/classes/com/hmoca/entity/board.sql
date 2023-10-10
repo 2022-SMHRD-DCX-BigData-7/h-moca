@@ -81,9 +81,12 @@ values ('댓글4','user1','14');
 insert into comment_info(cmt_content, user_id, post_idx)
 values ('댓글5','user1','14');
 
-update comment_info set user_id = 'sk', cmt_content = '댓글 수정'
-where cmt_idx = 2 and post_idx = 13;
+delete from post_info where post_idx=12;
 
-delete from comment_info where cmt_idx=1 and post_idx=13;
+update comment_info set user_id = 'sk', cmt_content = '댓글 수정'
+where cmt_idx = 2 and post_idx = 12;
+
+
+delete from comment_info where cmt_idx=2 and post_idx=13;
 
 select * from comment_info where post_idx=14;

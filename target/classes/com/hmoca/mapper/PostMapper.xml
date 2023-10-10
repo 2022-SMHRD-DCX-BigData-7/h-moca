@@ -25,7 +25,7 @@
 	</select> 
   
   	<update id="UpdatePost" parameterType="com.hmoca.entity.Post">
-		update post_info set post_content=#{post_content} where post_idx=#{post_idx} 	    
+		update post_info set post_content=#{post_content}, post_title=#{post_title} where post_idx=#{post_idx} 	    
 	</update>
 	
 	<delete id="DeletePost" parameterType="int">

@@ -48,6 +48,7 @@ public class UserController {
 		
 		if(loginUser != null) {
 			session.setAttribute("loginUser", loginUser);
+
 		}
 		
 		return "redirect:/Main.do";
