@@ -11,7 +11,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
-
+	#content {
+		padding: 70px;
+	}	
+		
 	.input-group{
 		margin: 0 20px;
 	}
@@ -22,13 +25,20 @@
 
 	.input-group>input{
 		border-radius: 5px;
-		border: solid 1px #373f42;
+		border: solid 1px #d6ddd8;
 	}
 
 	.form-control{
 		width: 100%;
 	}
 
+	#join {
+		background: #ffffff;
+		padding: 40px 30px 40px 30px;
+		border: solid 1px #d6ddd8;
+		border-radius: 5px;
+	}
+	
 	#join h2{
 		text-align: center;
 	}
@@ -49,13 +59,30 @@
 	.submit-group{
 		padding: 10px 0;
 		text-align: right;
+		margin: 20px;
 	}
 
 	.submit-group>input {
 		border-radius: 5px;
-		border: solid 1px #373f42;
-		margin-right: 19px;
+		border: solid 1px #d6ddd8;
+		width: 100%;
 	}
+		
+	.memlogo {
+		padding-bottom: 20px;
+	}	
+		
+	.memlogo h1{
+		text-align: center;
+		font-size: 2.5em;
+		font-weight: 600;
+	}
+	
+	.memlogo h1>a{
+		text-decoration: none;
+		color : #373f42;
+	}
+	
 </style>
 </head>
 <body>
@@ -63,12 +90,16 @@
 <div id="page-wrapper">
 
 	<!-- Header -->
-	<%@include file = "header.jsp" %>
+	
 		
 	<!-- Content -->
 	<section id="content">
 		<div class="container">
 			<div class="row aln-center">
+				<div class="col-12 memlogo">
+					<!-- Logo -->
+					<h1><a href="${cpath}/Main.do" id="logo"><img class="logoimg" src="${cpath}/resources/css/images/logo.png">MOCA</a></h1>
+				</div>
 				<div class="col-5 col-12-medium">
 					<!-- Box #1 -->
 						<section id="join">

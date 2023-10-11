@@ -10,14 +10,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
-<%-- <link rel="stylesheet" href="${cpath}/resources/css/boardstyle.css"> --%>
 <style>
 	
-	.mycontent {
+	#content.mycontent {
 		position: absolute;
 		top: 200px;
 		width: 100%;
 		text-align: center;
+		padding: 0;
 	}
 	
 	.tab-link {
@@ -35,19 +35,19 @@
 	}
 	
 	ul.tabs li:hover {
-		color: darkgray;
+		color: #97a197;
 	}
 	
 	ul.tabs li.current {
-		color: darkgray;
+		color: #97a197;
 		text-decoration: underline;
 	}
 	
 	.tab-content {
 		display: none;
-		padding: 12px 70px;
+		padding: 12px 80px;
 		height: 80vh;
-		border-left: solid 1px;
+		border-left: solid 1px #97a197;
 	}
 	
 	.tab-content.current {
@@ -57,15 +57,16 @@
 	/* 리스트 */
 	.board_list {
 		width: 100%;
-		border-top: solid 2px #373f42;
+		border-top: solid 1px #373f42;
 	}
 	
 	.board_list>div{
 		width : 100%;
-		border-bottom: solid 1px #778899;
+		border-bottom: solid 1px #d6ddd8;
+		font-size: 1rem;
 	}
 	.board_list>div.top {
-		border-bottom: solid 1px #778899;
+		border-bottom: solid 1px #d6ddd8;
 	}
 	
 	.board_list>div>div {
@@ -115,6 +116,14 @@
 			}
 			
 		}	
+		
+	.t1 {
+		text-align: right;
+	}
+	
+	.t2 {
+		text-align: left;
+	}	
 </style>
 	
 </head>
@@ -188,11 +197,35 @@
 					</div>
 					<!-- 회원정보 내용 시작 -->
 					<div id="tab-3" class="tab-content">
-						회원 아이디
-						이름 
-						이메일
-						등등
-						회원정보 수정
+						
+						<table>
+							<tr>
+								<td class="t1">아이디</td>
+								<td class="t2"></td>
+							</tr>
+							<tr>
+								<td class="t1">비밀번호</td>
+								<td class="t2"></td>
+							</tr>
+							<tr>
+								<td class="t1">이름</td>
+								<td class="t2"></td>
+							</tr>
+							<tr>
+								<td class="t1">닉네임</td>
+								<td class="t2"></td>
+							</tr>
+							<tr>
+								<td class="t1">전화번호</td>
+								<td class="t2"></td>
+							</tr>
+							<tr>
+								<td class="t1">이메일</td>
+								<td class="t2"></td>
+							</tr>
+							
+							
+						</table>
 					</div>
 				</div>	
 					

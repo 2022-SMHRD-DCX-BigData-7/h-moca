@@ -52,8 +52,10 @@ blockquote, q {
 	}
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+	/* border-collapse: collapse;
+	border-spacing: 0; */
+    height: 300px;
+    margin: 30px 10px;
 }
 
 body {
@@ -102,6 +104,7 @@ input, select, textarea {
 		font-family: 'SUITE-Regular';
 		line-height: 1.85em;
 		font-weight: 300;
+		border: solid 1px #97a197;
 	}
 
 	ul, ol, p, dl {
@@ -1523,6 +1526,7 @@ input, select, textarea {
 		left:0;
 		right:0;
 		border-bottom: solid 3px #373f42;
+		background: #ffffff;
 	}
 
 		#header > .container {
@@ -1647,16 +1651,16 @@ input, select, textarea {
 /* Content */
 
 	#content {
-		/* background: #f7f7f7 url("resources/images/bg04.png"); */
-		/* border-top: solid 1px #fff; */
+		
 		padding: 45px 0 45px 0;
 	}
 
 		#content section {
 			background: #fff;
 			padding: 40px 30px 45px 30px;
-			box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.1);
-			margin: 0 0 25px 0;
+			
+			/* box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.1);
+			margin: 0 0 25px 0; */
 		}
 
 		#content h2 {
@@ -1670,9 +1674,9 @@ input, select, textarea {
 			font-size: 1.25em;
 		}
 
-		#content a {
+		/* #content a {
 			color: #ED391B;
-		}
+		} */
 
 		#content header {
 			margin: 0 0 2em 0;

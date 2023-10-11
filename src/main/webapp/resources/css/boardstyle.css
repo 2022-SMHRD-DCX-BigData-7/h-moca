@@ -21,9 +21,19 @@ ul, li{
 }
 
 .btn_wrap{
-    margin-top: 30px;
+    margin-top: 15px;
     text-align: center;
     font-size: 0;
+}
+
+.btn_wrap button {
+	display: inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 5px;
+    border: solid 1px #d6ddd8;
+    border-radius: 5px;
+    font-size: 1.2rem;
 }
 
 .btn_wrap a {
@@ -31,7 +41,7 @@ ul, li{
     min-width: 80px;
     margin-left: 10px;
     padding: 5px;
-    border: solid 1px #373f42;
+    border: solid 1px #d6ddd8;
     border-radius: 5px;
     font-size: 1.2rem;
 }
@@ -102,7 +112,7 @@ ul, li{
 }
 
 .board_page {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     font-size: 0;
 }
@@ -222,8 +232,8 @@ ul, li{
 }
 
 .board_insert .info {
-    border-top: dashed 1px #778899;
-    border-bottom: solid 1px #373f42;
+    border-top: solid 1px #97a197;
+    border-bottom: solid 1px #97a197;
     
 }
 
