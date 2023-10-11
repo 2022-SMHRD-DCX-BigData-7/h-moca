@@ -48,6 +48,7 @@ ul, li{
 .board_list {
     width: 100%;
     border-top: solid 2px #373f42;
+    
 }
 
 .board_list>div{
@@ -75,16 +76,16 @@ ul, li{
 }
 
 .board_list .num {
-    width: 8%;
+    width: 10%;
 }
 
 .board_list .title {
-    width: 60%;
+    width: 50%;
     text-align: left;
 }
 
 .board_list .top .title {
-    width: 60%;
+    width: 50%;
     text-align: center;
 }
 

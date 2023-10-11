@@ -28,7 +28,7 @@
 </head>
 <body>
 
-	<div id="banner">
+<!-- 	<div id="banner">
 		<div class="container">
 			<div class="row aln-center">
 				<div class="col-12 bannerImg">
@@ -36,7 +36,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	
 	
 

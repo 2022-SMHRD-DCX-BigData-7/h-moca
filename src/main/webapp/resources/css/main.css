@@ -1517,16 +1517,12 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		height: 75px;
-		padding: 1rem;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		height: 105px;
 		position: fixed;
 		top:0;
 		left:0;
 		right:0;
-		border-bottom: solid 5px #373f42;
+		border-bottom: solid 3px #373f42;
 	}
 
 		#header > .container {

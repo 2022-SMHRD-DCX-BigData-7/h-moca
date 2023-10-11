@@ -22,5 +22,9 @@ public class MainController {
 		return "main";
 	}
 		
-	
+	// 마이페이지 이동
+	@RequestMapping("/MyPage.do")
+	public String MyPage() {
+		return "myPage";
+	}
 }
