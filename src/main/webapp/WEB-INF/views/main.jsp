@@ -19,7 +19,7 @@
 	<%@include file = "header.jsp" %>
 		
 	<!-- Banner -->
-	
+	<%@include file = "banner.jsp" %>
 	
 	<!-- Content -->
 	<section id="content">
