@@ -43,7 +43,6 @@
 			// 게시글 번호랑 댓글에 저장된 게시글 번호랑 일치하면 출력
 			if(${vo.post_idx}==obj.post_idx){
 				cList += "<ul>";
-				cList += "<li>"+obj.post_idx+"</li>";
 				cList += "<li>"+obj.user_id+"</li>";
 				cList += "<li>"+obj.cmt_content+"</li>";
 				cList += "<li>"+obj.created_at+"</li>";
@@ -78,9 +77,13 @@
 			}
 		});
 		
+		$("#reset").trigger("click");
+		
 	}
 	
-	// 댓글 삭제 - 아직 안됨
+	
+	
+	// 댓글 삭제
 
 	function goDel(cmt_idx){
 		$.ajax({
@@ -170,6 +173,7 @@
 									<input type="text" name="cmt_content" placeholder="댓글 추가">
 									<input type="text" name="post_idx" value="${vo.post_idx}" style="display:none">
 									<button type="button" onclick="insertFn()">작성</button>
+									<button type="reset" id="reset" style="display:none"></button>
 								</div>
 							</form>
 						</div>
