@@ -50,7 +50,17 @@
 		</div>
 	</section>
 	
-	
+	<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-8 col-12-medium">
+				</div>
+				<div class="col-4 col-12-medium imp-medium">
+				</div>
+			</div>
+		</div>
+	</section>
 </div>
 	
 <!-- Scripts -->

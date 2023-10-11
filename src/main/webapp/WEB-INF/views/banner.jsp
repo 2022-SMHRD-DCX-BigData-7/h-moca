@@ -6,29 +6,18 @@
 <html>
 <head>
 <style>
-body {
-  overflow: hidden;
-}
-article {
-  height: 100vh;
-  font-size: 20px;
-  padding-top: 20%;
-  padding-left: 50%;
-  box-sizing: border-box;
-  background-color: pink;
-}
-article:nth-child(1) {
-  background-color: skyblue;
-}
-article:nth-child(2) {
-  background-color: steelblue;
-}
-article:nth-child(3) {
-  background-color: cornflowerblue;
-}
-article:nth-child(4) {
-  background-color: cadetblue;
-}
+
+	#banner {
+		height: 300px;
+		position: absolute;
+ 		padding: 35px 0 35px 0;
+ 	}	
+	
+	.bannerImg {
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+	}
 
 </style>
 <script>
@@ -39,6 +28,16 @@ article:nth-child(4) {
 </head>
 <body>
 
+	<div id="banner">
+		<div class="container">
+			<div class="row aln-center">
+				<div class="col-12 bannerImg">
+					<img src="resources/css/images/fact.png">
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	
 
 </body>
