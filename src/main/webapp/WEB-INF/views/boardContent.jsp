@@ -39,16 +39,24 @@
 		console.log(data);
 		
 		var cList = "<div>";
-		
 		$.each(data, function(index, obj){
-			cList += "<ul>";
-			cList += "<li>"+obj.post_idx+"</li>";
-			cList += "<li>"+obj.user_id+"</li>";
-			cList += "<li>"+obj.cmt_content+"</li>";
-			if("${loginUser.user_id}" == obj.user_id){
-				cList += "<button onclick='goDel("+obj.cmt_idx+")'>삭제</button>"
+			// 게시글 번호랑 댓글에 저장된 게시글 번호랑 일치하면 출력
+			if(${vo.post_idx}==obj.post_idx){
+				cList += "<ul>";
+				cList += "<li>"+obj.post_idx+"</li>";
+				cList += "<li>"+obj.user_id+"</li>";
+				cList += "<li>"+obj.cmt_content+"</li>";
+				cList += "<li>"+obj.created_at+"</li>";
+				if("${loginUser.user_id}" == obj.user_id){
+					cList += "<button onclick='goDel("+obj.cmt_idx+")'>삭제</button>"
+				}
+				cList += "</ul>";
+				
+			}//출력끝
+			else{
+				cList += " "
+				
 			}
-			cList += "</ul>";
 		});
 		cList += "</div>";
 		

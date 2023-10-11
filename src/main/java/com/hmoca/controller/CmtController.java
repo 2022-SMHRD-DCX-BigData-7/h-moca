@@ -42,4 +42,16 @@ public class CmtController {
 		mapper.DeleteComment(cmt_idx);
 	}
 	
+	// 댓글 작성
+//	@RequestMapping("/cmt")
+//	public void insertComment() {	}
+//		
+//	@PostMapping("/cmtInsert.do")
+//	public String insertComment(Comment vo) {
+//			
+//		mapper.insertComment(vo);
+//			
+//		return "redirect:/boardContent.do";
+//		}
+	
 }

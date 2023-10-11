@@ -87,6 +87,6 @@ update comment_info set user_id = 'sk', cmt_content = '댓글 수정'
 where cmt_idx = 2 and post_idx = 12;
 
 
-delete from comment_info where cmt_idx=2 and post_idx=13;
+delete from comment_info where cmt_idx=14 and post_idx=19;
 
 select * from comment_info where post_idx=14;
