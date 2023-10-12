@@ -16,8 +16,11 @@
        select * from user_info where user_id=#{user_id} and user_pw=#{user_pw}
    </select>
    
-	<select id="isUsernameExists" resultType="boolean" parameterType="string">
+	<select id="UserExists" resultType="boolean" parameterType="string">
 	    select 1 from user_info where user_id = #{user_id}
 	</select>
 	
+		<select id="UserNoExists" resultType="boolean" parameterType="string">
+	    select user_id from user_info where user_id = #{user_id}
+	</select>
 </mapper>

@@ -20,6 +20,36 @@
 		left: 0;
 	}
 </style>
+
+<script>
+	$(document).ready(function(){
+		// 함수 호출
+		rankList();
+	});
+	
+	function rankList(){
+  		$.ajax({
+  			url : "${cpath}/rank",
+  			type : "get",
+  			// data : 보내줄 데이터가 없으므로 주석 처리 !
+  			dataType : "json",
+  			// 응답이 성공했을때 callBack()함수 호출하는데
+  			// ajax 안에서 함수 실행 할 때는 ()를 적지 않는다 !!!
+  			// 소괄호 사용하면 함수가 실행이 안됨 
+  			success : callBack,
+  			error : function(){
+  				alert("랭킁 목록 통신 실패ㅠ0ㅠ");
+  			}
+  		}); // ajax 끝
+	}
+	
+	function callBack(data){
+		
+		console.log(data);
+		// data.url_count
+		
+	}
+</script>
 </head>
 <body>
 
@@ -51,7 +81,9 @@
 					<section>
 						<header>
 							<h2>주간 랭킹</h2>
-							<h3>ㅋㅋㅋ</h3>
+							<div id="list">
+								<!-- 검색순위 들어갈 부분 -->
+							</div>
 						</header>
 						
 					</section>

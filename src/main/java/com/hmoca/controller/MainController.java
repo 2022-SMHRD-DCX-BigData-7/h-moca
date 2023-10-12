@@ -11,17 +11,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hmoca.entity.Post;
+import com.hmoca.entity.Rank;
 import com.hmoca.mapper.PostMapper;
 
 @Controller
 public class MainController {
 	
-			
+	@Autowired
+	private PostMapper mapper;
+	
 	@GetMapping("/Main.do")
 	public String Main() {
+				
 		return "main";
 	}
 		
+	
+	
 	// 마이페이지 이동
 	@RequestMapping("/MyPage.do")
 	public String MyPage() {

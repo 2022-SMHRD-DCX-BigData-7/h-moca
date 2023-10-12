@@ -27,7 +27,13 @@
     	where cmt_idx=#{cmt_idx}
 	</delete>
 	
-	  	
+  	<!-- 랭크 -->
+	<select id="rankList" resultType="com.hmoca.entity.Rank">
+		select video_name, video_thumb, url_name, count(url_name) as url_count 
+		from dist_info 
+		group by video_name, video_thumb, url_name
+		order by url_count desc;
+	</select>  	
 
 
 </mapper>

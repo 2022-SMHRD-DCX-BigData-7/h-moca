@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Update;
 
 import com.hmoca.entity.Post;
+import com.hmoca.entity.Rank;
 import com.hmoca.entity.User;
 
 public interface PostMapper {
@@ -23,8 +24,6 @@ public interface PostMapper {
 		public User login(User vo);
 		
 		
-		// 랭킹
-//		 public List<Rank> rankList(); ??
-//		 public void Rank(Rank vo); ??
-//		 public void urlCount(int url_count);
+		
+
 }

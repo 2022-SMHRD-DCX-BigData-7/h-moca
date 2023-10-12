@@ -83,6 +83,10 @@
 		color : #373f42;
 	}
 	
+	.checkId>button:hover{
+		cursor: pointer;
+	}
+	
 </style>
 </head>
 <body>
@@ -114,11 +118,12 @@
 								<div class="checkId">
 									<button id="checkId" class="checkId">중복확인</button>
 								</div>
-								
+								<div class="input-group">
 								<!-- 아이디 중복 -->
 	                            <c:if test="${not empty error}">
 	                                <p style="color: red">${error}</p>
 	                            </c:if>
+	                            </div>
 	                            <!-- 아이디 중복 아닐때 -->
 								<c:if test="${not empty successMessage}">
 								    <p style="color: green">${successMessage}</p>

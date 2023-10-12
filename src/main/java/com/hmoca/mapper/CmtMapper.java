@@ -3,6 +3,7 @@ package com.hmoca.mapper;
 import java.util.List;
 
 import com.hmoca.entity.Comment;
+import com.hmoca.entity.Rank;
 
 public interface CmtMapper {
 	
@@ -17,6 +18,10 @@ public interface CmtMapper {
 	
 	// 댓글 삭제
 	public void DeleteComment(int cmt_idx);
+	
+	
+	// 랭크
+	public List<Rank> rankList();
 	
 	
 //	public Comment selectComment(int cmt_idx);

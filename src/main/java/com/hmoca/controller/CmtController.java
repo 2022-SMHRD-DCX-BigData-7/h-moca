@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hmoca.entity.Comment;
+import com.hmoca.entity.Rank;
 import com.hmoca.mapper.CmtMapper;
+
+
 
 @RestController
 public class CmtController {
@@ -54,4 +57,18 @@ public class CmtController {
 //		return "redirect:/boardContent.do";
 //		}
 	
+	// 랭크
+	@GetMapping("/rank")
+	public List<Rank> boardAjaxList(){
+		// @RestController 표시 덕분에 @ResponseBody 안 써도 됨
+		List<Rank> list = mapper.rankList();
+		for(Rank r:list) {
+			System.out.println("list에는 담긴 name : "+r.getVideo_name());
+		}
+		return list;
+		
+	}
+//	Model model
+//	List<Rank> list = mapper.rankList();
+//	model.addAttribute("list",list);
 }
