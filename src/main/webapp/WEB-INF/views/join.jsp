@@ -114,6 +114,27 @@
 								<div class="checkId">
 									<button id="checkId" class="checkId">중복확인</button>
 								</div>
+								
+								<!-- 아이디 중복 -->
+	                            <c:if test="${not empty error}">
+	                                <p style="color: red">${error}</p>
+	                            </c:if>
+	                            <!-- 아이디 중복 아닐때 -->
+								<c:if test="${not empty successMessage}">
+								    <p style="color: green">${successMessage}</p>
+								</c:if> 
+	    
+								<%-- 	    <c:choose>
+								    <c:when test="${not empty error}">
+								        <!-- condition이 true일 때 실행 -->
+								  <p style="color: red">${error}</p>
+								      </c:when>
+								    <c:otherwise>
+								        <!-- condition이 false일 때 실행 -->
+										 <p style="color: green">${successMessage}</p>
+								    </c:otherwise>
+								</c:choose> --%>								
+								
 								<div class="input-group">
 									<p>비밀번호</p>
 									<input type="password" id="user_pw" name="user_pw" class="form-control">

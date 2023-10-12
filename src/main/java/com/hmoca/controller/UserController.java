@@ -34,8 +34,18 @@ public class UserController {
 	
 	// 회원가입
 	@PostMapping("/UserInsert.do")
-	public String UserInsert(User vo) {
-		
+	public String UserInsert(User vo, Model model) {
+		// 아이디 중복 확인
+	    if (mapper.isUsernameExists(vo.getUser_id())) {
+	        model.addAttribute("error", "이미 사용 중인 아이디입니다.");
+	        return "join";
+
+	       
+	    }
+	    else {
+	        model.addAttribute("successMessage", "아이디 사용 가능"); // 왜 안됨 !!
+	    }
+	    
 		mapper.UserInsert(vo); 
 
 		return "redirect:/Main.do"; 

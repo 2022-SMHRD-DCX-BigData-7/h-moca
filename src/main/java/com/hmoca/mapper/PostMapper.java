@@ -21,4 +21,10 @@ public interface PostMapper {
 		public void postCount(int post_idx);
 
 		public User login(User vo);
+		
+		
+		// 랭킹
+//		 public List<Rank> rankList(); ??
+//		 public void Rank(Rank vo); ??
+//		 public void urlCount(int url_count);
 }

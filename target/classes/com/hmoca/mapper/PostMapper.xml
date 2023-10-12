@@ -37,4 +37,11 @@
 	    select count(post_idx)
 	</select> -->
 	
+	<!-- 랭킹 // url_name 수를 조회해서 내림차순-->
+	<select id="Rank" parameterType="int">
+		select video_name, video_views, video_thumb, url_name, count(url_name) as url_count 
+		from dist_info 
+		group by video_name, video_views, video_thumb, url_name
+		order by url_count desc;
+	</select>
 </mapper>

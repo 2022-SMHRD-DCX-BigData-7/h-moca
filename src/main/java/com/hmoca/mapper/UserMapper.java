@@ -13,6 +13,7 @@ public interface UserMapper {
 
 	public User UserLogin(User vo);
 	
-	
+	public boolean isUsernameExists(String user_id);
+
 
 }
