@@ -68,6 +68,20 @@
 		color : #373f42;
 	}
 </style>
+<script>
+	function checkField(){
+		var inputs = document.inputForm;
+		
+		if(!inputs.user_id.value){
+			alert("아이디를 입력해주세요");
+			return false;
+		}
+		if(!inputs.user_pw.value){
+			alert("비밀번호를 입력해주세요");
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 
@@ -89,7 +103,7 @@
 							<header>
 								<h2>로그인</h2>
 							</header>
-							<form action="${cpath}/UserLogin.do" method='post'>
+							<form action="${cpath}/UserLogin.do" method='post' name="inputForm" onsubmit="return checkField();">
 								<div class="input-group">
 									<p>아이디</p>
 									<input type="text" id="user_id" name="user_id" class="form-control" placeholder="아이디를 입력하세요.">
