@@ -62,11 +62,11 @@ ul, li{
 }
 
 .board_list>div{
-    border-bottom: solid 1px #778899;
+    border-bottom: solid 1px #97a197;
 }
 
 .board_list>div.top{
-    border-bottom: solid 1px #778899;
+    border-bottom: solid 1px #97a197;
 }
 
 .board_list>div:last-child{
@@ -122,7 +122,7 @@ ul, li{
     width: 32px;
     height: 32px;
     box-sizing: border-box;
-    border: solid 1px #778899;
+    border: solid 1px #97a197;
     border-left: 0;
     vertical-align: middle;
     line-height: 100%;
@@ -147,7 +147,7 @@ ul, li{
 }
 
 .board_page a:first-child {
-    border-left: solid 1px #778899;
+    border-left: solid 1px #97a197;
 }
 
 
@@ -161,14 +161,16 @@ ul, li{
 
 .board_view .title {
     padding: 20px 15px;
-    border-bottom: solid 1px #778899;
+    border-bottom: solid 1px #97a197;
     font-size: 1.5rem;
 }
 
 .board_view .info{
     padding: 5px 15px;
-    border-bottom: solid 1px #778899;
+    border-bottom: solid 1px #97a197;
     font-size: 0;
+    position: relative;
+    z-index: -1;
 }
 
 .board_view .info dl{
@@ -387,8 +389,7 @@ ul, li{
 }
 
 .cmt_view>div {
-	padding: 15px;
-	border-bottom: solid 1px #373f42;
+	padding: 15px 20px;
 }
 
 .cmt_view ul {
@@ -399,23 +400,43 @@ ul, li{
 	width: 80%;
 }
 
-.cmt_view ul li:first-child {
+.cmt_view ul li:nth-child(1) {
 	width: 15%;
 }
 
+.cmt_view ul li:nth-child(2) {
+	width: 60%;
+}
 
-.cmt_view ul li:last-child::before {
+.cmt_view ul li:nth-child(3) {
+	width: 20%;
+}
+
+.cmt_view ul li:nth-child(2)::before {
     content: "|";
     padding-right: 15px;
-         
 }
+
+.cmt_view ul li:nth-child(3)::before {
+    content: "|";
+    padding-right: 15px;
+}
+
+.cmt_view ul button {
+	width: 50px;
+	height: 35px;
+	border: solid 1px #97a197;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 
 .cmt_writer {
 	width: 15%;
 }
 
 .cmt_text {
-	width: 80%;
+	width: 85%;
 }
 
 .cmt_text button {
@@ -424,22 +445,23 @@ ul, li{
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	border: none;
+	border: solid 1px #97a197;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: 0.5s;
-	background-color: #373f42;
-	color: whitesmoke;
 }
 
 .cmt_input {
-	width: 100%;
+	width: 99%;
 	padding: 15px;
+	border: solid 1px #97a197;
+	border-radius: 5px;
+	margin: 0 5px;
 }
 
 .cmt_input input {
 	border: none;
-	width: 90%;
+	width: 93%;
 }
 
 .cmt_input input:disabled {

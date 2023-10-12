@@ -45,7 +45,7 @@
 				cList += "<ul>";
 				cList += "<li>"+obj.user_id+"</li>";
 				cList += "<li>"+obj.cmt_content+"</li>";
-				cList += "<li>"+obj.created_at+"</li>";
+				cList += "<li>"+obj.created_at.split(' ')[0]+"</li>";
 				if("${loginUser.user_id}" == obj.user_id){
 					cList += "<button onclick='goDel("+obj.cmt_idx+")'>삭제</button>"
 				}

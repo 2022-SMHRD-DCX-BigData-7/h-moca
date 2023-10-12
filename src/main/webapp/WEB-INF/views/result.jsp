@@ -37,26 +37,20 @@
 			</div>
 			
 			<!-- 로그인하면 보여주는 페이지 -->
-			<div class="row">
-				<div class="col-12">
-					<!-- 통계화면 -->
-					<section></section>
-				</div>
-			</div>
+			<c:choose>
+				<c:when test="${not empty loginUser}">
+					<div class="row">
+						<div class="col-12">
+							<!-- 통계화면 -->
+							<section></section>
+						</div>
+					</div>
+				</c:when>
+				<c:otherwise></c:otherwise>
+			</c:choose>
 		</div>
 	</section>
-	
-	<!-- Footer -->
-	<section id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-8 col-12-medium">
-				</div>
-				<div class="col-4 col-12-medium imp-medium">
-				</div>
-			</div>
-		</div>
-	</section>
+		
 </div>
 	
 <!-- Scripts -->
