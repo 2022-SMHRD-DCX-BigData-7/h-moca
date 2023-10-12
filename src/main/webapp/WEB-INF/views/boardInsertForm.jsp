@@ -12,7 +12,17 @@
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <link rel="stylesheet" href="${cpath}/resources/css/boardstyle.css">
 <script>
-	
+	function checkField(){
+		var inputs = document.inputForm;
+		if(!inputs.post_title.value){
+			alert("제목을 입력해주세요");
+			return false;
+		}
+		if(!inputs.post_content.value){
+			alert("내용을 입력해주세요");
+			return false;
+		}
+	}
   	
 </script>
 </head>
@@ -34,7 +44,7 @@
 				</div>
 								
 				<!-- 게시판 작성 -->
-					<form class="board_insert" action="${cpath}/boardInsert.do" method="post">
+					<form class="board_insert" action="${cpath}/boardInsert.do" name="inputForm" method="post" onsubmit="return checkField();">
 					<!-- post_title, post_content, created_at, post_views, user_id, dist_idx -->
 						<div class="title">
 							<dl>
