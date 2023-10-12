@@ -84,6 +84,36 @@
 	}
 	
 </style>
+<script>
+	function checkField(){
+		var inputs = document.inputForm;
+		
+		if(!inputs.user_id.value){
+			alert("아이디를 입력해주세요");
+			return false;
+		}
+		if(!inputs.user_pw.value){
+			alert("비밀번호를 입력해주세요");
+			return false;
+		}
+		if(!inputs.user_name.value){
+			alert("이름을 입력해주세요");
+			return false;
+		}
+		if(!inputs.user_nick.value){
+			alert("닉네임을 입력해주세요");
+			return false;
+		}
+		if(!inputs.user_phone.value){
+			alert("전화번호를 입력해주세요");
+			return false;
+		}
+		if(!inputs.user_email.value){
+			alert("이메일를 입력해주세요");
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 
@@ -106,7 +136,7 @@
 							<header>
 								<h2>회원가입</h2>
 							</header>
-							<form action="${cpath}/UserInsert.do" method="post"">
+							<form action="${cpath}/UserInsert.do" method="post" name="inputForm" onsubmit="return checkField();">
 								<div class="input-group">
 									<p>아이디</p>
 									<input type="text" id="user_id" name="user_id" class="form-control">
@@ -143,6 +173,9 @@
 									<p>비밀번호 확인</p>
 									<input type="password" id="ckuser_pw" class="form-control">
 								</div>
+								<div class="chPw">
+									<!-- 요기에 비밀번호랑 비밀번호 확인이랑 안맞으면 빨간글씨로 비밀번호 확인해달라고 글 뜨게 -->
+								</div>
 								<div class="input-group">
 									<p>이름</p>
 									<input type="text" id="user_name" name="user_name" class="form-control">
@@ -162,7 +195,7 @@
 								<div class="submit-group">
 									<input type="submit" value="회원가입">
 								</div>
-							</from>								
+							</form>								
 						</section>
 				</div>
 			</div>
