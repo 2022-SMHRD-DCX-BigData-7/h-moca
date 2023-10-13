@@ -44,6 +44,6 @@
 	
 	<!-- 내 게시물 내용-->
 	<select id="Mypostcontent" parameterType="String" resultType="com.hmoca.entity.Post"> 
-	    select * where user_id=#{user_id} 
+	    select * from post_info where user_id=#{user_id} 
 	</select>
 </mapper>

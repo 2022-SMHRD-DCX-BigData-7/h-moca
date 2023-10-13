@@ -189,16 +189,16 @@
 									<div class="date">작성일</div>
 									<div class="count">조회수</div>
 								</div>
-								<%--  <div>
+								<div>
 									<c:forEach items="${list}" var="vo">
-										<c:url var="contentLink" value="boardContent.do/${vo.post_idx}" />
+										<c:url var="contentLink" value="boardContent.do/${vo.post_idx}"/>
 										<div class="num">${vo.post_idx}</div>
 										<div class="title"><a href="${contentLink}">${vo.post_title}</a></div>
 										<div class="writer">${vo.user_id}</div>
 										<div class="date">${fn:split(vo.created_at," ")[0]}</div>
 										<div class="count">${vo.post_views}</div>
 									</c:forEach>
-								</div>  --%>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -211,14 +211,12 @@
 									<div class="score">영상 판별 점수</div>
 									
 								</div>
-								<%-- <div>
+							    <div>
 									<c:forEach items="${mylist}" var="vo">
-										<c:url var="contentLink" value="boardContent.do/${vo.post_idx}" />
 										<div class="title"><a href="#">${vo.video_name}</a></div>
 										<div class="score">${vo.video_score}</div>
-										
 									</c:forEach>
-								</div> --%>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -226,6 +224,15 @@
 					<div id="tab-3" class="tab-content">
 						<form>
 						<table>
+						<div class="cmt_writer">
+							<c:choose>
+								<c:when test="${not empty loginUser}">
+									<input type="text" name="user_id" value="${loginUser.user_id}" readonly>
+								</c:when>
+							</c:choose>
+							
+						</div>
+						
 							<tr>
 								<td class="t1">아이디</td>
 								<td class="t2">${vo.user_id}</td>
@@ -236,7 +243,7 @@
 							</tr>
 							<tr>
 								<td class="t1">이름</td>
-								<td class="t2"></td>
+								<td class="t2"><input type="text" name="user_name" value="${vo.user_name}"></td>
 							</tr>
 							<tr>
 								<td class="t1">닉네임</td>

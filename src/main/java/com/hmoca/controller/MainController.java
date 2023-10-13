@@ -45,7 +45,7 @@ public class MainController {
 	// 마이페이지 이동
 	// 내가 쓴 게시물 불러오기
 	@RequestMapping("/MyPage.do")
-	public String MyPage(Model model, HttpSession session) {
+	public String MyPage(Model model, Model model2, HttpSession session) {
 		System.out.println("실행됨!!");
 		User loginUser = (User)session.getAttribute("loginUser");
 		String user_id = loginUser.getUser_id();
@@ -68,7 +68,7 @@ public class MainController {
 		}
 
 		model.addAttribute("list", list);
-		model.addAttribute("list", mylist);
+		model2.addAttribute("mylist", mylist);
 
 
 		return "myPage";
