@@ -77,7 +77,26 @@ public class CmtController {
 		
 		return list;
 	}
-//	Model model
-//	List<Rank> list = mapper.rankList();
-//	model.addAttribute("list",list);
+	
+	
+	// 유튜브 url 변환 하고 있는 중 !!!!
+	
+	@RestController
+	public class URLController {
+
+	    @GetMapping("/convertURL")
+	    public String convertURL(@RequestParam("shortURL") String shortURL) {
+	        // YouTube URL 변환 메서드 호출
+	        String convertedURL = convertYouTubeShortURLToWatchURL(shortURL);
+	        return convertedURL;
+	    }
+
+	    private String convertYouTubeShortURLToWatchURL(String shortURL) {
+	        // YouTube 단축 URL을 보통의 URL로 변환
+	        // "https://www.youtube.com/shorts/6UD2o87W4OQ" => "https://www.youtube.com/watch?v=6UD2o87W4OQ"
+	        String watchURL = shortURL.replace("/shorts/", "/watch?v=");
+	        return watchURL;
+	    }
+
+	}
 }
