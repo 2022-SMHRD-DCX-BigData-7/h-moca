@@ -16,6 +16,13 @@
        select * from user_info where user_id=#{user_id} and user_pw=#{user_pw}
    </select>
    
+	<update id="UserUpdate" parameterType="com.hmoca.entity.User">
+		update user_info set user_pw=#{user_pw}, user_nick=#{user_nick}	    
+	</update>
+	
+	<select id ="UserSelect" parameterType="int" resultType="com.hmoca.entity.User">
+		select * from user_info
+	</select> 
 	<select id="UserExists" resultType="boolean" parameterType="string">
 	    select 1 from user_info where user_id = #{user_id}
 	</select>

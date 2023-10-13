@@ -222,42 +222,49 @@
 					</div>
 					<!-- 회원정보 내용 시작 -->
 					<div id="tab-3" class="tab-content">
-						<form>
+						<form action="${cpath}/UserUpdate.do" method="post">
 						<table>
-						<div class="cmt_writer">
+						<%-- <div class="cmt_writer">
 							<c:choose>
 								<c:when test="${not empty loginUser}">
 									<input type="text" name="user_id" value="${loginUser.user_id}" readonly>
 								</c:when>
 							</c:choose>
 							
-						</div>
+						</div> --%>
 						
 							<tr>
 								<td class="t1">아이디</td>
-								<td class="t2">${vo.user_id}</td>
+								<td class="t2">${loginUser.user_id}</td>
 							</tr>
 							<tr>
 								<td class="t1">비밀번호</td>
-								<td class="t2"><input type="text" name="user_pw" value="${vo.user_pw}"></td>
-								<td class="t2"></td>
+								<td class="t2"><input type="password" name="user_pw" value="${loginUser.user_pw}"></td>
 							</tr>
 							<tr>
 								<td class="t1">이름</td>
-								<dd><input type="text" id="user_name" name="user_name" readonly="readonly" value="${loginUser.user_name}"></dd>
+								<%-- <dd><input type="text" id="user_name" name="user_name" readonly="readonly" value="${loginUser.user_name}"></dd> --%>
+								<td class="t2">${loginUser.user_name}</td>
+								
 							</tr>
 							<tr>
 								<td class="t1">닉네임</td>
-								<dd><input type="text" id="user_nick" name="user_nick" readonly="readonly" value="${loginUser.user_nick}"></dd>
-								<td class="t2"><input type="text" name="user_nick" value="${vo.user_nick}"></td>
+								<%-- <dd><input type="text" id="user_nick" name="user_nick" readonly="readonly" value="${loginUser.user_nick}"></dd> --%>
+								<td class="t2"><input type="text" name="user_nick" value="${loginUser.user_nick}"></td>
+								
+								
 							</tr>
 							<tr>
 								<td class="t1">전화번호</td>
-								<dd><input type="text" id="user_phone" name="user_phone" readonly="readonly" value="${loginUser.user_phone}"></dd>
+								<%-- <dd><input type="text" id="user_phone" name="user_phone" readonly="readonly" value="${loginUser.user_phone}"></dd> --%>
+								<td class="t2">${loginUser.user_phone}</td>
+
 							</tr>
 							<tr>
 								<td class="t1">이메일</td>
-								<dd><input type="text" id="user_email" name="user_email" readonly="readonly" value="${loginUser.user_email}"></dd>
+								<%-- <dd><input type="text" id="user_email" name="user_email" readonly="readonly" value="${loginUser.user_email}"></dd> --%>
+                				<td class="t2">${loginUser.user_email}</td>
+							
 							</tr>
 							<tr>
 								<td colspan="2">

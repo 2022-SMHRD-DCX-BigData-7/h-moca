@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hmoca.entity.Post;
 import com.hmoca.entity.User;
 import com.hmoca.mapper.UserMapper;
 
@@ -79,6 +80,24 @@ public class UserController {
 		return "redirect:/Main.do";
 	}
 	
+	 // 비밀번호, 닉네임 수정
+
+		@RequestMapping("/UserUpdate.do")
+		public String UserUpdate(HttpSession session, Model model) {
+			
+			User loginUser = (User)session.getAttribute("loginUser");
+			String user_nick = loginUser.getUser_nick();
+			String user_pw = loginUser.getUser_pw();
+			
+			User vo = mapper.UserSelect(user_nick);
+			model.addAttribute("vo", vo);
+			
+			User pw = mapper.UserSelect(user_pw);
+			model.addAttribute("pw", pw);
+			
+			return "UserUpdate";
+		}
+		
 	// 로그아웃
 	@RequestMapping("/Logout.do")
 	public String Logout(HttpSession session) {
