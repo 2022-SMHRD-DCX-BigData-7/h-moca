@@ -30,7 +30,12 @@ public class MainController {
 		return "main";
 	}
 		
-	
+	// 결과페이지 이동
+	@GetMapping("/result.do")
+	public String result() {
+				
+		return "result";
+	}
 	
 	// 마이페이지 이동
 	// 내가 쓴 게시물 불러오기
