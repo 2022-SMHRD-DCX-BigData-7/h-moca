@@ -54,8 +54,8 @@ blockquote, q {
 table {
 	/* border-collapse: collapse;
 	border-spacing: 0; */
-    height: 300px;
-    margin: 30px 10px;
+    /* height: 300px;
+    margin: 30px 10px; */
 }
 
 body {
@@ -104,12 +104,14 @@ input, select, textarea {
 		font-family: 'SUITE-Regular';
 		line-height: 1.85em;
 		font-weight: 300;
-		border: solid 1px #97a197;
+		border: solid 1px #d6ddd8;
+		-webkit-appearance: none;
+		
 	}
 
-	ul, ol, p, dl {
+	/* ul, ol, p, dl {
 		margin: 0 0 2em 0;
-	}
+	} */
 
 	a {
 		text-decoration: underline;
@@ -1653,12 +1655,12 @@ input, select, textarea {
 
 	#content {
 		
-		padding: 45px 0 45px 0;
+		padding: 45px 30px 45px 30px;
 	}
 
 		#content section {
 			background: #fff;
-			padding: 40px 30px 45px 30px;
+			padding: 20px;
 			
 			/* box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.1);
 			margin: 0 0 25px 0; */

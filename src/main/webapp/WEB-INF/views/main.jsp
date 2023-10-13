@@ -11,13 +11,74 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
-	
-	
 	#content {
 		position: absolute;
-		top: 100vh;
+		top: 80px;
 		right: 0;
 		left: 0;
+	}
+	
+	#search {
+		text-align: center;
+	}
+	
+	/* 검색창 */
+	.search-box {
+		display: inline-flex;
+		height: 2em;
+		border: solid 1px #d6ddd8;
+	}
+	
+	.search-box input {
+		width : 500px;
+		border : none;
+		outline : none;
+		background-color: #fff;
+		transition : background-color 300ms;
+		
+	}
+	
+	.search-box button {
+		width: 60px;
+		background-color: #d6ddd8;
+		color: #373f42;
+		font-weight: 600;
+		font-size: 13pt;
+		border: none;
+		
+	}
+		
+	
+	/* 검색순위 */
+	.ranklist {
+		width: 438px;
+		border: solid 1px #97a197;
+		border-radius: 5px;
+		text-align: center;
+		border-spacing: 10px;
+	}
+	
+	.ranklist tr:first-child{
+		height: 10px;
+	}
+	
+	.ranklist tr td:first-child {
+		vertical-align: top;
+	}
+	
+	.ranklist img {
+		width: 250px;
+		border-radius: 3px;
+	}
+	
+	.rank {
+		width: 15%;
+		border-bottom: solid 1px #f0f0f0;
+	} 
+	
+	.title {
+		width: 85%;
+		border-bottom: solid 1px #f0f0f0;
 	}
 </style>
 
@@ -48,6 +109,26 @@
 		console.log(data);
 		// data.url_count
 		
+		var rList = "<table class='ranklist'>";
+		rList += "<tr>";
+		rList += "<td class='rank'>순위</td>";
+		rList += "<td class='title'>영상</td>";
+		rList += "</tr>";
+		
+		$.each(data, function(index, obj){
+			
+			rList += "<tr>";
+			rList += "<td>"+(index+1)+"</td>";
+			rList += "<td>"
+			rList += "<p><img src='"+obj.video_thumb+"'></p>"
+			rList += "<p>"+obj.video_name+"</p>"
+			rList += "</td>"
+			rList += "</tr>";
+		})
+		
+		
+		$("#list").html(rList);
+		
 	}
 </script>
 </head>
@@ -65,26 +146,29 @@
 	<section id="content">
 		<div class="container">
 			<div class="row aln-center">
-				<div class="col-8 col-12-medium">
+				<div class="col-12 col-12-medium">
 					<!-- Box #1 -->
-					<section>
-						<header>
-							<h2>SEARCHING FOR FAKE TUBE</h2>
-							<h3>ㅋㅋㅋ</h3>
-						</header>
-						<input type="text" class="urlbox" placeholder="URL을 입력하세요">
-						<button class="button-large">검색</button>
+					<section id="search">
+						<form class="search-box">
+							<input type="search" class="url-box" placeholder="URL을 입력하세요">
+							<button type="button" class="search-btn" onclick="location.href='${cpath}/result.do'">검색</button>
+						</form>
 					</section>
 				</div>
-				<div class="col-4 col-6-medium col-12-small">
+				<div class="col-6 col-8-medium col-12-small">
 					<!-- Box #2 -->
 					<section>
 						<header>
-							<h2>주간 랭킹</h2>
+							<h2>검색 순위</h2>
 							<div id="list">
 								<!-- 검색순위 들어갈 부분 -->
 							</div>
 						</header>
+					</section>
+				</div>
+				<div class="col-6 col-8-medium col-12-small">
+					<!-- Box #2 -->
+					<section>
 						
 					</section>
 				</div>
