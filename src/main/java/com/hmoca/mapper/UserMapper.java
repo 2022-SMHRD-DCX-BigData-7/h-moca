@@ -13,8 +13,10 @@ public interface UserMapper {
 
 	public User UserLogin(User vo);
 	
-	public boolean UserExists(String user_id);
-
-	public boolean UserNoExists(String user_id);
+	
+	 public boolean UserExists(String user_id);
+	 
+	 public boolean UserNoExists(String user_id);
+	 
 
 }

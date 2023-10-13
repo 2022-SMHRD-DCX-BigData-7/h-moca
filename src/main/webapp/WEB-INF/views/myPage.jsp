@@ -239,23 +239,25 @@
 							</tr>
 							<tr>
 								<td class="t1">비밀번호</td>
+								<td class="t2"><input type="text" name="user_pw" value="${vo.user_pw}"></td>
 								<td class="t2"></td>
 							</tr>
 							<tr>
 								<td class="t1">이름</td>
-								<td class="t2"><input type="text" name="user_name" value="${vo.user_name}"></td>
+								<dd><input type="text" id="user_name" name="user_name" readonly="readonly" value="${loginUser.user_name}"></dd>
 							</tr>
 							<tr>
 								<td class="t1">닉네임</td>
-								<td class="t2"></td>
+								<dd><input type="text" id="user_nick" name="user_nick" readonly="readonly" value="${loginUser.user_nick}"></dd>
+								<td class="t2"><input type="text" name="user_nick" value="${vo.user_nick}"></td>
 							</tr>
 							<tr>
 								<td class="t1">전화번호</td>
-								<td class="t2"></td>
+								<dd><input type="text" id="user_phone" name="user_phone" readonly="readonly" value="${loginUser.user_phone}"></dd>
 							</tr>
 							<tr>
 								<td class="t1">이메일</td>
-								<td class="t2"></td>
+								<dd><input type="text" id="user_email" name="user_email" readonly="readonly" value="${loginUser.user_email}"></dd>
 							</tr>
 							<tr>
 								<td colspan="2">
