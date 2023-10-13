@@ -76,6 +76,14 @@ CREATE TABLE video_info (
 INSERT INTO dist_info (url_name, video_name, video_views, video_thumb, video_score, user_id, title_score, thumb_score, meta_score)
 VALUES ('1', '1', 1, '1', 1, 'user1','1.11','2.22','3.33');
 
+ALTER TABLE dist_info
+DROP COLUMN video_views;
+
+delete from dist_info where dist_idx=1;
+delete from post_info where dist_idx=1;
+
+
+
 ALTER TABLE dist_info ADD title_score DECIMAL(10, 2) NOT NULL;
 ALTER TABLE dist_info ADD thumb_score DECIMAL(10, 2) NOT NULL;
 ALTER TABLE dist_info ADD meta_score DECIMAL(10, 2) NOT NULL;
@@ -83,6 +91,7 @@ ALTER TABLE dist_info ADD meta_score DECIMAL(10, 2) NOT NULL;
 
 select * from dist_info;
 select * from post_info;
+select * from comment_info;
 
 delete dist_idx from post_info;
 alter table post_info drop column dist_idx;
@@ -137,3 +146,6 @@ select video_name, video_thumb, url_name, count(url_name) as url_count
 		
 		
 		select user_id from user_info where user_id = 'user1222'
+
+		
+select * from post_info where user_id='user1' order by post_idx desc

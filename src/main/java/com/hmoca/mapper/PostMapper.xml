@@ -36,7 +36,14 @@
 	<!-- <select id="PageCount" resultType="int">
 	    select count(post_idx)
 	</select> -->
+
+	<!-- 내 게시물 내용-->
+	<select id="MypostList" parameterType="String" resultType="com.hmoca.entity.Post"> 
+	    select * from post_info where user_id=#{user_id} order by post_idx desc
+	</select>
 	
-	<!-- 랭킹 // url_name 수를 조회해서 내림차순-->
-	
+	<!-- 내 게시물 내용-->
+	<select id="Mypostcontent" parameterType="String" resultType="com.hmoca.entity.Post"> 
+	    select * where user_id=#{user_id} 
+	</select>
 </mapper>

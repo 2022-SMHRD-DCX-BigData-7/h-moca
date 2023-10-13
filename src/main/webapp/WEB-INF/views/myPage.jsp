@@ -2,6 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
+<%
+	// jstl fn 에서는 \n 기호를 읽어들일 수 없음
+	// 페이지 영역에서 \n을 변수로 저장해놓고 변수를 이용해서
+	// \n을 <br>로 변환해서 출력해주고자 함
+	pageContext.setAttribute("newLine", "\n");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +16,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
+<script>
+	// 마이페이지 내가 쓴 게시물 내용으로 수정 !!!
+/* 	$(document).ready(function(){
+		Mypostcontent();
+	}); */
+
+	//function Mypostcontent(){
+	//	$.ajax({
+	//		url: "${cpath}/mycontent",
+	//		type: "get",
+	//		dataType: "json",
+	//		success: callBack,
+	//		error: function(){
+	//			alert("내 게시물 불러오기 실패");
+	//		}
+	//	});
+	//}
+	
+/* 	function callBack(data){
+		console.log(data);
+		
+	} */
+	</script>
+	
 <style>
 	
 	#content.mycontent {
@@ -158,16 +188,16 @@
 									<div class="date">작성일</div>
 									<div class="count">조회수</div>
 								</div>
-								<%-- <div>
+								 <div>
 									<c:forEach items="${list}" var="vo">
 										<c:url var="contentLink" value="boardContent.do/${vo.post_idx}" />
-										<div class="num">${vo.post_idx }</div>
+										<div class="num">${vo.post_idx}</div>
 										<div class="title"><a href="${contentLink}">${vo.post_title}</a></div>
 										<div class="writer">${vo.user_id}</div>
 										<div class="date">${fn:split(vo.created_at," ")[0]}</div>
 										<div class="count">${vo.post_views}</div>
 									</c:forEach>
-								</div> --%>
+								</div> 
 							</div>
 						</div>
 					</div>
@@ -201,7 +231,7 @@
 						<table>
 							<tr>
 								<td class="t1">아이디</td>
-								<td class="t2"></td>
+								<td class="t2">${vo.user_id}</td>
 							</tr>
 							<tr>
 								<td class="t1">비밀번호</td>

@@ -23,7 +23,8 @@ public interface PostMapper {
 
 		public User login(User vo);
 		
-		
-		
+		public List<Post> MypostList(String user_id);
+
+		public Post Mypostcontent (Post vo);
 
 }

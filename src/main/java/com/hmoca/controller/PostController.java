@@ -82,4 +82,25 @@ public class PostController {
 	}
 	
 	
+	/*
+	 * // 내가 쓴 게시물 리스트 불러오기
+	 * 
+	 * @RequestMapping("/myPage.do") public String MypostList(Model model) {
+	 * 
+	 * List<Post> list = mapper.MypostList();
+	 * 
+	 * model.addAttribute("list", list);
+	 * 
+	 * return "myPage"; }
+	 */
+	
+	// 내가 쓴 게시글 내용
+	/*
+	 * @RequestMapping("/myPage.do/{user_id}") public String
+	 * Mypostcontent(@PathVariable("user_id") String user_id, Model model) {
+	 * 
+	 * 
+	 * Post vo = mapper.Mypostcontent(user_id); model.addAttribute("vo", vo); return
+	 * "myPage"; }
+	 */
 }

@@ -146,7 +146,7 @@
 									<input type="text" id="user_id" name="user_id" class="form-control">
 								</div>
 								<div class="checkId">
-									<button id="checkId" class="checkId">중복확인</button>
+									<button id="checkId" class="checkId" onclick="zzz()">중복확인</button>
 								</div>
 								<div class="input-group">
 								<!-- 아이디 중복 -->
