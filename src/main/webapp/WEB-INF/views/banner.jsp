@@ -6,15 +6,23 @@
 <html>
 <head>
 	<style>
-    	
+    	#banner {
+    		position: absolute;
+    		top: 100px;
+    		right: 0;
+    		left: 0;
+    		height: 400px;
+    		background-color: lightblue;
+    	}
     </style>
     
 </head>
 <body>
 
 	<div id="banner">
-		<div class="item"></div>
-		zzzzz
+		<div class="item">
+			
+		</div>
 	</div>
 	
 

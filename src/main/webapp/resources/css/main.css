@@ -1522,19 +1522,18 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		height: 105px;
+		height: 100px;
 		position: fixed;
 		top:0;
 		left:0;
 		right:0;
-		border-bottom: solid 3px #373f42;
 		background: #ffffff;
 		z-index: 100;
 	}
 
 		#header > .container {
 			position: relative;
-			min-height: 130px;
+			min-height: 125px;
 		}
 
 		#header h1 {
