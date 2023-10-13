@@ -13,7 +13,7 @@
 <style>
 	#content {
 		position: absolute;
-		top: 80px;
+		top: 500px;
 		right: 0;
 		left: 0;
 	}
