@@ -17,7 +17,7 @@
    </select>
    
 	<update id="UserUpdate" parameterType="com.hmoca.entity.User">
-		update user_info set user_pw=#{user_pw}, user_nick=#{user_nick}	    
+		update user_info set user_pw=#{user_pw}, user_nick=#{user_nick} where user_id=#{user_id};    
 	</update>
 	
 	<select id ="UserSelect" parameterType="int" resultType="com.hmoca.entity.User">

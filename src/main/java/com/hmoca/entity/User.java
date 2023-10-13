@@ -9,6 +9,40 @@ public class User {
 	private String user_email;
 	private String user_phone;
 	
+	
+	
+	public User() {
+		super();
+	}
+	
+	
+	public User(String user_id, String user_pw, String user_nick) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_nick = user_nick;
+	}
+
+
+	public User(String user_id, String user_pw) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+	}
+
+
+	public User(String user_id, String user_pw, String user_name, String user_nick, String user_email,
+			String user_phone) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_nick = user_nick;
+		this.user_email = user_email;
+		this.user_phone = user_phone;
+	}
+
+
 	public String getUser_id() {
 		return user_id;
 	}

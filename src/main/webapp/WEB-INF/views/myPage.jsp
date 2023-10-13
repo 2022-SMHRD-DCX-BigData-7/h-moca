@@ -223,6 +223,7 @@
 					<!-- 회원정보 내용 시작 -->
 					<div id="tab-3" class="tab-content">
 						<form action="${cpath}/UserUpdate.do" method="post">
+								<input type="hidden" name="user_id" value="${loginUser.user_id}" />
 						<table>
 						<%-- <div class="cmt_writer">
 							<c:choose>
@@ -239,7 +240,7 @@
 							</tr>
 							<tr>
 								<td class="t1">비밀번호</td>
-								<td class="t2"><input type="password" name="user_pw" value="${loginUser.user_pw}"></td>
+								<td class="t2"><input type="password" name="user_pw"></td> <!-- value="${loginUser.user_pw}" -->
 							</tr>
 							<tr>
 								<td class="t1">이름</td>
@@ -250,7 +251,7 @@
 							<tr>
 								<td class="t1">닉네임</td>
 								<%-- <dd><input type="text" id="user_nick" name="user_nick" readonly="readonly" value="${loginUser.user_nick}"></dd> --%>
-								<td class="t2"><input type="text" name="user_nick" value="${loginUser.user_nick}"></td>
+								<td class="t2"><input type="text" name="user_nick"></td> <!-- value="${loginUser.user_nick}" -->
 								
 								
 							</tr>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hmoca.entity.Comment;
+import com.hmoca.entity.Post;
 import com.hmoca.entity.Rank;
 import com.hmoca.mapper.CmtMapper;
 
@@ -24,6 +25,9 @@ public class CmtController {
 	
 	@Autowired
 	private CmtMapper mapper;
+	
+	@Autowired
+	private CmtMapper rmapper;
 
 	@GetMapping("/cmt")
 	public List<Comment> cmtAjaxList(){
@@ -65,8 +69,13 @@ public class CmtController {
 		for(Rank r:list) {
 			System.out.println("list에는 담긴 name : "+r.getVideo_name());
 		}
-		return list;
 		
+		List<Post> ranklist = rmapper.postrankList();
+		for(Post p : ranklist) {
+			System.out.println("ranklist에는 담긴 name : "+p.getPost_title());
+		}
+		
+		return list;
 	}
 //	Model model
 //	List<Rank> list = mapper.rankList();

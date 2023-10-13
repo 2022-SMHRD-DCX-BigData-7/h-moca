@@ -83,19 +83,27 @@ public class UserController {
 	 // 비밀번호, 닉네임 수정
 
 		@RequestMapping("/UserUpdate.do")
-		public String UserUpdate(HttpSession session, Model model) {
+		public String UserUpdate(HttpSession session, Model model, User up_user) {
 			
 			User loginUser = (User)session.getAttribute("loginUser");
-			String user_nick = loginUser.getUser_nick();
-			String user_pw = loginUser.getUser_pw();
+			String user_id = loginUser.getUser_id(); // 아이디만 loginuser에서 받아옴
+			//String user_nick = loginUser.getUser_nick();
+			//String user_pw = loginUser.getUser_pw();
+			String user_nick1 = up_user.getUser_nick(); //up_user : 업데이트할 정보 = 내가 작성할 닉네임을 user_nick1에 담아줌
+			String user_pw1 = up_user.getUser_pw();
 			
-			User vo = mapper.UserSelect(user_nick);
-			model.addAttribute("vo", vo);
+			System.out.println("수정할 내용"+user_nick1+", "+user_pw1);
+			User vo = new User(user_id,user_pw1,user_nick1); // 생성자 모두, 2개, 3개 만들어줌, vo에 담기 !
 			
-			User pw = mapper.UserSelect(user_pw);
-			model.addAttribute("pw", pw);
+			mapper.UserUpdate(vo);
 			
-			return "UserUpdate";
+//			User vo = mapper.UserSelect(user_nick);
+//			model.addAttribute("vo", vo);
+//			
+//			User pw = mapper.UserSelect(user_pw);
+//			model.addAttribute("pw", pw);
+			
+			return "redirect:/MyPage.do";
 		}
 		
 	// 로그아웃
