@@ -32,7 +32,8 @@
 		select video_name, video_thumb, url_name, count(url_name) as url_count 
 		from dist_info 
 		group by video_name, video_thumb, url_name
-		order by url_count desc;
+		order by url_count desc
+		LIMIT 10;
 	</select>  	
 
 

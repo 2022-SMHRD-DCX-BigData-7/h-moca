@@ -111,7 +111,7 @@
 	}
 	
 	.board_list .num{
-		width: 10%;
+		width: 7%;
 	}
 	
 	.board_list .title {
@@ -124,12 +124,13 @@
 		text-align: center;
 	}
 	
+		
 	.board_list .writer {
 		width: 10%;
 	}
 	
 	.board_list .date {
-		width: 10%;
+		width: 15%;
 	}
 	
 	.board_list .count{
@@ -206,11 +207,9 @@
 						<div id="dlist" class="board_list wrap">
 							<div class="board_list">
 								<div class="top">
-									<div class="num">번호</div>
-									<div class="title">url주소</div>
-									<div class="writer">영상 판별 점수</div>
-									<div class="date">작성일</div>
-									<div class="count">조회수</div>
+									<div class="title" style="width:65%">제목</div>
+									<div class="score">영상 판별 점수</div>
+									
 								</div>
 								<%-- <div>
 									<c:forEach items="${list}" var="vo">
