@@ -38,10 +38,9 @@
 	
 	<!-- 게시물 랭크 조회수로! -->
 	<select id="postrankList" resultType="com.hmoca.entity.Post">
-		select post_title, user_id, count(post_views) as post_count 
-		from post_info 
-		group by post_title, user_id
-		order by post_count desc
+		select post_title, user_id, post_views
+		from post_info
+		order by post_views desc
 		LIMIT 10;
 	</select>  	
 
