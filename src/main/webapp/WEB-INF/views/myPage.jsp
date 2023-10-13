@@ -208,7 +208,7 @@
 								<div class="top">
 									<div class="num">번호</div>
 									<div class="title">url주소</div>
-									<div class="writer">작성자</div>
+									<div class="writer">영상 판별 점수</div>
 									<div class="date">작성일</div>
 									<div class="count">조회수</div>
 								</div>

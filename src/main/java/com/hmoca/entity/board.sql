@@ -57,7 +57,6 @@ CREATE TABLE dist_info (
 	dist_idx INT AUTO_INCREMENT PRIMARY KEY,
 	url_name varchar(4000) NOT NULL,
 	video_name varchar(4000) NOT NULL,
-	video_views INT NOT NULL,
 	video_thumb varchar(4000) NOT NULL,
 	video_score INT NOT NULL,
 	user_id varchar(20) NOT NULL
