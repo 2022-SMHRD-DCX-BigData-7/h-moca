@@ -15,21 +15,42 @@
    		background-image: url("resources/css/images/background.png");
    		background-position: 50% 50%;
    		background-size: cover;
-   		text-align: center;
    	}
    	
    	#banner img {
    		width: 600px;
    		
    	}
+   	
+   	.item {
+   		position: relative;
+   		top: 200px;
+   	}
+   	
+   	.item h1 {
+   		font-size: 2.5rem;
+   	}
+   	
+   	.item h2 {
+   		font-size: 1.5rem;
+   	}
+	
+	   	
     </style>
 </head>
 <body>
 
 	<div id="banner">
+		
 		<div class="item">
-			<h2>문구자리</h2>
+			<div>
+				<h1>정보의 가치를 다시 찾다.</h1>
+			</div>
+			<div>
+				<h2>가짜 뉴스 필터링 서비스로 안전한 정보 얻기</h2>
+			</div>
 		</div>
+		
 	</div>
 	
 

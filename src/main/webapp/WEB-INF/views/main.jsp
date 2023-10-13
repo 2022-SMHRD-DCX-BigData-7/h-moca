@@ -13,7 +13,7 @@
 <style>
 	#content {
 		position: absolute;
-		top: 500px;
+		top: 355px;
 		right: 0;
 		left: 0;
 	}
@@ -25,7 +25,7 @@
 	/* 검색창 */
 	.search-box {
 		display: inline-flex;
-		height: 2em;
+		height: 2.5em;
 		border: solid 1px #d6ddd8;
 		border-radius: 5px;
 	}
@@ -161,18 +161,21 @@
 				<div class="col-6 col-8-medium col-12-small">
 					<!-- Box #2 -->
 					<section>
-						<header>
+						
 							<h2>검색 순위</h2>
 							<div id="list">
 								<!-- 검색순위 들어갈 부분 -->
 							</div>
-						</header>
+						
 					</section>
 				</div>
 				<div class="col-6 col-8-medium col-12-small">
 					<!-- Box #2 -->
 					<section>
-						
+						<h2>게시글 순위</h2>
+						<div id="blist">
+							<!-- 게시글 순위 들어감 -->
+						</div>
 					</section>
 				</div>
 			</div>
