@@ -27,6 +27,7 @@
 		display: inline-flex;
 		height: 2em;
 		border: solid 1px #d6ddd8;
+		border-radius: 5px;
 	}
 	
 	.search-box input {
@@ -45,9 +46,11 @@
 		font-weight: 600;
 		font-size: 13pt;
 		border: none;
-		
 	}
 		
+	.search-box button:hover {
+		cursor: pointer;
+	}	
 	
 	/* 검색순위 */
 	.ranklist {
