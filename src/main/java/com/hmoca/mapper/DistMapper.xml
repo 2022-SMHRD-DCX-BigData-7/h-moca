@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hmoca.mapper.DistMapper">
+
+	<!-- 내 판별 내용-->
+	<select id="MyDistList" parameterType="String" resultType="com.hmoca.entity.Dist"> 
+	    select * from dist_info where user_id=#{user_id} order by dist_idx desc
+	</select>
+	
+</mapper>

@@ -189,7 +189,7 @@
 									<div class="date">작성일</div>
 									<div class="count">조회수</div>
 								</div>
-								 <div>
+								<%--  <div>
 									<c:forEach items="${list}" var="vo">
 										<c:url var="contentLink" value="boardContent.do/${vo.post_idx}" />
 										<div class="num">${vo.post_idx}</div>
@@ -198,7 +198,7 @@
 										<div class="date">${fn:split(vo.created_at," ")[0]}</div>
 										<div class="count">${vo.post_views}</div>
 									</c:forEach>
-								</div> 
+								</div>  --%>
 							</div>
 						</div>
 					</div>
@@ -212,13 +212,11 @@
 									
 								</div>
 								<%-- <div>
-									<c:forEach items="${list}" var="vo">
+									<c:forEach items="${mylist}" var="vo">
 										<c:url var="contentLink" value="boardContent.do/${vo.post_idx}" />
-										<div class="num">${vo.post_idx }</div>
-										<div class="title"><a href="${contentLink}">${vo.post_title}</a></div>
-										<div class="writer">${vo.user_id}</div>
-										<div class="date">${fn:split(vo.created_at," ")[0]}</div>
-										<div class="count">${vo.post_views}</div>
+										<div class="title"><a href="#">${vo.video_name}</a></div>
+										<div class="score">${vo.video_score}</div>
+										
 									</c:forEach>
 								</div> --%>
 							</div>
@@ -226,7 +224,7 @@
 					</div>
 					<!-- 회원정보 내용 시작 -->
 					<div id="tab-3" class="tab-content">
-						
+						<form>
 						<table>
 							<tr>
 								<td class="t1">아이디</td>
@@ -252,7 +250,12 @@
 								<td class="t1">이메일</td>
 								<td class="t2"></td>
 							</tr>
-							
+							<tr>
+								<td colspan="2">
+								<button type="submit">수정</button> 
+								</td>
+							</tr>
+							</form>
 							
 						</table>
 					</div>
