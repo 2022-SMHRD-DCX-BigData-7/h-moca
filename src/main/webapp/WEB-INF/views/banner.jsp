@@ -6,22 +6,29 @@
 <html>
 <head>
 	<style>
-    	#banner {
-    		position: absolute;
-    		top: 100px;
-    		right: 0;
-    		left: 0;
-    		height: 400px;
-    		background-color: lightblue;
-    	}
+  	#banner {
+   		position: absolute;
+   		top: 0;
+   		right: 0;
+   		left: 0;
+   		height: 700px;
+   		background-image: url("resources/css/images/background.png");
+   		background-position: 50% 50%;
+   		background-size: cover;
+   		text-align: center;
+   	}
+   	
+   	#banner img {
+   		width: 600px;
+   		
+   	}
     </style>
-    
 </head>
 <body>
 
 	<div id="banner">
 		<div class="item">
-			
+			<h2>문구자리</h2>
 		</div>
 	</div>
 	
