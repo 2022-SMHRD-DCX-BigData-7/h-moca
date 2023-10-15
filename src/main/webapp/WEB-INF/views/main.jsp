@@ -11,11 +11,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
+	body {
+		margin: 0;
+		height: 300vh;;
+	}
+
 	#content {
-		position: absolute;
-		top: 355px;
+		/* position: absolute;
+		top: 100vh;
 		right: 0;
-		left: 0;
+		left: 0; */
+		width: 1170px;
+		margin: auto;
+		text-align: center;
 	}
 	
 	#search {
@@ -132,12 +140,26 @@
 		
 		$("#list").html(rList);
 		
+		var bList = "<table class='ranklist'>";
+		bList += "<tr>";
+		bList += "<td class='rank'>순위</td>";
+		bList += "<td class='title'>게시글</td>";
+		bList += "</tr>";
+		
+		$.each(data, function(index, obj){
+			bList += "<tr>";
+			bList += "<td>"+(index+1)+"</td>";
+			bList += "<td><p>"+obj.post_title+"</p></td>";
+			bList += "</tr>";
+		})
+		$("#blist").html(bList);
+		
 	}
 </script>
 </head>
 <body>
 
-<div id="page-wrapper">
+<div id="page-wrapper" class="wrap">
 
 	<!-- Header -->
 	<%@include file = "header.jsp" %>
@@ -146,7 +168,7 @@
 	<%@include file = "banner.jsp" %>
 	
 	<!-- Content -->
-	<section id="content">
+	<section id="content" class="page">
 		<div class="container">
 			<div class="row aln-center">
 				<div class="col-12 col-12-medium">
@@ -161,12 +183,10 @@
 				<div class="col-6 col-8-medium col-12-small">
 					<!-- Box #2 -->
 					<section>
-						
-							<h2>검색 순위</h2>
-							<div id="list">
-								<!-- 검색순위 들어갈 부분 -->
-							</div>
-						
+						<h2>검색 순위</h2>
+						<div id="list">
+							<!-- 검색순위 들어갈 부분 -->
+						</div>
 					</section>
 				</div>
 				<div class="col-6 col-8-medium col-12-small">
@@ -186,6 +206,7 @@
 </div>
 	
 <!-- Scripts -->
+
 <script src="${cpath}/resources/js/jquery.min.js"></script>
 <script src="${cpath}/resources/js/browser.min.js"></script>
 <script src="${cpath}/resources/js/breakpoints.min.js"></script>

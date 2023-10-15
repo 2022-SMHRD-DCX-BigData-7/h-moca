@@ -7,60 +7,49 @@
 <head>
 	<style>
   	#banner {
-   		position: absolute;
-   		top: 0;
-   		right: 0;
-   		left: 0;
-   		height: 700px;
-   		background-image: url("resources/css/images/background.png");
-   		background-position: 50% 50%;
-   		background-size: cover;
-   	}
-   	
-   	#banner img {
-   		width: 600px;
-   		
-   	}
-   	
-   	.item {
    		position: relative;
-   		top: 200px;
-   	}
-   	
-   	.item h1 {
+   		margin: 0;
+   		width: 100%;
+   		height: 100vh;
+   		background-image: url("resources/css/images/background.png");
+   		-webkit-background-size: cover;
+   		background-size: cover;
+   		background-position: center center;
    		font-size: 2.5rem;
+   		font-weight: bold;
+   		color: #373f42;
    	}
    	
-   	.item h2 {
-   		font-size: 1.5rem;
+   	.banner-text {
+   		opacity: 0;
+   		transform: translateY(10%);
+   		transition: all .5s ease-in-out;
    	}
-	
+   	
+   	.banner-text.on {
+   		opacity: 1;
+   		transform: translateY(0);
+   	}
 	   	
     </style>
 </head>
 <body>
 
-	<div id="banner">
-		
-		<div class="item">
-			<div>
-				<h1>정보의 가치를 다시 찾다.</h1>
-			</div>
-			<div>
-				<h2>가짜 뉴스 필터링 서비스로 안전한 정보 얻기</h2>
-			</div>
+	<div id="banner" class="page">
+		<div class="banner-text">
+			<h1>다시 찾는 정보의 가치</h1>
 		</div>
-		
+		<div class="banner-text">
+			<h1>다시 찾는 정보의 가치</h1>
+		</div>
+		<div class="banner-text">
+			<h1>다시 찾는 정보의 가치</h1>
+		</div>
 	</div>
 	
-
-
-
-
-
-
-
-	
+	<script>
+		
+	</script>	
 	
 </body>
 </html>
