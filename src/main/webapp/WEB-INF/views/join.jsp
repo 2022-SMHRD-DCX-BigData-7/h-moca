@@ -9,6 +9,87 @@
 <title>FAKETUBE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- Scripts -->
+<script src="${cpath}/resources/js/jquery.min.js"></script>
+<script src="${cpath}/resources/js/browser.min.js"></script>
+<script src="${cpath}/resources/js/breakpoints.min.js"></script>
+<script src="${cpath}/resources/js/util.js"></script>
+<script src="${cpath}/resources/js/main.js"></script>
+<script>
+function zzz(){
+	 if ($('#user_id').val() !== '') {
+        $.ajax({
+            type: 'get',
+            url: '${cpath}/Idcheck',
+            dataType: 'text', // 예상되는 응답 데이터 형식을 텍스트로 지정
+            data: { user_id: $('#user_id').val() }, // user_id를 전송
+            success: function(result) {
+                if (result == '0') {
+                    $('#result').text('사용 가능한 아이디입니다.');
+                } else {
+                    $('#result').text('이미 사용 중인 아이디입니다.');
+                }
+            },
+            error: function() {
+                alert('통신 실패ㅠㅠ');
+            }
+        });
+    } else {
+        alert('아이디를 입력하세요.');
+        $('#user_id').focus();
+    }
+	 
+//	 var form = document.inputForm;
+	 var pw = document.getElementById("user_pw");
+	var nick = document.getElementById("user_nick");
+
+	 if(pw.value==""){
+	 	pw.focus();
+	 	alert("비밀번호를 입력해주세요");
+	 	return false;
+	 }
+	 
+	 if(nick.value==""){
+		 alert("닉넴입력해주세요");
+		nick.focus();
+	 	return false;		
+	 }
+/* 	 if(form.user_pw.value != form.ckuser_pw.value){
+	 alert("비밀번호를 확인해주세요.");
+	 form.password.focus();
+	 return;
+	 } */
+	/*  if(!form.user_name.value){
+	 	alert("이름을 입력해주세요");
+	 form.user_name.focus();
+	 	return;
+	 }
+	 if(!form.user_nick.value){
+	 	alert("닉네임을 입력해주세요");
+	 form.user_nick.focus();
+	 	return;
+	 }
+	 if(!form.user_phone.value){
+	 	alert("전화번호를 입력해주세요");
+	 form.user_phone.focus();
+	 	return;
+	 }
+	 if(!form.user_email.value){
+	 	alert("이메일를 입력해주세요");
+	 form.user_email.focus();
+	 	return;
+	 }
+	  if($('#result').text()!='사용가능한 아이디입니다.'){
+	  alert("아이디 중복확인해주세요.");
+	  form.user_id.focus();
+	  return;
+	 }
+*/
+	 form.submit();
+}
+
+
+</script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
 	#content {
@@ -117,6 +198,7 @@
 			return false;
 		}
 	} */
+	
 </script>
 </head>
 <body>
@@ -146,7 +228,8 @@
 									<input type="text" id="user_id" name="user_id" class="form-control">
 								</div>
 								<div class="checkId">
-									<button id="checkId" class="checkId" onclick="zzz()">중복확인</button>
+									<p id="result"></p>
+									<button type="button" id="checkId" class="checkId" onclick="zzz()">중복확인</button>
 								</div>
 								
 								
@@ -221,12 +304,56 @@
 	</section>
 </div>
 	
-<!-- Scripts -->
-<script src="${cpath}/resources/js/jquery.min.js"></script>
-<script src="${cpath}/resources/js/browser.min.js"></script>
-<script src="${cpath}/resources/js/breakpoints.min.js"></script>
-<script src="${cpath}/resources/js/util.js"></script>
-<script src="${cpath}/resources/js/main.js"></script>
-	
+
+<!-- <script>
+
+     		var form = document.inputForm;
+     		
+     		if(!form.user_id.value){
+     			alert("아이디를 입력해주세요");
+     			form.user_id.focus();
+     			return;
+     		}
+     		if(!form.user_pw.value){
+     			alert("비밀번호를 입력해주세요");
+     			form.password.focus();
+     			return;
+     		}
+     		if(form.user_pw.value != form.ckuser_pw.value){
+                alert("비밀번호를 확인해주세요.");
+                form.password.focus();
+                return;
+             }
+     		if(!form.user_name.value){
+     			alert("이름을 입력해주세요");
+                form.user_name.focus();
+     			return;
+     		}
+     		if(!form.user_nick.value){
+     			alert("닉네임을 입력해주세요");
+                form.user_nick.focus();
+     			return;
+     		}
+     		if(!form.user_phone.value){
+     			alert("전화번호를 입력해주세요");
+                form.user_phone.focus();
+     			return;
+     		}
+     		if(!form.user_email.value){
+     			alert("이메일를 입력해주세요");
+                form.user_email.focus();
+     			return;
+     		}
+     		 if($('#result').text()!='사용가능한 아이디입니다.'){
+                 alert("아이디 중복확인해주세요.");
+                 form.user_id.focus();
+                 return;
+               }
+    
+            form.submit();
+            
+         
+         
+         </script> -->
 </body>
 </html>

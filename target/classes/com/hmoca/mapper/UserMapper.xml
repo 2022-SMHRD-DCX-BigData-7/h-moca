@@ -24,21 +24,21 @@
 		select * from user_info
 	</select> 
 	
-<!-- 	<select id="UserExists" resultType="boolean" parameterType="string">
+<!-- <select id="UserExists" resultType="boolean" parameterType="string">
 	    select 1 from user_info where user_id = #{user_id}
-	</select>
+	</select> -->
 	
-	<select id="UserNoExists" resultType="boolean" parameterType="string">
+<!-- 	<select id="UserNoExists" resultType="boolean" parameterType="string">
 	    select user_id from user_info where user_id = #{user_id}
 	</select> -->
 	
-	<select id="UserExists" resultType="boolean" parameterType="string">
-        select count(*) > 0 from user_info where user_id = #{user_id}
+	<select id="UserExists" resultType="int" parameterType="string">
+        select count(*) from user_info where user_id = #{user_id}
     </select>
 
-    <select id="UserNoExists" resultType="boolean" parameterType="string">
+<!--     <select id="UserNoExists" resultType="boolean" parameterType="string">
         select count(*) = 0 from user_info where user_id = #{user_id}
-    </select>
+    </select> -->
 	
 	
 </mapper>
