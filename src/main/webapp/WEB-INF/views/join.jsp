@@ -89,7 +89,7 @@
 	
 </style>
 <script>
-	function checkField(){
+/* 	function checkField(){
 		var inputs = document.inputForm;
 		
 		if(!inputs.user_id.value){
@@ -116,7 +116,7 @@
 			alert("이메일를 입력해주세요");
 			return false;
 		}
-	}
+	} */
 </script>
 </head>
 <body>
@@ -148,12 +148,13 @@
 								<div class="checkId">
 									<button id="checkId" class="checkId" onclick="zzz()">중복확인</button>
 								</div>
-								<div class="input-group">
+								
+								
 								<!-- 아이디 중복 -->
 	                            <c:if test="${not empty error}">
 	                                <p style="color: red">${error}</p>
 	                            </c:if>
-	                            </div>
+	                     
 	                            <!-- 아이디 중복 아닐때 -->
 								<c:if test="${not empty successMessage}">
 								    <p style="color: green">${successMessage}</p>
