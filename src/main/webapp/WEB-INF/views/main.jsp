@@ -13,7 +13,17 @@
 <style>
 	body {
 		margin: 0;
-		height: 300vh;;
+		overflow-x:hidden; 
+	}
+	
+	body::-webkit-scrollbar {
+		width: 8px;
+	}
+	
+	body::-webkit-scrollbar-thumb{
+		height: 30%;
+		background: #cbcbcb;
+		border-radius: 4px;
 	}
 
 	#content {
@@ -34,8 +44,8 @@
 	.search-box {
 		display: inline-flex;
 		height: 2.5em;
-		border: solid 1px #d6ddd8;
-		border-radius: 5px;
+		border: solid 3px #97a197;
+		border-radius: 4px;
 	}
 	
 	.search-box input {
@@ -49,9 +59,9 @@
 	
 	.search-box button {
 		width: 60px;
-		background-color: #d6ddd8;
+		background-color: #97a197;
 		color: #373f42;
-		font-weight: 600;
+		font-weight: 300;
 		font-size: 13pt;
 		border: none;
 	}
