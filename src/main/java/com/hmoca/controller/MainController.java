@@ -52,23 +52,28 @@ public class MainController {
 		
 		
 		List<Post> list = mapper.MypostList(user_id);
+		if(list.size()!=0) {
 		System.out.println(list.get(0).getPost_idx());
 		
 		 for(Post p: list) { 
 			 System.out.println("내게시글");
-			 System.out.println(p.getPost_idx()); 
+			 System.out.println(p.getPost_idx());
+			model.addAttribute("list", list);
+
+		}
 		}
 			
 		List<Dist> mylist = distmapper.MyDistList(user_id);
+		if(mylist.size()!=0) {
 		System.out.println(mylist.get(0).getDist_idx());
 			
 		for(Dist p: mylist) { 
 			System.out.println("내 판별 영상");
 			System.out.println(p.getDist_idx()); 
+			model2.addAttribute("mylist", mylist);			
+		}
 		}
 
-		model.addAttribute("list", list);
-		model2.addAttribute("mylist", mylist);
 
 
 		return "myPage";
