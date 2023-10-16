@@ -72,8 +72,8 @@ CREATE TABLE video_info (
 	dislike_count INT NOT NULL
 )
 
-INSERT INTO dist_info (url_name, video_name, video_views, video_thumb, video_score, user_id, title_score, thumb_score, meta_score)
-VALUES ('1', '1', 1, '1', 1, 'user1','1.11','2.22','3.33');
+INSERT INTO dist_info (url_name, video_name, video_thumb, video_score, user_id, title_score, thumb_score, meta_score)
+VALUES ('1', '1','1', 1, 'sk','1.11','2.22','3.33');
 
 ALTER TABLE dist_info
 DROP COLUMN video_views;
