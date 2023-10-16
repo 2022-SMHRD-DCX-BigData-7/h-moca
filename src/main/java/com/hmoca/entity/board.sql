@@ -153,3 +153,6 @@ select video_name, video_thumb, url_name, count(url_name) as url_count
 
 		
 select * from post_info where user_id='user1' order by post_idx desc
+
+select count(*) from user_info where user_id ='user122'
+select * from user_info;

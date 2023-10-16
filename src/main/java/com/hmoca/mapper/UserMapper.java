@@ -19,9 +19,8 @@ public interface UserMapper {
 	
 	public User UserSelect(String user_id);  
 
-	 public boolean UserExists(String user_id);
+	 public int UserExists(String user_id);
 	 
-	 public String UserNoExists(String user_id);
-	 
+	 //public String UserNoExists(String user_id);
 
 }

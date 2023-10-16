@@ -7,11 +7,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hmoca.entity.Comment;
 import com.hmoca.entity.Post;
 import com.hmoca.entity.User;
 import com.hmoca.mapper.UserMapper;
@@ -45,34 +48,38 @@ public class UserController {
 //	        model.addAttribute("successMessage", "아이디 사용 가능"); // 왜 안됨 !!
 //	        return "join";
 //		}
-		
-		// 아이디 중복 확인
-	    if (mapper.UserExists(vo.getUser_id())) {
-	        model.addAttribute("error", "이미 사용 중인 아이디입니다.");
-	        return "join";
- 
-	    } else {
-	    	model.addAttribute("successMessage", "사용 가능한 아이디입니다.");
-			//mapper.UserInsert(vo); 
 
-			//return "redirect:/Main.do"; 
-	        return "join";
-
-	    }
-	    
-	    
-		// 아이디 사용 가능
-		/*
-		 * if (mapper.UserNoExists(vo.getUser_id())) {
-		 * model.addAttribute("successMessage", "아이디 사용 가능"); // 왜 안됨 !! return "join";
-		 * 
-		 * }
-		 */
-
-	    
-
+      mapper.UserInsert(vo);
+	  return "redirect:/Main.do";
 	}
 	
+		// 아이디 중복 확인
+//        if (mapper.UserExists(vo.getUser_id())) {
+//            model.addAttribute("error", "이미 사용 중인 아이디입니다.");
+//            return "join";
+//        } else {
+//            if (vo.getUser_id() != null && vo.getUser_pw() != null && vo.getUser_name() != null
+//                    && vo.getUser_nick() != null && vo.getUser_email() != null && vo.getUser_phone() != null) {
+//                mapper.UserInsert(vo);
+//                return "redirect:/Main.do";
+//            } else {
+//                model.addAttribute("error", "모든 필수 입력값을 제대로 입력하세요.");
+//                return "join";
+//            }
+//        }
+//    }
+	
+	// 아이디 중복 확인
+    @GetMapping("/Idcheck")
+    @ResponseBody
+    public String Idcheck(@RequestParam("user_id") String userId) {
+        if (mapper.UserExists(userId) == 1) {
+            return "1"; 
+        } else {
+            return "0"; 
+        }
+    }
+		
 	// 로그인하면 세션에 저장
 	@PostMapping("/UserLogin.do")
 	public String UserLogin(User vo, HttpSession session) {
