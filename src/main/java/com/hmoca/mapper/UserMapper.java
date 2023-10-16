@@ -21,7 +21,7 @@ public interface UserMapper {
 
 	 public boolean UserExists(String user_id);
 	 
-	 public boolean UserNoExists(String user_id);
+	 public String UserNoExists(String user_id);
 	 
 
 }

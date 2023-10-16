@@ -80,6 +80,9 @@ DROP COLUMN video_views;
 
 delete from dist_info where dist_idx=1;
 delete from post_info where dist_idx=1;
+delete from user_info where user_id="user05";
+
+select * from user_info;
 
 
 
@@ -129,7 +132,9 @@ insert into comment_info(cmt_content, user_id, post_idx)
 values ('댓글5','user1','14');
 
 delete from post_info where post_idx=21;
+                                                     
 
+select * from user_info;
 update comment_info set user_id = 'sk', cmt_content = '댓글 수정'
 where cmt_idx = 2 and post_idx = 12;
 

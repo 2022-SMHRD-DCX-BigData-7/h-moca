@@ -51,20 +51,26 @@ public class UserController {
 	        model.addAttribute("error", "이미 사용 중인 아이디입니다.");
 	        return "join";
  
+	    } else {
+	    	model.addAttribute("successMessage", "사용 가능한 아이디입니다.");
+			//mapper.UserInsert(vo); 
+
+			//return "redirect:/Main.do"; 
+	        return "join";
+
 	    }
 	    
 	    
 		// 아이디 사용 가능
-	    if (mapper.UserNoExists(vo.getUser_id())) {
-	        model.addAttribute("successMessage", "아이디 사용 가능"); // 왜 안됨 !!
-	        return "join";
- 
-	    }
+		/*
+		 * if (mapper.UserNoExists(vo.getUser_id())) {
+		 * model.addAttribute("successMessage", "아이디 사용 가능"); // 왜 안됨 !! return "join";
+		 * 
+		 * }
+		 */
 
 	    
-		mapper.UserInsert(vo); 
 
-		return "redirect:/Main.do"; 
 	}
 	
 	// 로그인하면 세션에 저장
