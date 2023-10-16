@@ -95,30 +95,33 @@
 
 <script>
 	$(document).ready(function(){
-		// 함수 호출
-		rankList();
-	});
-	
-	function rankList(){
-  		$.ajax({
-  			url : "${cpath}/rank",
+		$.ajax({
+			url:"${cpath}/rank",
+			type: "get",
+			dataType: "json",
+			success: ranklist,
+			error: function(){
+				alert("랭킁 목록 통신 실패ㅠ0ㅠ");
+			}
+		}); // 검색순위 ajax
+		
+		$.ajax({
+			url : "${cpath}/postrank",
   			type : "get",
   			// data : 보내줄 데이터가 없으므로 주석 처리 !
   			dataType : "json",
   			// 응답이 성공했을때 callBack()함수 호출하는데
   			// ajax 안에서 함수 실행 할 때는 ()를 적지 않는다 !!!
   			// 소괄호 사용하면 함수가 실행이 안됨 
-  			success : callBack,
+  			success : postranklist,
   			error : function(){
-  				alert("랭킁 목록 통신 실패ㅠ0ㅠ");
+  				alert("게시판 목록 통신 실패ㅠ0ㅠ");
   			}
-  		}); // ajax 끝
-	}
+		}); // 게시글 순위 ajax
+	}); 
 	
-	function callBack(data){
-		
+	function ranklist(data){
 		console.log(data);
-		// data.url_count
 		
 		var rList = "<table class='ranklist'>";
 		rList += "<tr>";
@@ -126,13 +129,13 @@
 		rList += "<td class='title'>영상</td>";
 		rList += "</tr>";
 		
-		$.each(data, function(index, obj){
+		$.each(data, function(idx, ob){
 			
 			rList += "<tr>";
-			rList += "<td>"+(index+1)+"</td>";
+			rList += "<td>"+(idx+1)+"</td>";
 			rList += "<td>"
-			rList += "<p><img src='"+obj.video_thumb+"'></p>"
-			rList += "<p>"+obj.video_name+"</p>"
+			rList += "<p><img src='"+ob.video_thumb+"'></p>"
+			rList += "<p>"+ob.video_name+"</p>"
 			rList += "</td>"
 			rList += "</tr>";
 		})
@@ -140,34 +143,11 @@
 		
 		$("#list").html(rList);
 		
-	}
-	
-	
-	$(document).ready(function(){
-		// 함수 호출
-		rankpostList();
-	});
-	
-	function rankpostList(){
-  		$.ajax({
-  			url : "${cpath}/postrank",
-  			type : "get",
-  			// data : 보내줄 데이터가 없으므로 주석 처리 !
-  			dataType : "json",
-  			// 응답이 성공했을때 callBack()함수 호출하는데
-  			// ajax 안에서 함수 실행 할 때는 ()를 적지 않는다 !!!
-  			// 소괄호 사용하면 함수가 실행이 안됨 
-  			success : callBack,
-  			error : function(){
-  				alert("랭킁 목록 통신 실패ㅠ0ㅠ");
-  			}
-  		}); // ajax 끝
-	}
-	
-	function callBack(data){
 		
+	}
+
+	function postranklist(data){
 		console.log(data);
-	
 		
 		// 게시물
 		var bList = "<table class='ranklist'>";
@@ -183,9 +163,7 @@
 			bList += "</tr>";
 		})
 		$("#blist").html(bList);
-		
 	}
-	
 	
 </script>
 </head>
@@ -239,7 +217,7 @@
 	
 <!-- Scripts -->
 
-<script src="${cpath}/resources/js/jquery.min.js"></script>
+<%-- <script src="${cpath}/resources/js/jquery.min.js"></script> --%>
 <script src="${cpath}/resources/js/browser.min.js"></script>
 <script src="${cpath}/resources/js/breakpoints.min.js"></script>
 <script src="${cpath}/resources/js/util.js"></script>

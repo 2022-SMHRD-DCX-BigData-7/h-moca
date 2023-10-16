@@ -103,6 +103,9 @@
 							<section class="detail">
 								<div>
 									<h3>통계화면 자리</h3>
+									<div style="width:900px; height:900px;">
+										<canvas id="myChart"></canvas>
+									</div>
 								</div>
 							</section>
 						</div>
@@ -111,8 +114,63 @@
 			</c:choose>
 		</div>
 	</section>
-		
+	
 </div>
+
+<!-- 차트 script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+
+	var context = document
+		.getElementById("myChart") // myChart라는 id를 가진 태그를 찾아서
+		.getContext('2d'); // getContext 속성을 통해 2d로 세팅
+	var myChart = new Chart(context,{ // (context,{chart내용})
+		type: 'bar', // 차트 형태
+		data: { // 차트에 들어갈 데이터
+			labels : [
+				// x축
+				'1','2','3','4','5','6','7'
+			],
+			datasets: [
+				{// 데이터
+					label : 'test1', //차트 제목
+					fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+					data:[
+						21,19,25,20,23,26,25 // x축 label에 대응되는 값
+					],
+					backgroundColor:[
+						'rgba(255, 99, 132, 0.2)',
+	                    'rgba(54, 162, 235, 0.2)',
+	                    'rgba(255, 206, 86, 0.2)',
+	                    'rgba(75, 192, 192, 0.2)',
+	                    'rgba(153, 102, 255, 0.2)',
+	                    'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor : [
+						 'rgba(255, 99, 132, 1)',
+                         'rgba(54, 162, 235, 1)',
+                         'rgba(255, 206, 86, 1)',
+                         'rgba(75, 192, 192, 1)',
+                         'rgba(153, 102, 255, 1)',
+                         'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1 // 경계선 굵기
+				}
+			]
+		},
+		options: {
+			scales: {
+				yAxes :[
+					{
+						ticks:{
+							beginAtZero:true
+						}
+					}
+				]
+			}
+		}
+	});
+</script>
 	
 <!-- Scripts -->
 <script src="${cpath}/resources/js/jquery.min.js"></script>
