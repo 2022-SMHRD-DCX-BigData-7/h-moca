@@ -119,6 +119,15 @@
 		text-align: left;
 	}
 	
+	.board_list a {
+		text-decoration: none;
+		color: #373f42;
+	}
+	
+	.board_list a:hover{
+		color: #97a197;
+	}
+	
 	.board_list .top .title{
 		width: 55%;
 		text-align: center;
@@ -137,6 +146,14 @@
 		width: 10%;
 	}
 	
+	.board_list .dist_title {
+		width: 70%;
+	}
+	
+	.board_list .score {
+		width: 25%;
+	}
+	
 	/* max-width: 1000px */
 	@media (max-width: 1000px){
 			ul.tabs li{
@@ -150,11 +167,34 @@
 		
 	.t1 {
 		text-align: right;
+		width: 15%;
 	}
 	
 	.t2 {
 		text-align: left;
+		width: 70%;
+	}
+	
+	.t2::before{
+		content: "|";
+		padding-right: 15px;
+	}
+	
+	#tab-3 input {
+		border: none;
+		border-bottom: solid 1px;
+		width: 60%;
 	}	
+	
+	#tab-3 button {
+		position: relative;
+		left: 160px;
+		width: 50px;
+	    height: 35px;
+	    border: solid 1px #97a197;
+	    border-radius: 5px;
+	    cursor: pointer;
+	}
 </style>
 	
 </head>
@@ -207,13 +247,13 @@
 						<div id="dlist" class="board_list wrap">
 							<div class="board_list">
 								<div class="top">
-									<div class="title" style="width:65%">제목</div>
+									<div class="dist_title">제목</div>
 									<div class="score">영상 판별 점수</div>
 									
 								</div>
 							    <div>
 									<c:forEach items="${mylist}" var="vo">
-										<div class="title"><a href="#">${vo.video_name}</a></div>
+										<div class="dist_title"><a href="#">${vo.video_name}</a></div>
 										<div class="score">${vo.video_score}</div>
 									</c:forEach>
 								</div>
@@ -240,7 +280,7 @@
 							</tr>
 							<tr>
 								<td class="t1">비밀번호</td>
-								<td class="t2"><input type="password" name="user_pw"></td> <!-- value="${loginUser.user_pw}" -->
+								<td class="t2"><input type="password" name="user_pw" placeholder="변경할 비밀번호를 입력하세요."></td> <!-- value="${loginUser.user_pw}" -->
 							</tr>
 							<tr>
 								<td class="t1">이름</td>
@@ -251,7 +291,7 @@
 							<tr>
 								<td class="t1">닉네임</td>
 								<%-- <dd><input type="text" id="user_nick" name="user_nick" readonly="readonly" value="${loginUser.user_nick}"></dd> --%>
-								<td class="t2"><input type="text" name="user_nick"></td> <!-- value="${loginUser.user_nick}" -->
+								<td class="t2"><input type="text" name="user_nick" placeholder="변경할 닉네임을 입력하세요."></td> <!-- value="${loginUser.user_nick}" -->
 								
 								
 							</tr>

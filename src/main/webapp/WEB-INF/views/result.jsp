@@ -57,6 +57,16 @@
 	.scrap:hover {
 		cursor: pointer;
 	}
+	
+	.simple h1{
+		font-size: 3rem;
+		padding: 10px;
+	}
+	
+	.simple h3 {
+		font-size: 1.4rem;
+		padding: 10px;
+	} 
 </style>
 </head>
 <body>
@@ -76,7 +86,7 @@
 				<div class="col-10">
 					<button class="scrap">스크랩</button>
 				</div>
-				<div class="col-7 col-12-medium">
+				<div class="col-6 col-12-medium">
 					<!-- 썸네일 -->
 					<section class="thumb">
 						<div>
@@ -85,11 +95,12 @@
 						</div>
 					</section>
 				</div>
-				<div class="col-5 col-12-medium">
+				<div class="col-6col-12-medium">
 					<!-- 결과화면1 -->
 					<section class="simple">
 						<div>
-							<h3>그래프자리</h3>
+							<h3>종합 점수</h3>
+							<h1>75.5점</h1>
 						</div>							
 					</section>
 				</div>

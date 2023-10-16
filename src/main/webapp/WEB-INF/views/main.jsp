@@ -11,20 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
-	body {
-		margin: 0;
-		overflow-x:hidden; 
-	}
 	
-	body::-webkit-scrollbar {
-		width: 8px;
-	}
-	
-	body::-webkit-scrollbar-thumb{
-		height: 30%;
-		background: #cbcbcb;
-		border-radius: 4px;
-	}
 
 	#content {
 		/* position: absolute;
@@ -44,7 +31,7 @@
 	.search-box {
 		display: inline-flex;
 		height: 2.5em;
-		border: solid 3px #97a197;
+		border: solid 3px #061b41ba;
 		border-radius: 4px;
 	}
 	
@@ -59,8 +46,8 @@
 	
 	.search-box button {
 		width: 60px;
-		background-color: #97a197;
-		color: #373f42;
+		background-color: #061b41ba;
+		color: whitesmoke;
 		font-weight: 300;
 		font-size: 13pt;
 		border: none;
@@ -73,7 +60,7 @@
 	/* 검색순위 */
 	.ranklist {
 		width: 438px;
-		border: solid 1px #97a197;
+		border: solid 1px #061b41ba;
 		border-radius: 5px;
 		text-align: center;
 		border-spacing: 10px;

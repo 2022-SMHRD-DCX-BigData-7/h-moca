@@ -67,7 +67,7 @@
 						</div>
 						<div class="btn_wrap">
 							<button type="submit" class="on" >등록</button>
-							<button type="reset" id="reset">취소</button>
+							<button type="button" id="reset" onclick="window.location.href='${cpath}/boardList.do'">취소</button>
 						</div>
 					</form>
 					

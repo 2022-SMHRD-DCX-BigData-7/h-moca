@@ -7,6 +7,11 @@ ul, li{
     color: inherit !important; 
 }
 
+.board_wrap a:hover{
+	cursor: pointer;
+	color: #97a197 !important;
+}
+
 .board_wrap{
     width: 1000px;
     margin: 100px auto;
@@ -28,22 +33,32 @@ ul, li{
 
 .btn_wrap button {
 	display: inline-block;
-    min-width: 80px;
+    min-width: 65px;
     margin-left: 10px;
     padding: 5px;
-    border: solid 1px #d6ddd8;
+    border: solid 1px #e0e0e0;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+
+.btn_wrap button:hover{
+	cursor: pointer;
+	background-color: whitesmoke;
 }
 
 .btn_wrap a {
     display: inline-block;
-    min-width: 80px;
+    min-width: 75px;
     margin-left: 10px;
     padding: 5px;
-    border: solid 1px #d6ddd8;
+    border: solid 1px #e0e0e0;
     border-radius: 5px;
     font-size: 1.2rem;
+}
+
+.btn_wrap a:hover{
+	cursor: pointer;
+	background-color: whitesmoke;
 }
 
 .btn_wrap a:first-child {
@@ -394,6 +409,7 @@ ul, li{
 
 .cmt_view ul {
 	display: flex;
+	padding: 10px;
 }
 
 .cmt_view ul li {
@@ -425,9 +441,13 @@ ul, li{
 .cmt_view ul button {
 	width: 50px;
 	height: 35px;
-	border: solid 1px #97a197;
+	border: solid 1px #e0e0e0;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.cmt_view ul button:hover{
+	background-color: whitesmoke;
 }
 
 
@@ -445,10 +465,14 @@ ul, li{
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	border: solid 1px #97a197;
+	border: solid 1px #e0e0e0;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: 0.5s;
+}
+
+.cmt_text button:hover{
+	background-color: whitesmoke;
 }
 
 .cmt_input {
@@ -461,7 +485,7 @@ ul, li{
 
 .cmt_input input {
 	border: none;
-	width: 93%;
+	width: 92%;
 }
 
 .cmt_input input:disabled {
