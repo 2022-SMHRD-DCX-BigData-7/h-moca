@@ -70,12 +70,18 @@ public class CmtController {
 			System.out.println("list에는 담긴 name : "+r.getVideo_name());
 		}
 		
+		return list;
+	}
+	
+	@GetMapping("/postrank")
+	public List<Post> boardList(){
+		// @RestController 표시 덕분에 @ResponseBody 안 써도 됨
 		List<Post> ranklist = rmapper.postrankList();
 		for(Post p : ranklist) {
 			System.out.println("ranklist에는 담긴 name : "+p.getPost_title());
 		}
 		
-		return list;
+		return ranklist;
 	}
 	
 	

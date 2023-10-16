@@ -140,6 +140,36 @@
 		
 		$("#list").html(rList);
 		
+	}
+	
+	
+	$(document).ready(function(){
+		// 함수 호출
+		rankpostList();
+	});
+	
+	function rankpostList(){
+  		$.ajax({
+  			url : "${cpath}/postrank",
+  			type : "get",
+  			// data : 보내줄 데이터가 없으므로 주석 처리 !
+  			dataType : "json",
+  			// 응답이 성공했을때 callBack()함수 호출하는데
+  			// ajax 안에서 함수 실행 할 때는 ()를 적지 않는다 !!!
+  			// 소괄호 사용하면 함수가 실행이 안됨 
+  			success : callBack,
+  			error : function(){
+  				alert("랭킁 목록 통신 실패ㅠ0ㅠ");
+  			}
+  		}); // ajax 끝
+	}
+	
+	function callBack(data){
+		
+		console.log(data);
+	
+		
+		// 게시물
 		var bList = "<table class='ranklist'>";
 		bList += "<tr>";
 		bList += "<td class='rank'>순위</td>";
@@ -155,6 +185,8 @@
 		$("#blist").html(bList);
 		
 	}
+	
+	
 </script>
 </head>
 <body>
