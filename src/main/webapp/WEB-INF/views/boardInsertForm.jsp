@@ -50,6 +50,16 @@
 							<dl>
 								<dt>제목</dt>
 								<dd><input type="text" id="post_title" name="post_title" placeholder="제목을 입력하세요."></dd>
+								
+								<%-- <c:choose>
+									<c:when test="${vo.dist_idx eq 15}">
+										<dd><input type="text" id="post_title" name="post_title" placeholder="제목을 입력하세요."></dd>
+									</c:when>
+									<c:otherwise>
+										<dd><input type="text" id="post_title" name="post_title" value="[스크랩]" placeholder="제목을 입력하세요."></dd>
+									</c:otherwise>
+								</c:choose> --%>
+								
 							</dl>
 						</div>
 						<div class="info">
@@ -59,7 +69,7 @@
 							</dl>
 							<dl>
 								<dt>판별고유번호</dt>
-								<dd><input type="text" id="dist_idx" name="dist_idx" value="15"></dd>
+								<dd><input type="text" id="dist_idx" name="dist_idx"></dd>
 							</dl>
 						</div>
 						<div class="cont">
