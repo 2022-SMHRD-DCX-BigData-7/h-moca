@@ -12,8 +12,9 @@
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
 	#content {
+		margin: 0 50px;
 		position: absolute;
-		top: 100px;
+		top: 250px;
 		right: 0;
 		left: 0;
 	}
@@ -71,8 +72,9 @@
 		cursor: pointer;
 	}
 	
-	.simple div{
+	.simple>div{
 		height: 400px;
+		text-align: -webkit-center;
 	}
 	
 	.simple h1{
@@ -85,6 +87,14 @@
 		padding: 10px;
 	} 
 	
+	.detail {
+		text-align: -webkit-center;
+	}
+	
+	.detail>div{
+		height: 450px;
+		padding-top: 30px;
+	}
 	
 </style>
 </head>
@@ -124,7 +134,9 @@
 					<section class="simple">
 						<div>
 							<h3>종합 점수</h3>
-							<h1>${vo.video_score}</h1>
+							<div style="width: 400px; height:350px">
+								<canvas id="totalscore"></canvas>
+							</div>
 						</div>							
 					</section>
 				</div>
@@ -135,9 +147,21 @@
 								<!-- 통계화면 -->
 								<section class="detail">
 									<div>
-										<h3>통계화면 자리</h3>
-										<div style="width:900px; height:900px;">
-											<canvas id="myChart"></canvas>
+										<h3>영상 데이터</h3>
+										<div style="width:700px; height:700px;">
+											<canvas id="meta"></canvas>
+										</div>
+									</div>
+									<div>
+										<h3>영상 점수</h3>
+										<div style="width:700px; height:700px;">
+											<canvas id="Chart_video"></canvas>
+										</div>
+									</div>
+									<div>
+										<h3>썸네일 점수</h3>
+										<div style="width:700px; height:700px;">
+											<canvas id="Chart_thumb"></canvas>
 										</div>
 									</div>
 								</section>
@@ -153,58 +177,38 @@
 
 <!-- 차트 script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="${cpath}/resources/js/chart.js"></script>
 <script type="text/javascript">
-
-	var context = document
-		.getElementById("myChart") // myChart라는 id를 가진 태그를 찾아서
-		.getContext('2d'); // getContext 속성을 통해 2d로 세팅
-	var myChart = new Chart(context,{ // (context,{chart내용})
-		type: 'bar', // 차트 형태
-		data: { // 차트에 들어갈 데이터
-			labels : [
-				// x축
-				'1','2','3','4','5','6','7'
-			],
-			datasets: [
-				{// 데이터
-					label : 'test1', //차트 제목
-					fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-					data:[
-						21,19,25,20,23,26,25 // x축 label에 대응되는 값
-					],
-					backgroundColor:[
-						'rgba(255, 99, 132, 0.2)',
-	                    'rgba(54, 162, 235, 0.2)',
-	                    'rgba(255, 206, 86, 0.2)',
-	                    'rgba(75, 192, 192, 0.2)',
-	                    'rgba(153, 102, 255, 0.2)',
-	                    'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor : [
-						 'rgba(255, 99, 132, 1)',
-                         'rgba(54, 162, 235, 1)',
-                         'rgba(255, 206, 86, 1)',
-                         'rgba(75, 192, 192, 1)',
-                         'rgba(153, 102, 255, 1)',
-                         'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1 // 경계선 굵기
-				}
-			]
+	const context = document.getElementById('totalscore');
+	
+	new Chart(context, {
+		type: 'doughnut',
+		data: {
+			labels: ['진실', '거짓'],
+			datasets: [{
+				label: 'total',
+				data: [25, 75],
+				backgroundColor:[
+					'rgb(54, 162, 235, 0.5)',
+					'rgb(255,205,86, 0.5)'
+				],
+				hoverOffset:4
+			}]
 		},
-		options: {
-			scales: {
-				yAxes :[
-					{
-						ticks:{
-							beginAtZero:true
-						}
-					}
-				]
+		options:{
+			cutout: '75%', // 도넛 차트의 중앙 부분이 뚜렷하게 보이도록
+			plugins:{
+				legend:{
+					display: false
+				},
+				tooltip:{
+					enabled: false
+				},
 			}
 		}
 	});
 </script>
+
 	
 <!-- Scripts -->
 <script src="${cpath}/resources/js/jquery.min.js"></script>
