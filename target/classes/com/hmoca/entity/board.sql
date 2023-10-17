@@ -79,7 +79,7 @@ ALTER TABLE dist_info
 DROP COLUMN video_views;
 
 delete from dist_info where dist_idx=1;
-delete from post_info where dist_idx=1;
+delete from post_info where post_idx=12;
 delete from user_info where user_id="user05";
 
 select * from user_info;
@@ -116,9 +116,23 @@ insert into post_info(post_title, post_content, created_at, post_views, user_id,
 insert into post_info(post_title, user_id,  dist_idx, post_content) values
 ('가', 'sk', 0, '가나다라');
 
+insert into post_info(post_title, user_id, post_content, post_views) values
+('우즈베키스탄 격투 축구에 박살난 일본! 뒤늦게 보복하는 일본! 하지만 이미 늦었다.', 'user1', '우즈베키스탄 격투 축구에 박살난 일본', 258);
+
+insert into post_info(post_title, user_id, post_content, post_views) values
+('“은혜를 원수로 갚았다” 손흥민 손 떠난 히샬리송 결국 퇴출', 'user1', '손흥민과 히샬리송', 260);
+
+insert into post_info(post_title, user_id, post_content, post_views) values
+('이강인을 조롱하는 일본인 기자에게 일침놓는 엔리케 감독!', 'user2', '이강인', 260);
+
+insert into post_info(post_title, user_id, post_content, post_views) values
+('이강인 극찬하는 맨시티 펩 과르디올라 감독 #이강인 한국인으로서 자랑스럽다!', 'user1', 'ㅋㅋ', 270);
+
 select * from user_info;
-select * from post_info;
+select * from dist_info;
 select * from comment_info;
+select * from post_info;
+
 
 insert into comment_info(cmt_content, user_id, post_idx)
 values ('댓글1','user1','13');
@@ -132,11 +146,18 @@ insert into comment_info(cmt_content, user_id, post_idx)
 values ('댓글5','user1','14');
 
 delete from post_info where post_idx=21;
-                                                     
 
-select * from user_info;
-update comment_info set user_id = 'sk', cmt_content = '댓글 수정'
-where cmt_idx = 2 and post_idx = 12;
+
+                                                    
+
+
+update post_info set post_content = '<img src="https://www.youtube.com/watch?v=RtT8ZYDJQOc">
+
+이게 가짜뉴스라니.. 판별 해본 후 판별 점수가 낮아서 다시 알아보니 이강인 내용이 아니었어요! 이런 ㅠㅠ'
+where post_idx=42
+
+update dist_info set video_name = '툴루즈와 psg 2분 하이라이트'
+where dist_idx=9
 
 
 delete from comment_info where cmt_idx=14 and post_idx=19;
