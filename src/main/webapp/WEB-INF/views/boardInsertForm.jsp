@@ -69,7 +69,7 @@
 							</dl>
 							<dl>
 								<dt>판별고유번호</dt>
-								<dd><input type="text" id="dist_idx" name="dist_idx"></dd>
+								<dd><input type="text" id="dist_idx" name="dist_idx" value="15"></dd>
 							</dl>
 						</div>
 						<div class="cont">
