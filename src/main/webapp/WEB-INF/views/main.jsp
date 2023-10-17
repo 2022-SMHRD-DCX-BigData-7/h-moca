@@ -103,6 +103,10 @@
 		border-bottom: solid 1px #f0f0f0;
 	}
 	
+	.hidden {
+		display: none;
+	}
+	
 </style>
 
 <script>
@@ -196,9 +200,17 @@
 				<div class="col-12 col-12-medium">
 					<!-- Box #1 -->
 					<section id="search">
-						<form class="search-box">
-							<input type="search" class="url-box" placeholder="URL을 입력하세요">
-							<button type="button" class="search-btn" onclick="location.href='${cpath}/result.do'">검색</button>
+						<form action="${cpath}/result.do" class="search-box">
+							<input type="text" class="hidden" name="user_id" value="${loginUser.user_id}">
+							<input type="search" class="url-box" name="url_name" placeholder="URL을 입력하세요">
+							<input type="text" class="hidden" name="video_name" value="video_name"> 
+							<input type="text" class="hidden" name="video_thumb" value="video_thumb">
+							<input type="text" class="hidden" name="title_score" value="title_score">
+							<input type="text" class="hidden" name="meta_score" value="meta_score">
+							<input type="text" class="hidden" name="video_score" value="video_score">
+							<input type="text" class="hidden" name="thumb_nm_score" value="thumb_nm_score">
+							<input type="text" class="hidden" name="thumb_img_score" value="thumb_img_score">
+							<button type="submit" class="search-btn">검색</button>
 						</form>
 					</section>
 				</div>

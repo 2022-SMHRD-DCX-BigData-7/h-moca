@@ -32,12 +32,19 @@
 	
 	.url input{
 		width: 600px;
-		border-radius: 5px;
+		border: none;
 		margin-left: 10px;
 	}
 	
+	.url, .thumb, .simple, .detail {
+		box-shadow: 0 2px 8px 1px rgba(223 223 223);
+		border-color: rgba(223,225,229,0);
+	}
+	
+	
 	.thumb div {
 		width: 500px;
+		height: 400px;
 	}
 	
 	.thumb div p {
@@ -50,10 +57,10 @@
 	}
 	
 	.scrap {
-		height: 25px;
+		height: 30px;
 		position: absolute;
-		top: 80px;
-		right: 70px;
+		top: 90px;
+		right: 105px;
 		border: solid 1px #d6ddd8;
 		border-radius: 5px;
 		background-color: #d6ddd8;
@@ -62,6 +69,10 @@
 	
 	.scrap:hover {
 		cursor: pointer;
+	}
+	
+	.simple div{
+		height: 400px;
 	}
 	
 	.simple h1{
@@ -73,6 +84,8 @@
 		font-size: 1.4rem;
 		padding: 10px;
 	} 
+	
+	
 </style>
 </head>
 <body>
@@ -97,7 +110,7 @@
 						url주소 :<input value="${vo.url_name}" readonly>
 					</section>
 				</div>
-				<div class="col-6 col-12-medium">
+				<div class="col-7 col-12-medium">
 					<!-- 썸네일 -->
 					<section class="thumb">
 						<div>
@@ -106,7 +119,7 @@
 						</div>
 					</section>
 				</div>
-				<div class="col-6col-12-medium">
+				<div class="col-5 col-12-medium">
 					<!-- 결과화면1 -->
 					<section class="simple">
 						<div>
@@ -115,25 +128,24 @@
 						</div>							
 					</section>
 				</div>
-			</div>
-			
-			<!-- 로그인하면 보여주는 페이지 -->
-			<c:choose>
-				<c:when test="${not empty loginUser}">
-					<div class="col-12">
-							<!-- 통계화면 -->
-							<section class="detail">
-								<div>
-									<h3>통계화면 자리</h3>
-									<div style="width:900px; height:900px;">
-										<canvas id="myChart"></canvas>
+				<!-- 로그인하면 보여주는 페이지 -->
+				<c:choose>
+					<c:when test="${not empty loginUser}">
+						<div class="col-12">
+								<!-- 통계화면 -->
+								<section class="detail">
+									<div>
+										<h3>통계화면 자리</h3>
+										<div style="width:900px; height:900px;">
+											<canvas id="myChart"></canvas>
+										</div>
 									</div>
-								</div>
-							</section>
-						</div>
-				</c:when>
-				<c:otherwise></c:otherwise>
-			</c:choose>
+								</section>
+							</div>
+					</c:when>
+					<c:otherwise></c:otherwise>
+				</c:choose>
+			</div>
 		</div>
 	</section>
 	
