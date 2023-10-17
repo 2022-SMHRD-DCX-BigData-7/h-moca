@@ -30,6 +30,12 @@
 		border-radius: 10px;
 	}
 	
+	.url input{
+		width: 600px;
+		border-radius: 5px;
+		margin-left: 10px;
+	}
+	
 	.thumb div {
 		width: 500px;
 	}
@@ -86,12 +92,17 @@
 				<div class="col-10">
 					<button class="scrap" onclick="location.href='${cpath}/boardInsertForm1.do'">스크랩</button>
 				</div>
+				<div class="col-12">
+					<section class="url">
+						url주소 :<input value="${vo.url_name}" readonly>
+					</section>
+				</div>
 				<div class="col-6 col-12-medium">
 					<!-- 썸네일 -->
 					<section class="thumb">
 						<div>
-							<p><img src="https://i.ytimg.com/vi/eWoC1PtZnww/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDA6wgqJuHiwURqpdVNQBzfUo4nAA"></p>
-							<p>내 과몰입 버튼 = 오정세 자기님의 연기! 오디션 썰 부터 대작 이야기까지</p>
+							<p><img src="${vo.video_thumb}"></p>
+							<p>${vo.video_name}</p>
 						</div>
 					</section>
 				</div>
@@ -100,7 +111,7 @@
 					<section class="simple">
 						<div>
 							<h3>종합 점수</h3>
-							<h1>75.5점</h1>
+							<h1>${vo.video_score}</h1>
 						</div>							
 					</section>
 				</div>
