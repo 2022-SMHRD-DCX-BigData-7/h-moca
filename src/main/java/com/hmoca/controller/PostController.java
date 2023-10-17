@@ -54,11 +54,11 @@ public class PostController {
 	
 	
 	@RequestMapping("/boardInsertForm1.do")
-	public void boardInsertForm1(@PathVariable("dist_idx")int dist_idx, Model model) {
+	public String boardInsertForm1(@PathVariable("dist_idx")int dist_idx, Model model) {
 		Dist vo = mapper2.selectDist(dist_idx);
 		model.addAttribute("vo", vo);
 		
-		//return "boardInsertForm1";
+		return "redirect:/boardInsert.do";
 	}
 	
 	@PostMapping("/boardInsert.do")
@@ -68,12 +68,13 @@ public class PostController {
 			// 일반게시글
 			mapper.insertPost1(vo);
 		}else {
-			// 넣을 dist_idx가 있으면
+			// 넣을 dist_idx가 있으면 (스크랩)
 			mapper.insertPost(vo);
 		}
 		
 		return "redirect:/boardList.do";
 	}
+	
 	
 	// 게시글 삭제
 	@RequestMapping("/boardDelete.do/{post_idx}")

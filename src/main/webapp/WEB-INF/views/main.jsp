@@ -210,7 +210,7 @@
 							<input type="text" class="hidden" name="video_score" value="video_score">
 							<input type="text" class="hidden" name="thumb_nm_score" value="thumb_nm_score">
 							<input type="text" class="hidden" name="thumb_img_score" value="thumb_img_score">
-							<button type="submit" class="search-btn">검색</button>
+							<button type="submit" name="search" class="search-btn">검색</button>
 						</form>
 					</section>
 				</div>

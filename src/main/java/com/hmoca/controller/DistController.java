@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hmoca.entity.Dist;
@@ -22,10 +23,28 @@ public class DistController {
 @Autowired
 	private DistMapper mapper;
 	
+	
+	// 결과페이지 이동
+//	@GetMapping("/result.do")
+//	public String result(@PathVariable("dist_idx")int dist_idx, Model model) {
+//		
+//		Dist vo1 = mapper.insertDist(dist_idx);
+//		Dist vo = mapper.selectDist(dist_idx);
+//		model.addAttribute("vo", vo);
+//		return "result";
+//	}
+	
 	// 결과페이지 이동
 	@GetMapping("/result.do")
-	public String result() {
-				
+	public String result(Dist vo) {
+		mapper.selectDist1(vo); 
 		return "result";
 	}
+
+//	@GetMapping("/result.do/{dist_idx}")
+//	public String result(@PathVariable("dist_idx") int dist_idx, Model model) {
+//	    Dist vo = mapper.selectDist(dist_idx);
+//	    model.addAttribute("vo", vo);
+//	    return "result";
+//}
 }
