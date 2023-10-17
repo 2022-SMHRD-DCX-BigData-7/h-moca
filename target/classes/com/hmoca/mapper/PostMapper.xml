@@ -16,10 +16,15 @@
 	</insert> -->
 	
 	<insert id ="insertPost" parameterType="com.hmoca.entity.Post">
-	 	insert into post_info(post_title, post_content, user_id,  dist_idx) 
+	 	insert into post_info(post_title, post_content, user_id, dist_idx) 
 	 	values(#{post_title}, #{post_content}, #{user_id}, #{dist_idx})
 	</insert>
    
+		<insert id ="insertPost1" parameterType="com.hmoca.entity.Post">
+	 	insert into post_info(post_title, post_content, user_id) 
+	 	values(#{post_title}, #{post_content}, #{user_id})
+	</insert>
+	
   	<select id ="selectPost" parameterType="int" resultType="com.hmoca.entity.Post">
 		select * from post_info where post_idx=#{post_idx}
 	</select> 

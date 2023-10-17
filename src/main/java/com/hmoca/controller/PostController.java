@@ -49,8 +49,14 @@ public class PostController {
 	
 	@PostMapping("/boardInsert.do")
 	public String boardInsert(Post vo) {
-		
-		mapper.insertPost(vo);
+		System.out.println("dist_idx : "+vo.getDist_idx());
+		if(vo.getDist_idx() == 15) {
+			// 일반게시글
+			mapper.insertPost1(vo);
+		}else {
+			// 넣을 dist_idx가 있으면
+			mapper.insertPost(vo);
+		}
 		
 		return "redirect:/boardList.do";
 	}

@@ -26,5 +26,6 @@ public interface PostMapper {
 		public List<Post> MypostList(String user_id);
 
 		public Post Mypostcontent (Post vo);
+		public void insertPost1(Post vo);
 
 }

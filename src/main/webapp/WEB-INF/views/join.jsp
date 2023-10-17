@@ -40,7 +40,7 @@ function zzz(){
     }
 	 
 //	 var form = document.inputForm;
-	 var pw = document.getElementById("user_pw");
+/* 	 var pw = document.getElementById("user_pw");
 	var nick = document.getElementById("user_nick");
 
 	 if(pw.value==""){
@@ -53,7 +53,7 @@ function zzz(){
 		 alert("닉넴입력해주세요");
 		nick.focus();
 	 	return false;		
-	 }
+	 } */
 /* 	 if(form.user_pw.value != form.ckuser_pw.value){
 	 alert("비밀번호를 확인해주세요.");
 	 form.password.focus();

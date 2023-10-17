@@ -79,7 +79,7 @@ ALTER TABLE dist_info
 DROP COLUMN video_views;
 
 delete from dist_info where dist_idx=1;
-delete from post_info where post_idx=12;
+delete from post_info where post_idx=78;
 delete from user_info where user_id="user05";
 
 select * from user_info;
@@ -145,10 +145,8 @@ values ('댓글4','user1','14');
 insert into comment_info(cmt_content, user_id, post_idx)
 values ('댓글5','user1','14');
 
-delete from post_info where post_idx=21;
-
-
-                                                    
+select * from user_info;
+delete from user_info where user_id='user5';
 
 
 update post_info set post_content = '<img src="https://www.youtube.com/watch?v=RtT8ZYDJQOc">
@@ -177,3 +175,5 @@ select * from post_info where user_id='user1' order by post_idx desc
 
 select count(*) from user_info where user_id ='user122'
 select * from user_info;
+
+insert into dist_info values (0,'user1','00','00','00',0,0,0,0,0)
