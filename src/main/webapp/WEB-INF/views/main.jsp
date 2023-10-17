@@ -18,9 +18,15 @@
 		top: 100vh;
 		right: 0;
 		left: 0; */
-		width: 1170px;
+		width: 95%;
 		margin: auto;
 		text-align: center;
+	}
+	
+	.listsection {
+		position: relative;
+		top: 100px;
+		text-align: -webkit-center;
 	}
 	
 	#search {
@@ -63,11 +69,19 @@
 		border: solid 1px #061b41ba;
 		border-radius: 5px;
 		text-align: center;
-		border-spacing: 10px;
+		table-layout: fixed;
+	}
+	
+	.ranklist tr{
+		height: 60px;
 	}
 	
 	.ranklist tr:first-child{
 		height: 10px;
+	}
+	
+	.ranklist tr:last-child td {
+		border: none;
 	}
 	
 	.ranklist tr td:first-child {
@@ -88,6 +102,7 @@
 		width: 85%;
 		border-bottom: solid 1px #f0f0f0;
 	}
+	
 </style>
 
 <script>
@@ -129,8 +144,8 @@
 		$.each(data, function(idx, ob){
 			
 			rList += "<tr>";
-			rList += "<td>"+(idx+1)+"</td>";
-			rList += "<td>"
+			rList += "<td class='rank'>"+(idx+1)+"</td>";
+			rList += "<td class='title'>"
 			rList += "<p><img src='"+ob.video_thumb+"'></p>"
 			rList += "<p>"+ob.video_name+"</p>"
 			rList += "</td>"
@@ -155,8 +170,8 @@
 		
 		$.each(data, function(index, obj){
 			bList += "<tr>";
-			bList += "<td>"+(index+1)+"</td>";
-			bList += "<td><p>"+obj.post_title+"</p></td>";
+			bList += "<td class='rank'>"+(index+1)+"</td>";
+			bList += "<td class='title'><p>"+obj.post_title+"</p></td>";
 			bList += "</tr>";
 		})
 		$("#blist").html(bList);
@@ -189,7 +204,7 @@
 				</div>
 				<div class="col-6 col-8-medium col-12-small">
 					<!-- Box #2 -->
-					<section>
+					<section class="listsection">
 						<h2>검색 순위</h2>
 						<div id="list">
 							<!-- 검색순위 들어갈 부분 -->
@@ -198,7 +213,7 @@
 				</div>
 				<div class="col-6 col-8-medium col-12-small">
 					<!-- Box #2 -->
-					<section>
+					<section class="listsection">
 						<h2>게시글 순위</h2>
 						<div id="blist">
 							<!-- 게시글 순위 들어감 -->
