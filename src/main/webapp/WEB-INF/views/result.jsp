@@ -113,7 +113,7 @@
 					<h2>판별 결과</h2>
 				</div>
 				<div class="col-10">
-					<button class="scrap" onclick="location.href='${cpath}/boardInsertForm1.do'">스크랩</button>
+					<button class="scrap" onclick="location.href='${cpath}/boardInsertForm1.do?${vo.dist_idx}'">스크랩</button>
 				</div>
 				<div class="col-12">
 					<section class="url">

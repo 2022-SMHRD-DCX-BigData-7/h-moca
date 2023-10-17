@@ -12,4 +12,11 @@
 	<select id ="selectDist" parameterType="int" resultType="com.hmoca.entity.Dist">
 		select * from dist_info where dist_idx=#{dist_idx}
 	</select> 
+	
+<!-- 	<insert\ id ="selectDist1" parameterType="com.hmoca.entity.Dist" resultType="com.hmoca.entity.Dist">
+		insert into dist_info (user_id, url_name, video_name, video_thumb, title_score, meta_score, video_score, thumb_nm_score, thumb_img_score)
+		values (#{user_id},#{url_name},#{video_name},#{video_thumb},#{title_score},#{meta_score},#{video_score},#{thumb_nm_score},#{thumb_img_score});
+	</insert>  -->
+
+	
 </mapper>

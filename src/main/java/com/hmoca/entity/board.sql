@@ -84,7 +84,9 @@ delete from user_info where user_id="user05";
 
 select * from user_info;
 
-
+UPDATE dist_info
+SET url_name='https://www.youtube.com/watch?v=RtT8ZYDJQOc' 
+WHERE dist_idx=2;
 
 ALTER TABLE dist_info ADD title_score DECIMAL(10, 2) NOT NULL;
 ALTER TABLE dist_info ADD thumb_score DECIMAL(10, 2) NOT NULL;
@@ -94,6 +96,8 @@ ALTER TABLE dist_info ADD meta_score DECIMAL(10, 2) NOT NULL;
 select * from dist_info;
 select * from post_info;
 select * from comment_info;
+
+ALTER TABLE dist_info MODIFY dist_idx int;
 
 delete dist_idx from post_info;
 alter table post_info drop column dist_idx;
@@ -118,15 +122,6 @@ insert into post_info(post_title, user_id,  dist_idx, post_content) values
 
 insert into post_info(post_title, user_id, post_content, post_views) values
 ('우즈베키스탄 격투 축구에 박살난 일본! 뒤늦게 보복하는 일본! 하지만 이미 늦었다.', 'user1', '우즈베키스탄 격투 축구에 박살난 일본', 258);
-
-insert into post_info(post_title, user_id, post_content, post_views) values
-('“은혜를 원수로 갚았다” 손흥민 손 떠난 히샬리송 결국 퇴출', 'user1', '손흥민과 히샬리송', 260);
-
-insert into post_info(post_title, user_id, post_content, post_views) values
-('이강인을 조롱하는 일본인 기자에게 일침놓는 엔리케 감독!', 'user2', '이강인', 260);
-
-insert into post_info(post_title, user_id, post_content, post_views) values
-('이강인 극찬하는 맨시티 펩 과르디올라 감독 #이강인 한국인으로서 자랑스럽다!', 'user1', 'ㅋㅋ', 270);
 
 select * from user_info;
 select * from dist_info;

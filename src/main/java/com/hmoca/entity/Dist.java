@@ -1,15 +1,17 @@
 package com.hmoca.entity;
 
 public class Dist {
+	
 	private int dist_idx;
 	private String user_id; 
 	private String url_name;
 	private String video_name;
 	private String video_thumb; 
 	private double title_score; 
-	private double thumb_score;
 	private double meta_score; 
 	private double video_score; 
+	private double thumb_nm_score;
+	private double thumb_img_score;
 	
 	public int getDist_idx() {
 		return dist_idx;
@@ -47,12 +49,6 @@ public class Dist {
 	public void setTitle_score(double title_score) {
 		this.title_score = title_score;
 	}
-	public double getThumb_score() {
-		return thumb_score;
-	}
-	public void setThumb_score(double thumb_score) {
-		this.thumb_score = thumb_score;
-	}
 	public double getMeta_score() {
 		return meta_score;
 	}
@@ -65,5 +61,18 @@ public class Dist {
 	public void setVideo_score(double video_score) {
 		this.video_score = video_score;
 	}
+	public double getThumb_nm_score() {
+		return thumb_nm_score;
+	}
+	public void setThumb_nm_score(double thumb_nm_score) {
+		this.thumb_nm_score = thumb_nm_score;
+	}
+	public double getThumb_img_score() {
+		return thumb_img_score;
+	}
+	public void setThumb_img_score(double thumb_img_score) {
+		this.thumb_img_score = thumb_img_score;
+	}
+	
 
 }
