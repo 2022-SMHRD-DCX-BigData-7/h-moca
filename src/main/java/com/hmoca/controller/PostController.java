@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hmoca.entity.Dist;
 import com.hmoca.entity.Post;
+import com.hmoca.mapper.DistMapper;
 import com.hmoca.mapper.PostMapper;
 @Controller
 public class PostController {
@@ -22,6 +24,9 @@ public class PostController {
 	@Autowired
 	private PostMapper mapper;
 		
+	@Autowired
+	private DistMapper mapper2;
+	
 	// 게시판 리스트 불러오기
 	@RequestMapping("/boardList.do")
 	public String boardList(Model model) {
@@ -46,6 +51,15 @@ public class PostController {
 	// 게시글 작성
 	@RequestMapping("/boardInsertForm.do")
 	public void boardInsertForm() {	}
+	
+	
+	@RequestMapping("/boardInsertForm1.do")
+	public void boardInsertForm1(@PathVariable("dist_idx")int dist_idx, Model model) {
+		Dist vo = mapper2.selectDist(dist_idx);
+		model.addAttribute("vo", vo);
+		
+		//return "boardInsertForm1";
+	}
 	
 	@PostMapping("/boardInsert.do")
 	public String boardInsert(Post vo) {
