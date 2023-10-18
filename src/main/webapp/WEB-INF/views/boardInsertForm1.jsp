@@ -64,7 +64,7 @@
 						</div>
 						<div class="cont">
 							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요.">
-								${vo. }
+								
 							</textarea>
 						</div>
 						<div class="btn_wrap">

@@ -11,4 +11,5 @@ public interface DistMapper {
 	public Dist selectDist(int dist_idx); // 스크랩 -> 게시물
 	public void selectDist1(Dist vo); // 검색 -> 판별 페이지
 	public Dist selectDist();
+	public Dist scrapDist(int dist_idx);
 }

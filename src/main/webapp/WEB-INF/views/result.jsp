@@ -105,6 +105,11 @@
 		position: absolute;
 	}
 </style>
+<script type="text/javascript">
+	function scrap(){
+		location.href='${cpath}/boardInsertForm1.do?dist_idx=${vo.dist_idx}'
+	}
+</script>
 </head>
 <body>
 
@@ -121,7 +126,7 @@
 					<h2>판별 결과</h2>
 				</div>
 				<div class="col-10">
-					<button class="scrap" onclick="location.href='${cpath}/boardInsertForm1.do?${vo.dist_idx}'">스크랩</button>
+					<button class="scrap" onclick="scrap()">스크랩</button>
 				</div>
 				<div class="col-12">
 					<section class="url">
@@ -188,126 +193,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="${cpath}/resources/js/myChart.js"></script>
 <script type="text/javascript">
-
-
-// 아이디 totalscore
-
-	var chartLabels = [];
-	var chartdata = [];
-
-	$(document).ready(function(){
-		getTimeStamp();
-		
-		$.ajax({
-			url: '${cpath}/doughChart.do',
-			type: 'POST',
-			dataType: 'json', // 서버에서 보내줄 테이터 타입
-			contentType: 'application/json;charset=utf-8',
-			success: function(data){
-				console.log(data);
-				console.log("doughChart");
-				
-				
-			}
-		})
-	})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 두번째거
-	/* var data = {
-		labels: ['진실','거짓'],
-		datasets:[
-			{
-				label: 'Score',
-				data:[75,25],
-				backgroundColor:[
-					'rgb(54, 162, 235, 0.5)',
-					'rgb(255,205,86, 0.5)'
-				],
-				borderWidth: 1
-			}
-		]
-	};
-	
-	var options = {
-		animation:{
-			animateScale: true
-		},
-		responsive: false,
-		scales: {
-			yAxes : [
-				{ticks:{
-					beginAtZero: true
-				}
-				}
-			]
-		}
-	};
-	
-	var ctx = document.getElementById("totalscore").getContext('2d');
-	
-	var myDoughChart = new Chart(ctx, {
-		type: 'doughnut',
-		data: data,
-		options: options
-	});
-	
-	$(document).ready(function(){
-		sendAjax('${cpath}/');
-	})
-	
-	function sendAjax(url){
-		var oReq = new XMLHttpRequest();
-		
-		oReq.open('POST', url);
-		oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다                         
-	    oReq.send();
-		
-		oReq.addEventListener('load', function() {
-	        var result = JSON.parse(oReq.responseText);
-	        var score = result.score;
-	        var comp_data = data.datasets[0].data;
-	 
-	        for (var i = 0; i < comp_data.length; i++) {
-	            comp_data[i] = score[i];
-	        }
-	 
-	        data.datasets[0].data = comp_data;
-	        myDoughChart.update();
-	    })
-	}
- */
-
-
 // 첫번째거
 
-	/* const context = document.getElementById('totalscore');
+	const context = document.getElementById('totalscore');
 	
 	new Chart(context, {
 		type: 'doughnut',
@@ -335,7 +223,7 @@
 				
 			}
 		}
-	}); */
+	}); 
 </script>
 
 	

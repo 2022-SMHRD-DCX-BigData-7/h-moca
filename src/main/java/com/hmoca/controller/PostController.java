@@ -53,13 +53,18 @@ public class PostController {
 	public void boardInsertForm() {	}
 	
 	
-	@RequestMapping("/boardInsertForm1.do")
-	public String boardInsertForm1(@PathVariable("dist_idx")int dist_idx, Model model) {
-		Dist vo = mapper2.selectDist(dist_idx);
-		model.addAttribute("vo", vo);
-		
-		return "redirect:/boardInsert.do";
-	}
+	
+	 @RequestMapping("/boardInsertForm1.do") 
+	 public String boardInsertForm1(int dist_idx, Model model) {
+	  
+	 // Dist vo = mapper2.selectDist(dist_idx); 원래꺼 
+	 Dist vo = mapper2.scrapDist(dist_idx); 
+	 model.addAttribute("vo", vo);
+	  
+	 return "boardInsertForm1"; 
+	 }
+	 
+	
 	
 	@PostMapping("/boardInsert.do")
 	public String boardInsert(Post vo) {
