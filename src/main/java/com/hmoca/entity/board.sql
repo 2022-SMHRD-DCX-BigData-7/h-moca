@@ -101,7 +101,10 @@ ALTER TABLE dist_info MODIFY dist_idx int;
 
 delete dist_idx from post_info;
 alter table post_info drop column dist_idx;
-ALTER TABLE post_info ADD dist_idx INT;
+
+alter table post_info add column dist_idx;
+
+ALTER TABLE dist_info MODIFY dist_idx INT;
 
 DROP TABLE dist_info;
 
@@ -172,3 +175,7 @@ select count(*) from user_info where user_id ='user122'
 select * from user_info;
 
 insert into dist_info values (0,'user1','00','00','00',0,0,0,0,0)
+
+INSERT INTO search_info (dist_idx, user_id, url_name)
+SELECT dist_idx, user_id, url_name
+FROM dist_info;

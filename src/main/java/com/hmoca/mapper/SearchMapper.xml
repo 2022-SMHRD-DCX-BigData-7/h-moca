@@ -1,1 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hmoca.mapper.SearchMapper">
+
+    <insert id="insertSearch" parameterType="com.hmoca.entity.Search">
+    	insert into search_info (user_id, url_name, dist_idx)
+    	values (#{user_id}, #{url_name}, #{dist_idx})
+	</insert>
+    
+    <select id="searchList" resultType="com.hmoca.entity.Search">
+        select * from search_info where user_id = #{user_id} and url_name = #{url_name}
+    	order by dist_idx DESC
+    	LIMIT 1;
+    </select>
+</mapper>
