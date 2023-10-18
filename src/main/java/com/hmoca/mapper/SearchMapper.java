@@ -1,4 +1,4 @@
-package com.hmoca.mapper;
+/*package com.hmoca.mapper;
 
 import java.util.List;
 
@@ -12,3 +12,4 @@ public interface SearchMapper {
 	public void insertSearch(Search vo); // 검색 버튼 눌렀을 때 데이터 db 저장
 
 }
+*/
