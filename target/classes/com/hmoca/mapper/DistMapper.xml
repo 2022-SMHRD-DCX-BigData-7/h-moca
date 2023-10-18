@@ -6,13 +6,14 @@
 
 	<!-- 내 판별 내용-->
 	<select id="MyDistList" parameterType="String" resultType="com.hmoca.entity.Dist"> 
-	    select * from dist_info where user_id=#{user_id} order by dist_idx desc
+	    select * from dist_info order by dist_idx desc
 	</select>
 	
 	
 	<!-- 결과 페이지에 뿌려주기  -->
-	<select id ="selectDist" parameterType="int" resultType="com.hmoca.entity.Dist">
-		select * from dist_info where dist_idx=#{dist_idx}
+	<select id ="selectDist" resultType="com.hmoca.entity.Dist">
+		select * from dist_info where user_id=#{user_id} order by dist_idx 
+		LIMIT 1;
 	</select> 
 	
 <!-- 	<insert\ id ="selectDist1" parameterType="com.hmoca.entity.Dist" resultType="com.hmoca.entity.Dist">

@@ -85,8 +85,8 @@ delete from user_info where user_id="user05";
 select * from user_info;
 
 UPDATE dist_info
-SET url_name='https://www.youtube.com/watch?v=RtT8ZYDJQOc' 
-WHERE dist_idx=2;
+SET url_name='https://www.youtube.com/watch?v=3HczHkSTEVY' 
+WHERE dist_idx=3;
 
 ALTER TABLE dist_info ADD title_score DECIMAL(10, 2) NOT NULL;
 ALTER TABLE dist_info ADD thumb_score DECIMAL(10, 2) NOT NULL;
@@ -175,6 +175,9 @@ select count(*) from user_info where user_id ='user122'
 select * from user_info;
 
 insert into dist_info values (0,'user1','00','00','00',0,0,0,0,0)
+
+select * from search_info;
+select * from dist_info;
 
 INSERT INTO search_info (dist_idx, user_id, url_name)
 SELECT dist_idx, user_id, url_name

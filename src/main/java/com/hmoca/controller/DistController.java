@@ -25,10 +25,18 @@ public class DistController {
 	
 	
 	// 결과페이지 이동
+//	@GetMapping("/result.do")
+//	public String result(@PathVariable("dist_idx")int dist_idx, Model model) {
+//		
+//		Dist vo = mapper.selectDist(dist_idx);
+//		model.addAttribute("vo", vo);
+//		return "result";
+//	}
+	
 	@GetMapping("/result.do")
-	public String result(@PathVariable("dist_idx")int dist_idx, Model model) {
+	public String result(Model model) {
 		
-		Dist vo = mapper.selectDist(dist_idx);
+		Dist vo = mapper.selectDist();
 		model.addAttribute("vo", vo);
 		return "result";
 	}
