@@ -24,7 +24,7 @@ public class DistController {
 	private DistMapper mapper;
 	
 	
-	// 결과페이지 이동
+	// 결과페이지 이동 //api 들어오면 이걸로 변경
 //	@GetMapping("/result.do")
 //	public String result(@PathVariable("dist_idx")int dist_idx, Model model) {
 //		

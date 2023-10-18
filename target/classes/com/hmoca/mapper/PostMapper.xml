@@ -42,7 +42,7 @@
 	    select count(post_idx)
 	</select> -->
 
-	<!-- 내 게시물 내용-->
+	<!-- 내 게시물 리스트-->
 	<select id="MypostList" parameterType="String" resultType="com.hmoca.entity.Post"> 
 	    select * from post_info where user_id=#{user_id} order by post_idx desc
 	</select>
