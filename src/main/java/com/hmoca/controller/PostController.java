@@ -58,7 +58,8 @@ public class PostController {
 		Dist vo = mapper2.selectDist(dist_idx);
 		model.addAttribute("vo", vo);
 		
-		return "redirect:/boardInsert.do";
+		return "boardInsertForm1/{dist_idx}";
+//		return "redirect:/boardInsert.do";
 	}
 	
 	@PostMapping("/boardInsert.do")
