@@ -8,9 +8,9 @@
     	values (#{user_id}, #{url_name}, #{dist_idx})
 	</insert>
     
-    <select id="searchList" resultType="com.hmoca.entity.Search">
+<!--     <select id="searchList" resultType="com.hmoca.entity.Search">
         select * from search_info where user_id = #{user_id} and url_name = #{url_name}
     	order by dist_idx DESC
     	LIMIT 1;
-    </select>
+    </select> -->
 </mapper>

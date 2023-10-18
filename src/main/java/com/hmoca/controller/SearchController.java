@@ -3,6 +3,7 @@ package com.hmoca.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hmoca.entity.Search;
 import com.hmoca.mapper.SearchMapper;
 
+@Controller
 public class SearchController {
 		@Autowired
 	    private SearchMapper searchMapper;
@@ -24,9 +26,9 @@ public class SearchController {
 		        // 검색 정보를 db에 저장
 		        searchMapper.insertSearch(search);
 		        
-		        // 검색 결과를 가져옴		        
-		        List<Search> searchList = searchMapper.searchList(search);
-		        model.addAttribute("searchList", searchList);
+		        // 검색 결과를 가져옴 (flask에서 search_info 값 가져가서 dist_info에 넣어줌) 
+//		        List<Search> searchList = searchMapper.searchList(search);
+//		        model.addAttribute("searchList", searchList);
 
 		        return "result"; 
 		    }
