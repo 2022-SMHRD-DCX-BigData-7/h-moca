@@ -11,6 +11,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <link rel="stylesheet" href="${cpath}/resources/css/boardstyle.css">
+<style>
+	.scrap {
+		padding: 15px;
+	}
+</style>
 <script>
 	function checkField(){
 		var inputs = document.inputForm;
@@ -63,9 +68,12 @@
 							</dl>
 						</div>
 						<div class="cont">
-							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요.">
+							<div class="scrap">
+								<img src="${vo.video_thumb}" style="width: 300px;">
+								<input type="hidden" name="video_thumb" value="${vo.video_thumb}">
 								
-							</textarea>
+							</div>
+							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요."></textarea>
 						</div>
 						<div class="btn_wrap">
 							<button type="submit" class="on" >등록</button>
