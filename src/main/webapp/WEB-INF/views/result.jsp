@@ -119,6 +119,89 @@
 	function scrap(){
 		location.href='${cpath}/boardInsertForm1.do?dist_idx=${vo.dist_idx}'
 	}
+	
+/* 	$(document).ready(function(){
+		// ajax -> distCon에 있는 result.do 실행하고 Dist vo를 받아옴
+		
+		// 여기에서 태그를 만들어서 뿌려줘야함
+		
+		let data = "";
+		data += "<h1></h1>";
+		
+		div태그가져와서.html(data)
+		
+	}); */
+	
+	$(document).ready(function(){
+		// ajax -> distCon에 있는 result.do 실행하고 Dist vo를 받아옴
+	function resultvo(){
+  		$.ajax({
+  			url : "${cpath}/result",
+  			type : "get",
+  			// data : 보내줄 데이터가 없으므로 주석 처리 !
+  			dataType : "json",
+  			// 응답이 성공했을때 callBack()함수 호출하는데
+  			// ajax 안에서 함수 실행 할 때는 ()를 적지 않는다 !!!
+  			// 소괄호 사용하면 함수가 실행이 안됨 
+  			success : callBack,
+  			error : function(){
+  				alert("결과페이지 통신 실패");
+  			}
+  				
+  		}); // ajax 끝
+  	  	function callBack(data){
+  	  		// data : ajax 통신의 결과를 가지고 있음
+  	  		console.log(data);
+		// 여기에서 태그를 만들어서 뿌려줘야함
+		var data = "<table class='resultvo'>";
+
+		// let data = "";
+		
+		// 타이틀 및 스크랩 버튼 추가
+	    data += "<div class='col-2'><h2>판별 결과</h2></div>";
+	    data += "<div class='col-10'><button class='scrap' onclick='scrap()'>스크랩</button></div>";
+
+	    // URL 주소 추가
+	    data += "<section class='url'>url주소 :<input value='" + data.url_name + "' readonly></section>";
+
+	    // 썸네일 섹션 추가
+	    data += "<section class='thumb'>";
+	    data += "<div><p><img src='" + data.video_thumb + "'></p><p>" + data.video_name + "</p></div>";
+	    data += "</section>";
+
+	    // 결과화면 추가
+	    data += "<section class='simple'>";
+	    data += "<h3>종합 점수</h3>";
+	    data += "<div><div style='width: 400px; height: 350px'><canvas id='totalscore'></canvas><span id='data-label'></span></div></div>";
+	    data += "</section>";
+
+	    // 로그인 사용자에게 보여지는 부분 추가
+	    let loginUser = data.loginUser;
+	    if (loginUser) {
+	    	data += "<section class='detail'>";
+	    	data += "<h3>영상 데이터</h3>";
+	    	data += "<div><div><canvas id='meta'></canvas></div>";
+	    	data += "<h3>영상 점수</h3>";
+	    	data += "<div><div style='width: 50%;'><canvas id='Chart_meta' style='height:40vh; width:30vw'></canvas></div>";
+	    	data += "<div style='width: 50%;'><canvas id='Chart_video' style='height:40vh; width:30vw'></canvas></div>";
+	    	data += "<h3>썸네일 점수</h3>";
+	    	data += "<div><div style='width: 100%;'><canvas id='Chart_thumb'  style='height:50vh; width:50vw'></canvas></div></div>";
+	    	data += "</section>";
+	    }
+
+	    // 결과를 표시할 div 요소 가져오기
+	    //let resultDiv = document.getElementById("result-container");
+	    
+	    $("#content").html(data);
+	    
+	    // 동적으로 생성한 HTML을 div에 할당
+	    //resultDiv.innerHTML = data;
+		
+	    /* data += "<h1></h1>";
+		
+		div태그가져와서.html(data) */
+		
+  		};
 </script>
 </head>
 <body>
@@ -128,9 +211,10 @@
 	<!-- Header -->
 	<%@include file = "header.jsp" %>
 		
+
 	<!-- Content -->
 	<section id="content">
-		<div class="container">
+		 <%--  <div class="container">
 			<div class="row">
 				<div class="col-2">
 					<h2>판별 결과</h2>
@@ -197,7 +281,7 @@
 					<c:otherwise></c:otherwise>
 				</c:choose>
 			</div>
-		</div>
+		</div> --%>
 	</section>
 	
 </div>

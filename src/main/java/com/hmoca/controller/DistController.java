@@ -27,21 +27,20 @@ public class DistController {
 	
 	
 	// 결과페이지 이동 //api 들어오면 이걸로 변경
-//	@GetMapping("/result.do")
-//	public String result(@PathVariable("dist_idx")int dist_idx, Model model) {
+	@GetMapping("/result/{dist_idx}")
+	public @ResponseBody Dist result(@PathVariable("dist_idx")int dist_idx) {
+		
+		Dist vo = mapper.selectDist(dist_idx);
+		return vo;
+	}
+	
+//	@PostMapping("/result.do")
+//	public String result(Model model) {
 //		
-//		Dist vo = mapper.selectDist(dist_idx);
+//		Dist vo = mapper.selectDist();
 //		model.addAttribute("vo", vo);
 //		return "result";
 //	}
-	
-	@PostMapping("/result.do")
-	public String result(Model model) {
-		
-		Dist vo = mapper.selectDist();
-		model.addAttribute("vo", vo);
-		return "result";
-	}
 	
 	// 결과페이지 이동
 //	@GetMapping("/result.do") //결과페이지에 dist_info 값 뿌려주기만 하면됨

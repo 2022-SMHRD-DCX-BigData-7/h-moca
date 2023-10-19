@@ -127,6 +127,33 @@
 	</section>
 		
 </div>
+
+ <a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height:60px;width:auto;""></a>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        //e4c77f92564e5cf41fff7c7bfface8d2
+        window.Kakao.init("e4c77f92564e5cf41fff7c7bfface8d2");
+
+        window.Kakao.init("ER6c83UTcMPZD-s-zrX0mvftmfPG4O_9E_RnxOun12cjOGlqGHq37E17zsgKKiUOAAABi0cNO_oq3eF1vjqPRg");
+        
+        function kakaoLogin() {
+            window.Kakao.Auth.login({
+            scope:'profile_nickname, profile_image, account_email',
+            success: function(authObj){
+                console.log(authObj); //로그인됨
+                window.Kakao.API.request({ //로그인 정보 가져올거임
+                    url:'/v2/user/me', //url이 로그인한 사용자의 정보를 가져와줌
+                    success: res => {
+                        const kakao_account = res.kakao_account;
+                        console.log(kakao_account);
+                    }
+                });
+            }
+        }
+            );
+        }
+
+    </script>
 	
 <!-- Scripts -->
 <script src="${cpath}/resources/js/jquery.min.js"></script>

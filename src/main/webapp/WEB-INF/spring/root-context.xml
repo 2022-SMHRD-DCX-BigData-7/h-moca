@@ -11,6 +11,7 @@
 	    <property name="jdbcUrl" value="jdbc:mysql://project-db-campus.smhrd.com:3312/hmoca?useSSL=false&amp;serverTimezone=UTC" />
 	    <property name="username" value="hmoca" />
 	    <property name="password" value="hmoca123" />
+	    <property name="maxLifetime" value="1000"/>
 	</bean>
 	
 	<!-- 생성자(constructor)가 호출되어 Config를 써먹을 수 있도록 HikariDataSource생성 

@@ -75,10 +75,16 @@ CREATE TABLE video_info (
 INSERT INTO dist_info (url_name, video_name, video_thumb, video_score, user_id, title_score, thumb_score, meta_score)
 VALUES ('1', '1','1', 1, 'sk','1.11','2.22','3.33');
 
+INSERT INTO search_info (user_id,url_name)
+VALUES ('user1','https://www.youtube.com/watch?v=RtT8ZYDJQOc');
+
+INSERT INTO search_info (user_id,url_name)
+VALUES ('user2','https://www.youtube.com/watch?v=PGYPQzgBA0A');
+
 ALTER TABLE dist_info
 DROP COLUMN video_views;
 
-delete from dist_info where dist_idx=1;
+delete from video_info where video_length=614;
 delete from post_info where post_idx=78;
 delete from user_info where user_id="user05";
 
@@ -95,8 +101,10 @@ ALTER TABLE dist_info ADD meta_score DECIMAL(10, 2) NOT NULL;
 
 select * from dist_info;
 select * from post_info;
-select * from comment_info;
-
+select * from search_info;
+select * from video_info;
+https://www.youtube.com/watch?v=PGYPQzgBA0A
+https://www.youtube.com/watch?v=PGYPQzgBA0A
 ALTER TABLE dist_info MODIFY dist_idx int;
 
 delete dist_idx from post_info;
@@ -114,7 +122,7 @@ DROP TABLE post_info;
 
 ALTER TABLE post_info MODIFY post_idx INT AUTO_INCREMENT PRIMARY KEY;
 
-insert into post_info(post_title, post_content, created_at, post_views, user_id, dist_idx) values
+insert into disf_info(post_title, post_content, created_at, post_views, user_id, dist_idx) values
 ('게시글테스트1', '테스트중', '2023-10-04 15:30:00', 0, 'user1', 0);
 
 insert into post_info(post_title, post_content, created_at, post_views, user_id, dist_idx) values
@@ -174,11 +182,14 @@ select * from post_info where user_id='user1' order by post_idx desc
 select count(*) from user_info where user_id ='user122'
 select * from user_info;
 
-insert into dist_info values (0,'user1','00','00','00',0,0,0,0,0)
+
+insert into dist_info values (20,'user1','https://www.youtube.com/watch?v=RtT8ZYDJQOc','dd','dd',76,0.2,0.2,0.2,0.2)
 
 select * from search_info;
 select * from dist_info;
 
-INSERT INTO search_info (dist_idx, user_id, url_name)
+INSERT INTO search_info (user_id, url_name)
+values ('user99','https://www.youtube.com/watch?v=8FVRCZTqLzU')
+
 SELECT dist_idx, user_id, url_name
 FROM dist_info;

@@ -200,7 +200,7 @@
 				<div class="col-12 col-12-medium">
 					<!-- Box #1 -->
 					<section id="search">
-						<form action="${cpath}/result.do" class="search-box" method="post">
+						<form action="${cpath}/search.do" class="search-box" method="post">
 							<input type="text" class="hidden" name="user_id" value="${loginUser.user_id}">
 							<input type="search" class="url-box" name="url_name" placeholder="URL을 입력하세요">
 							<input type="text" class="hidden" name="video_name" value="video_name"> 
