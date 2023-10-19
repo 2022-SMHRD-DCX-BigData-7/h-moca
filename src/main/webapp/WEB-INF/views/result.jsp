@@ -96,13 +96,13 @@
 	}
 	
 	.detail h3{
-		padding: 45px;
+		padding: 45px 45px 0 45px;
 		text-align: left;
 	}
 	
 	.detail>div{
 		width: 100%;
-		padding-top: 30px;
+		padding: 30px;
 		display: inline-flex;
 	}
 	
@@ -159,7 +159,7 @@
 						<div>
 							<div style="width: 400px; height: 350px">
 								<canvas id="totalscore"></canvas>
-								<span id="data-label"></span>
+								<span id="data-label"> ${vo.video_score*100} 점 </span>
 							</div>
 						</div>							
 					</section>
@@ -209,36 +209,50 @@
 
 	$(document).ready(function(){
 		getGraph();
-	});
+	});	
+	
+	// 리스트(y값)
+	var totalScore = []; // 총점
+	var metaData = []; // 메타데이터 => 좋아요수, 댓글수, 조회수
+	var videoScore = []; // 영상 판별 점수 (제목)
+	var metaScore = []; // 메타데이터 점수
+	var thumbScore = []; // 썸네일 점수
 	
 	function getGraph(){
-		// 리스트(y값)
-		let totalScore = []; // 총점
-		let metaData = []; // 메타데이터 => 좋아요수, 댓글수, 조회수
-		let videoScore = []; // 영상 판별 점수 (제목)
-		let metaScore = []; // 메타데이터 점수
-		let thumbScore = []; // 썸네일 점수
-				
+
 		$.ajax({
 			url: "${cpath}/distScore.do",
 			type: "get",
 			data: {dist_idx:'${vo.dist_idx}'},
 			dataType: "json",
-			success: function(data){
-				console.log(data);
-				for(var i=0; i<data.length; i++){
-					totalScore.push(data[i].video_score);
-					videoScore.push(data[i].title_score);
-					metaScore.push(data[i].meta_score);
-					thumbScore.push(data[i].thumb_nm_score);
-					thumbScore.push(data[i].thumb_img_score);
-				}
-			},
+			success: callBack,
 			error: function(){
 				alert("실패");
 			}
-		})
-		console.log("데이터점수",videoScore)
+		}); // ajax 끝
+	}// getGraph 함수 끝	
+	
+	function callBack(data){
+		console.log(data);
+		for(var i=0; i<data.length; i++){
+			totalScore.push(Number(data[i].video_score * 100));
+			totalScore.push(Number((1-data[i].video_score) * 100));
+			videoScore.push(Number(data[i].title_score*100));
+			metaScore.push(Number(data[i].meta_score*100));
+			thumbScore.push(Number(data[i].thumb_nm_score*100));
+			thumbScore.push(Number(data[i].thumb_img_score*100));
+		}
+		
+		console.log("총점",totalScore);
+		console.log("데이터점수",metaScore);
+		console.log("영상점수",videoScore);
+		console.log("썸네일",thumbScore);
+		
+		getChart();
+		
+	}
+		
+	function getChart(){
 		// 총점 도넛차트
 		new Chart(document.getElementById("totalscore"),{
 			type: 'doughnut',
@@ -246,10 +260,14 @@
 				labels: ['진실', '거짓'],
 				datasets:[{
 					label: 'total',
-					data: [totalScore, 100-totalScore],
+					data: totalScore,
 					backgroundColor: [
-						'rgb(54, 162, 235, 0.5)',
-						'rgb(255,205,86, 0.5)'
+						'rgba(82, 145, 255, 0.2)',
+						'rgba(255, 82, 82, 0.2)'
+					],
+					borderColor: [
+						'rgba(82, 145, 255, 0.8)',
+						'rgba(255, 82, 82, 0.8)'
 					],
 					hoverOffset: 4
 				}]
@@ -268,21 +286,18 @@
 		});
 		
 		// 메타데이터 통계(막대)
-				
+		
 		// 메타데이터 판별 점수
 		new Chart(document.getElementById("Chart_meta"),{
 			type: 'bar',
 			data: {
 				labels: ['데이터점수'],
 				datasets:[{
+					barThickness: 100,
 					label: 'metaScore',
-					data: metaScore,
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)'
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)'
-					],
+					data: [40],
+					backgroundColor: 'rgba(255, 189, 82, 0.2)',
+					borderColor: 'rgba(255, 189, 82, 0.8)',
 					borderWidth: 1
 				}]
 			},
@@ -296,9 +311,9 @@
 				scales: {
 					y: {
 						min: 0,
-						max: 1,
+						max: 100,
 						ticks:{
-							stepSize: 0.5
+							stepSize: 50
 						}
 					}
 				}
@@ -311,13 +326,14 @@
 			data: {
 				labels: ['영상점수'],
 				datasets:[{
+					barThickness: 100,
 					label: 'videoScore',
 					data: videoScore,
 					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)'
+						'rgba(82, 122, 255, 0.2)'
 					],
 					borderColor: [
-						'rgba(255, 99, 132, 1)'
+						'rgba(82, 122, 255, 0.8)'
 					],
 					borderWidth: 1
 				}]
@@ -332,9 +348,9 @@
 				scales: {
 					y: {
 						min: 0,
-						max: 1,
+						max: 100,
 						ticks:{
-							stepSize: 0.5
+							stepSize: 50
 						}
 					}
 				}
@@ -347,13 +363,18 @@
 			data: {
 				labels: ['썸네일(text)','썸네일(image)','썸네일(평균)'],
 				datasets:[{
+					barThickness: 100,
 					label: 'thumbScore',
 					data: [thumbScore[0],thumbScore[1],((thumbScore[0]+thumbScore[1])/2)],
 					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)'
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(255, 189, 82, 0.2)',
+						'rgba(82, 122, 255, 0.2)'
 					],
 					borderColor: [
-						'rgba(255, 99, 132, 1)'
+						'rgba(255, 99, 132, 0.8)',
+						'rgba(255, 189, 82, 0.8)',
+						'rgba(82, 122, 255, 0.8)'
 					],
 					borderWidth: 1
 				}]
@@ -368,18 +389,27 @@
 				scales: {
 					y: {
 						min: 0,
-						max: 1,
+						max: 100,
 						ticks:{
-							stepSize: 0.5
+							stepSize: 50
 						}
 					}
 				}
 			}
 		});
-	
 		
-	}
+	}	
+		
+		
+		
+		
+		
+	
+	
 
+
+	
+	
 
 </script>
 

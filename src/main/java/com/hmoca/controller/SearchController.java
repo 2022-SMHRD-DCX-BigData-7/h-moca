@@ -1,4 +1,4 @@
-/*package com.hmoca.controller;
+package com.hmoca.controller;
 
 import java.util.List;
 
@@ -34,4 +34,3 @@ public class SearchController {
 		    }
 	}
 
-*/
