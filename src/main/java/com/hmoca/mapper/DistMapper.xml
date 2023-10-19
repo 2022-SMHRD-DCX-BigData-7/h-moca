@@ -12,7 +12,7 @@
 	
 	<!-- 결과 페이지에 뿌려주기  -->
 	<select id ="selectDist" resultType="com.hmoca.entity.Dist">
-		select * from dist_info order by dist_idx 
+		select * from dist_info order by dist_idx desc
 		LIMIT 1;
 	</select> 
 	
@@ -26,6 +26,11 @@
 		insert into dist_info (user_id, url_name, video_name, video_thumb, title_score, meta_score, video_score, thumb_nm_score, thumb_img_score)
 		values (#{user_id},#{url_name},#{video_name},#{video_thumb},#{title_score},#{meta_score},#{video_score},#{thumb_nm_score},#{thumb_img_score});
 	</insert>  -->
+	
+	<!-- 차트에 값 가져오기 -->
+	<select id="distScore" resultType="com.hmoca.entity.Dist">
+	    select * from dist_info where dist_idx=#{dist_idx}
+	</select>
 
 	
 </mapper>

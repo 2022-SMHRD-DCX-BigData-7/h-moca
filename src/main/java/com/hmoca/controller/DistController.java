@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hmoca.entity.Dist;
 import com.hmoca.entity.Post;
@@ -33,7 +35,7 @@ public class DistController {
 //		return "result";
 //	}
 	
-	@GetMapping("/result.do")
+	@PostMapping("/result.do")
 	public String result(Model model) {
 		
 		Dist vo = mapper.selectDist();
@@ -54,4 +56,16 @@ public class DistController {
 //	    model.addAttribute("vo", vo);
 //	    return "result";
 //}
+	
+	// 차트에 데이터 넣기
+	@RequestMapping("/distScore.do")
+	public @ResponseBody List<Dist> distScore(Model model, Dist vo){
+		List<Dist> score = mapper.distScore(vo);
+		model.addAttribute("score", score);
+		return score;
+	}
+	
+	
+	
+	
 }

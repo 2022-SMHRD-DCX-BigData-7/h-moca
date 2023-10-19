@@ -46,9 +46,9 @@
 		text-align: -webkit-center;
 	}
 	
-	.thumb div {
+	.thumb>div {
 		width: 500px;
-		height: 400px;
+		height: 403.5px;
 	}
 	
 	.thumb div p {
@@ -77,7 +77,7 @@
 	}
 	
 	.simple>div{
-		height: 400px;
+		height: 350px;
 		text-align: -webkit-center;
 	}
 	
@@ -95,14 +95,24 @@
 		text-align: -webkit-center;
 	}
 	
+	.detail h3{
+		padding: 45px;
+		text-align: left;
+	}
+	
 	.detail>div{
-		height: 450px;
+		width: 100%;
 		padding-top: 30px;
+		display: inline-flex;
 	}
 	
 	#data-label {
 		font-size: 20px;
 		position: absolute;
+	}
+	
+	canvas {
+		padding: 20px;
 	}
 </style>
 <script type="text/javascript">
@@ -145,9 +155,9 @@
 				<div class="col-5 col-12-medium">
 					<!-- 결과화면1 -->
 					<section class="simple">
+						<h3>종합 점수</h3>
 						<div>
-							<h3>종합 점수</h3>
-							<div style="width: 400px; height:350px">
+							<div style="width: 400px; height: 350px">
 								<canvas id="totalscore"></canvas>
 								<span id="data-label"></span>
 							</div>
@@ -160,22 +170,25 @@
 						<div class="col-12">
 								<!-- 통계화면 -->
 								<section class="detail">
+									<h3>영상 데이터</h3>
 									<div>
-										<h3>영상 데이터</h3>
-										<div style="width:700px; height:700px;">
+										<div>
 											<canvas id="meta"></canvas>
 										</div>
 									</div>
+									<h3>영상 점수</h3>
 									<div>
-										<h3>영상 점수</h3>
-										<div style="width:700px; height:700px;">
-											<canvas id="Chart_video"></canvas>
+										<div style="width: 50%;">
+											<canvas id="Chart_meta" style="height:40vh; width:30vw"></canvas>
+										</div>
+										<div style="width: 50%;">
+											<canvas id="Chart_video" style="height:40vh; width:30vw"></canvas>
 										</div>
 									</div>
+									<h3>썸네일 점수</h3>
 									<div>
-										<h3>썸네일 점수</h3>
-										<div style="width:700px; height:700px;">
-											<canvas id="Chart_thumb"></canvas>
+										<div style="width: 100%;">
+											<canvas id="Chart_thumb"  style="height:50vh; width:50vw"></canvas>
 										</div>
 									</div>
 								</section>
@@ -191,44 +204,188 @@
 
 <!-- 차트 script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="${cpath}/resources/js/myChart.js"></script>
+<%-- <script src="${cpath}/resources/js/myChart.js"></script> --%>
 <script type="text/javascript">
-// 첫번째거
 
-	const context = document.getElementById('totalscore');
+	$(document).ready(function(){
+		getGraph();
+	});
 	
-	new Chart(context, {
-		type: 'doughnut',
-		data: {
-			labels: ['진실', '거짓'],
-			datasets: [{
-				label: 'total',
-				data: [75, 25],
-				backgroundColor:[
-					'rgb(54, 162, 235, 0.5)',
-					'rgb(255,205,86, 0.5)'
-				],
-				hoverOffset:4
-			}]
-		},
-		options:{
-			cutout: '75%', // 도넛 차트의 중앙 부분이 뚜렷하게 보이도록
-			plugins:{
-				legend:{
-					display: false
-				},
-				tooltip:{
-					enabled: false
-				},
+	function getGraph(){
+		// 리스트(y값)
+		let totalScore = []; // 총점
+		let metaData = []; // 메타데이터 => 좋아요수, 댓글수, 조회수
+		let videoScore = []; // 영상 판별 점수 (제목)
+		let metaScore = []; // 메타데이터 점수
+		let thumbScore = []; // 썸네일 점수
 				
+		$.ajax({
+			url: "${cpath}/distScore.do",
+			type: "get",
+			data: {dist_idx:'${vo.dist_idx}'},
+			dataType: "json",
+			success: function(data){
+				console.log(data);
+				for(var i=0; i<data.length; i++){
+					totalScore.push(data[i].video_score);
+					videoScore.push(data[i].title_score);
+					metaScore.push(data[i].meta_score);
+					thumbScore.push(data[i].thumb_nm_score);
+					thumbScore.push(data[i].thumb_img_score);
+				}
+			},
+			error: function(){
+				alert("실패");
 			}
-		}
-	}); 
+		})
+		console.log("데이터점수",videoScore)
+		// 총점 도넛차트
+		new Chart(document.getElementById("totalscore"),{
+			type: 'doughnut',
+			data: {
+				labels: ['진실', '거짓'],
+				datasets:[{
+					label: 'total',
+					data: [totalScore, 100-totalScore],
+					backgroundColor: [
+						'rgb(54, 162, 235, 0.5)',
+						'rgb(255,205,86, 0.5)'
+					],
+					hoverOffset: 4
+				}]
+			},
+			options:{
+				cutout: '75%',
+				plugins:{
+					legend:{
+						display: false
+					},
+					tooltip:{
+						enabled: false
+					},
+				}
+			}
+		});
+		
+		// 메타데이터 통계(막대)
+				
+		// 메타데이터 판별 점수
+		new Chart(document.getElementById("Chart_meta"),{
+			type: 'bar',
+			data: {
+				labels: ['데이터점수'],
+				datasets:[{
+					label: 'metaScore',
+					data: metaScore,
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options:{
+				responsive: false,
+				plugins:{
+					legend:{
+						display:false
+					}
+				}, // 라벨 숨기기
+				scales: {
+					y: {
+						min: 0,
+						max: 1,
+						ticks:{
+							stepSize: 0.5
+						}
+					}
+				}
+			}
+		});
+		
+		// 영상 제목 판별 점수(막대)
+		new Chart(document.getElementById("Chart_video"),{
+			type: 'bar',
+			data: {
+				labels: ['영상점수'],
+				datasets:[{
+					label: 'videoScore',
+					data: videoScore,
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options:{
+				responsive: false,
+				plugins:{
+					legend:{
+						display:false
+					}
+				}, // 라벨 숨기기
+				scales: {
+					y: {
+						min: 0,
+						max: 1,
+						ticks:{
+							stepSize: 0.5
+						}
+					}
+				}
+			}
+		});
+		
+		// 썸네일 판별 점수(막대)
+		new Chart(document.getElementById("Chart_thumb"),{
+			type: 'bar',
+			data: {
+				labels: ['썸네일(text)','썸네일(image)','썸네일(평균)'],
+				datasets:[{
+					label: 'thumbScore',
+					data: [thumbScore[0],thumbScore[1],((thumbScore[0]+thumbScore[1])/2)],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options:{
+				responsive: false,
+				plugins:{
+					legend:{
+						display:false
+					}
+				}, // 라벨 숨기기
+				scales: {
+					y: {
+						min: 0,
+						max: 1,
+						ticks:{
+							stepSize: 0.5
+						}
+					}
+				}
+			}
+		});
+	
+		
+	}
+
+
 </script>
 
 	
 <!-- Scripts -->
-<script src="${cpath}/resources/js/jquery.min.js"></script>
+
 <script src="${cpath}/resources/js/browser.min.js"></script>
 <script src="${cpath}/resources/js/breakpoints.min.js"></script>
 <script src="${cpath}/resources/js/util.js"></script>
