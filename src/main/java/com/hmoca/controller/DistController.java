@@ -27,12 +27,12 @@ public class DistController {
 	
 	
 	// 결과페이지 이동 //api 들어오면 이걸로 변경
-	@GetMapping("/result/{dist_idx}")
-	public @ResponseBody Dist result(@PathVariable("dist_idx")int dist_idx) {
-		
-		Dist vo = mapper.selectDist(dist_idx);
-		return vo;
-	}
+	/*
+	 * @GetMapping("/result/{dist_idx}") public @ResponseBody Dist
+	 * result(@PathVariable("dist_idx")int dist_idx) {
+	 * 
+	 * Dist vo = mapper.selectDist(dist_idx); return vo; }
+	 */
 	
 //	@PostMapping("/result.do")
 //	public String result(Model model) {

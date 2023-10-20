@@ -11,8 +11,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <style>
-	
-
 	#content {
 		/* position: absolute;
 		top: 100vh;
@@ -102,11 +100,7 @@
 		width: 85%;
 		border-bottom: solid 1px #f0f0f0;
 	}
-	
-	.hidden {
-		display: none;
-	}
-	
+		
 </style>
 
 <script>
@@ -201,15 +195,8 @@
 					<!-- Box #1 -->
 					<section id="search">
 						<form action="${cpath}/search.do" class="search-box" method="post">
-							<input type="text" class="hidden" name="user_id" value="${loginUser.user_id}">
+							<input type="hidden" name="user_id" value="${loginUser.user_id}">
 							<input type="search" class="url-box" name="url_name" placeholder="URL을 입력하세요">
-							<input type="text" class="hidden" name="video_name" value="video_name"> 
-							<input type="text" class="hidden" name="video_thumb" value="video_thumb">
-							<input type="text" class="hidden" name="title_score" value="title_score">
-							<input type="text" class="hidden" name="meta_score" value="meta_score">
-							<input type="text" class="hidden" name="video_score" value="video_score">
-							<input type="text" class="hidden" name="thumb_nm_score" value="thumb_nm_score">
-							<input type="text" class="hidden" name="thumb_img_score" value="thumb_img_score">
 							<button type="submit" name="search" class="search-btn">검색</button>
 						</form>
 					</section>

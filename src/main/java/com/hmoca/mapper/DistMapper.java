@@ -3,6 +3,10 @@ package com.hmoca.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hmoca.entity.Dist;
 
@@ -15,6 +19,9 @@ public interface DistMapper {
 	public Dist selectDist();
 	public Dist scrapDist(int dist_idx);
 	public List<Dist> distScore(Dist vo);
+	//
+	public List<Dist> selectDist(Dist vo);
+	
 	
 	
 }

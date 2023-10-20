@@ -11,7 +11,7 @@
 	
 	
 	<!-- 결과 페이지에 뿌려주기  -->
-	<select id ="selectDist" resultType="com.hmoca.entity.Dist">
+	<select id ="selectDist"  resultType="com.hmoca.entity.Dist">
 		select * from dist_info order by dist_idx desc
 		LIMIT 1;
 	</select> 
