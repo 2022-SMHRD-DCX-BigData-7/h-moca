@@ -29,7 +29,7 @@ public class SearchController {
       @Autowired
       private RestTemplate restTemplate;
       
-      private final String BASE_URL = "http://172.30.1.41:9000/crawl";
+      private final String BASE_URL = "http://localhost:9000/crawl";
 //http://127.0.0.1:9000/crawl
       @RequestMapping("/search.do")
       public String searchResults(@RequestParam("user_id") String user_id, @RequestParam("url_name") String url_name, Model model, Model model2) {
