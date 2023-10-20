@@ -254,7 +254,7 @@
 							    <div>
 									<c:forEach items="${mylist}" var="vo">
 										<div class="dist_title"><a href="#">${vo.video_name}</a></div>
-										<div class="score">${vo.video_score}</div>
+										<div class="score">${vo.video_score*100}</div>
 									</c:forEach>
 								</div>
 							</div>

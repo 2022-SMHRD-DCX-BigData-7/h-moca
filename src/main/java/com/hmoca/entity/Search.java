@@ -1,6 +1,7 @@
 package com.hmoca.entity;
 
 public class Search {
+	private int dist_idx;
 	private String user_id; 
 	private String url_name;
 	
@@ -15,6 +16,12 @@ public class Search {
 	}
 	public void setUrl_name(String url_name) {
 		this.url_name = url_name;
+	}
+	public int getDist_idx() {
+		return dist_idx;
+	}
+	public void setDist_idx(int dist_idx) {
+		this.dist_idx = dist_idx;
 	}
 
 }

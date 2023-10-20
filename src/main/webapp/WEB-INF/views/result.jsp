@@ -169,7 +169,8 @@
 		console.log("영상점수",videoScore);
 		console.log("썸네일",thumbScore);
 		
-		var loginUser = '<%=(String)session.getAttribute("user_id")%>';
+		var loginUser = '<%=session.getAttribute("loginUser")%>';
+		console.log(loginUser);
 		// result 페이지 
 		var resultpage = "<div class='container'>";
 		resultpage += "<div class='row'>";
@@ -180,7 +181,7 @@
 		resultpage += "<h2>판별 결과</h2>";
 		resultpage += "</div>";
 		
-		if(obj.user_id == loginUser){
+		if(loginUser != null){
 			resultpage += '<div class="col-10">';
 			resultpage += '<button class="scrap" onclick="scrap()">스크랩</button>';
 			resultpage += '</div>';

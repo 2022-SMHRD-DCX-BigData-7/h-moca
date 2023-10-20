@@ -71,7 +71,7 @@
 							<div class="scrap">
 								<img src="${vo.video_thumb}" style="width: 300px;">
 								<input type="hidden" name="video_thumb" value="${vo.video_thumb}">
-								
+								<div style="width: 300px;">${vo.video_score*100} 점</div>
 							</div>
 							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요."></textarea>
 						</div>
