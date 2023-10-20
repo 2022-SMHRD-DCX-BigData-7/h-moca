@@ -136,7 +136,7 @@
 		// ajax -> distCon에 있는 result.do 실행하고 Dist vo를 받아옴
 	function resultvo(){
   		$.ajax({
-  			url : "${cpath}/result",
+  			url : "${cpath}/result/" + distIdx,
   			type : "get",
   			// data : 보내줄 데이터가 없으므로 주석 처리 !
   			dataType : "json",
