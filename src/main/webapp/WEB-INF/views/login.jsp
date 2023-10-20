@@ -143,7 +143,7 @@
                 console.log(authObj); //로그인됨
                 window.Kakao.API.request({ //로그인 정보 가져올거임
                     url:'/v2/user/me', //url이 로그인한 사용자의 정보를 가져와줌
-                    success: res => {
+                    success: res () {
                         const kakao_account = res.kakao_account;
                         console.log(kakao_account);
                     }
