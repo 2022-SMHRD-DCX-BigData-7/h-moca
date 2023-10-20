@@ -2,8 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-  http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
-   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring">
+  http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+   >
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
@@ -17,7 +27,7 @@
 	<!-- 생성자(constructor)가 호출되어 Config를 써먹을 수 있도록 HikariDataSource생성 
 		Connection pool을 만드는 역할
 	-->
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 	    <constructor-arg ref="hikariConfig" />
 	</bean>
 	
@@ -30,6 +40,20 @@
 	
 	<!-- SQL관련 mapper를 메모리에 올리는 태그(scan) -->	
 	<mybatis-spring:scan base-package="com.hmoca.mapper"/>
+	
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+	<property name="requestFactory">
+		<bean class="org.springframework.http.client.SimpleClientHttpRequestFactory">
+			<property name="connectTimeout" value="5000" />
+			<property name="readTimeout" value="5000" />
+		</bean>
+	</property>
+	<property name="messageConverters">
+    	<list>
+        	<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+		</list>
+	</property>
+</bean>
 	
 </beans>
 

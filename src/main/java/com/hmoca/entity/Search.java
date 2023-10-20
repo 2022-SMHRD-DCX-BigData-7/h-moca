@@ -23,5 +23,10 @@ public class Search {
 	public void setDist_idx(int dist_idx) {
 		this.dist_idx = dist_idx;
 	}
+	
+	@Override
+	public String toString() {
+		return "Search [dist_idx=" + dist_idx + ", user_id=" + user_id + ", url_name=" + url_name + "]";
+	}
 
 }

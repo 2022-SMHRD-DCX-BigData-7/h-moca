@@ -181,7 +181,7 @@ select * from post_info where user_id='user1' order by post_idx desc
 
 select count(*) from user_info where user_id ='user122'
 select * from user_info;
-
+commit;
 
 insert into dist_info values (20,'user1','https://www.youtube.com/watch?v=RtT8ZYDJQOc','dd','dd',76,0.2,0.2,0.2,0.2)
 
