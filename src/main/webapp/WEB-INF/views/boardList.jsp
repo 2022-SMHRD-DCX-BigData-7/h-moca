@@ -57,10 +57,18 @@
 					</div>
 					
 					<div class="board_page">
-						<a href="#" class="btn first"><<</a>
-						<a href="#" class="btn prev"><</a>
-						<a href="#" class="btn next">></a>
-						<a href="#" class="btn last">>></a>
+						<a href="boardList.do?curPage=1" class="btn first"><<</a>
+						<a href="boardList.do?curPage=${paging.curPage-1}" class="btn prev"><</a>
+						<c:forEach begin="${paging.firstPage}" end="${paging.lastPage}" var="i">
+							<c:if test="${i eq paging.curPage}">
+								<a href="boardList.do?curPage=${i}" class="num on">${i}</a>
+							</c:if>
+							<c:if test="${i ne paging.curPage}">
+								<a href="boardList.do?curPage=${i}" class="num">${i}</a>
+							</c:if>
+						</c:forEach>
+						<a href="boardList.do?curPage=${paging.curPage+1}" class="btn next">></a>
+						<a href="boardList.do?curPage=${paging.totalPageCount}" class="btn last">>></a>
 					</div>
 					
 					<div class="btn_wrap">

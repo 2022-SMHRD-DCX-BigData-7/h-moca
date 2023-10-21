@@ -51,4 +51,24 @@
 	<select id="Mypostcontent" parameterType="String" resultType="com.hmoca.entity.Post"> 
 	    select * from post_info where user_id=#{user_id} 
 	</select>
+	
+	<!-- 페이징 -->
+	<select id="getTotalRowCount" resultType="int" parameterType="com.hmoca.entity.Page">
+	    select count(*) from post_info
+	</select>
+	
+	<select id="getBoardList" resultType="com.hmoca.entity.Post" parameterType="com.hmoca.entity.Page">
+	    SELECT * 
+		FROM (
+		    SELECT a.*, @rownum := @rownum+1 AS rnum 
+		    FROM (
+		        SELECT post_idx, post_title, user_id, created_at
+		        FROM post_info
+		        ORDER BY post_idx DESC
+		    ) a, (select @rownum := 0) r
+		) b
+		WHERE rnum BETWEEN #{firstRow} AND #{lastRow}
+	</select>
+	
+	
 </mapper>

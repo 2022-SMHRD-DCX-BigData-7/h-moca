@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hmoca.entity.Dist;
+import com.hmoca.entity.Page;
 import com.hmoca.entity.Post;
 import com.hmoca.mapper.DistMapper;
 import com.hmoca.mapper.PostMapper;
@@ -27,15 +29,28 @@ public class PostController {
 	@Autowired
 	private DistMapper mapper2;
 	
+	/*
+	 * // 게시판 리스트 불러오기
+	 * 
+	 * @RequestMapping("/boardList.do") public String boardList(Model model) {
+	 * 
+	 * List<Post> list = mapper.postList(); model.addAttribute("list", list);
+	 * 
+	 * return "boardList"; }
+	 */
+	
 	// 게시판 리스트 불러오기
-	@RequestMapping("/boardList.do")
-	public String boardList(Model model) {
-		
-		List<Post> list = mapper.postList();
-		model.addAttribute("list", list);
-		
-		return "boardList";
-	}
+		@RequestMapping("/boardList.do")
+		public String boardList(Model model, @ModelAttribute("paging")Page paging) {
+			int totalRowCount = mapper.getTotalRowCount(paging);
+			paging.setTotalRowCount(totalRowCount);
+			paging.pageSetting();
+			List<Post> list = mapper.getBoardList(paging);
+			model.addAttribute("list", list);
+			
+			return "boardList";
+		}
+	
 	
 	// 게시글 내용
 	@RequestMapping("/boardContent.do/{post_idx}")
