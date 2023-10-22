@@ -97,7 +97,7 @@
 	} 
 	
 	.title {
-		width: 85%;
+		width: 100%;
 		border-bottom: solid 1px #f0f0f0;
 	}
 		

@@ -154,16 +154,6 @@
 		width: 25%;
 	}
 	
-	/* max-width: 1000px */
-	@media (max-width: 1000px){
-			ul.tabs li{
-				display: inline-block;
-			}
-			.tab-content {
-				border: none;
-			}
-			
-		}	
 		
 	.t1 {
 		text-align: right;
@@ -209,7 +199,7 @@
 	<section id="content" class="mycontent">
 		<div class="container">
 			<div class="row">
-				<div class="col-3 col-8-medium col-12-small" >
+				<div class="col-3 col-12-medium" >
 					<!-- 탭 메뉴 상단 -->
 					<ul class="tabs">
 						<li class="tab-link current" data-tab="tab-1">내게시글</li>

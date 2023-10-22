@@ -160,7 +160,7 @@
 <script src="${cpath}/resources/js/browser.min.js"></script>
 <script src="${cpath}/resources/js/breakpoints.min.js"></script>
 <script src="${cpath}/resources/js/util.js"></script>
-<script src="${cpath}/resources/js/main.js"></script>
+
 	
 </body>
 </html>

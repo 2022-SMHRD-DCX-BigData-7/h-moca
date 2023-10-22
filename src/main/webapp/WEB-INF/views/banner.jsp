@@ -21,21 +21,9 @@
    		text-align: center;
    	}
    	
-   	
-   	.banner-text {
-   		opacity: 0;
-   		transform: translateY(10%);
-   		transition: all .5s ease-in-out;
-   	}
-   	
-   	.banner-text.on {
-   		opacity: 1;
-   		transform: translateY(0);
-   	}
-   	
    	.text{
    		position: relative;
-   		top: 7px;
+   		top: 19.5vh;
    		height: 40vh;
    		margin: 35px 0;
    		text-align: center;
@@ -58,18 +46,7 @@
 <body>
 
 	<div id="banner" class="page">
-		<div class="banner-img">
-			
-		</div>
-		<div class="banner-text">
-			<h1>다시 찾는 정보의 가치</h1>
-		</div>
-		<div class="banner-text">
-			<h1>다시 찾는 정보의 가치</h1>
-		</div>
-		<div class="banner-text">
-			<h1>다시 찾는 정보의 가치</h1>
-		</div>
+		
 		<div class="text">
 			<h1>FAKE? FACT!</h1>
 		</div>

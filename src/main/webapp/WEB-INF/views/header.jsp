@@ -15,9 +15,15 @@
 					<h1><a href="${cpath}/Main.do" id="logo"><img class="logoimg" src="${cpath}/resources/css/images/logo.png">MOCA</a></h1>
 					<!-- Nav -->
 					<nav id="nav">
-						<a href="#">URL검색</a>
-						<a href="#">검색순위</a>
 						<a href="#">게시판</a>
+						<c:choose>
+							<c:when test="${not empty loginUser}">
+								<a href="#">마이페이지</a>
+							</c:when>
+							<c:otherwise>
+							</c:otherwise>
+						</c:choose>
+						
 					</nav>
 					<!-- 로그인 메뉴 -->
 					<!-- 로그인X -->
