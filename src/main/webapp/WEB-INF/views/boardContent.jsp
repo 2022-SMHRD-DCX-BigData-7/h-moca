@@ -31,6 +31,7 @@
 
 	.url>input{
 		width: 60%;
+		border-radius: 5px;
 	}
 	
 	.thumb {
@@ -48,6 +49,12 @@
 	
 	.simple h3{
 		text-align: left;
+	}
+	
+	#data-label {
+		font-size: 3rem;
+		position: relative;
+		bottom: 20vh;
 	}
 		
 	.detail {
@@ -164,12 +171,12 @@
 		
 		// 결과화면1
 		resultpage += '<section class="simple">';
-		resultpage += '<h3>종합 점수 : '+(obj.video_score*100)+'점</h3>';
+		resultpage += '<h3>종합 점수</h3>';
 		resultpage += '<div>';
 		resultpage += '<div style="width: 300px; height: 250px">';
 		resultpage += '<canvas id="totalscore"></canvas>';
 		// if 문으로 기주 정하기.. .... . . .
-		resultpage += '<span id="data-label"></span>';
+		resultpage += '<span id="data-label">'+(obj.video_score*100)+'점</span>';
 		resultpage += '</div>';
 		resultpage += '</div>';
 		resultpage += '</section>';

@@ -59,22 +59,23 @@ public class DistController {
 	
 	// 차트에 데이터 넣기
 	@RequestMapping("/distScore.do")
-	public @ResponseBody List<Dist> distScore(Model model, Dist vo, HttpSession session){
-        User loginUser = (User)session.getAttribute("loginUser");
-        String user_id = loginUser.getUser_id();
+	public @ResponseBody List<Dist> distScore(Model model, Dist vo/* , HttpSession session */){
+		/*
+		 * User loginUser = (User)session.getAttribute("loginUser"); String user_id =
+		 * loginUser.getUser_id();
+		 */
 		List<Dist> score = mapper.distScore(vo);
 		model.addAttribute("score", score);
 		return score;
 	}
 	
-	@RequestMapping("/getMeta.do")
-	public @ResponseBody List<Video> getMeta(Model model, Video vo, HttpSession session) {
-        User loginUser = (User)session.getAttribute("loginUser");
-        String user_id = loginUser.getUser_id();
-		List<Video> video = mapper.getMeta(vo);
-		model.addAttribute("video", video);
-		return video;
-	}
+	/*
+	 * @RequestMapping("/getMeta.do") public @ResponseBody List<Video> getMeta(Model
+	 * model, Video vo, HttpSession session) { User loginUser =
+	 * (User)session.getAttribute("loginUser"); String user_id =
+	 * loginUser.getUser_id(); List<Video> video = mapper.getMeta(vo);
+	 * model.addAttribute("video", video); return video; }
+	 */
 	
 	
 }

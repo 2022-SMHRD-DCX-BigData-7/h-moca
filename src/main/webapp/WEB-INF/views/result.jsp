@@ -106,8 +106,11 @@
 	}
 	
 	#data-label {
-		font-size: 20px;
-		position: absolute;
+		
+		font-size: 3rem;
+		position: relative;
+		bottom: 20vh;
+	
 	}
 	
 	canvas {
@@ -209,12 +212,12 @@
 		resultpage += '<div class="col-5 col-12-medium">';
 		// 결과화면1
 		resultpage += '<section class="simple">';
-		resultpage += '<h3>종합 점수 : '+(obj.video_score*100)+'점</h3>';
+		resultpage += '<h3>종합 점수</h3>';
 		resultpage += '<div>';
 		resultpage += '<div style="width: 400px; height: 350px">';
 		resultpage += '<canvas id="totalscore"></canvas>';
 		// if 문으로 기준 넣기
-		resultpage += '<span id="data-label"></span>';
+		resultpage += '<span id="data-label">'+(obj.video_score*100)+'점</span>';
 		resultpage += '</div>';
 		resultpage += '</div>';
 		resultpage += '</section>';
