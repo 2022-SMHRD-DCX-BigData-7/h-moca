@@ -33,32 +33,32 @@ public class SearchController {
 //http://127.0.0.1:9000/crawl
       @RequestMapping("/search.do")
       public String searchResults(@RequestParam("user_id") String user_id, @RequestParam("url_name") String url_name, Model model, Model model2) {
-         ResponseEntity<List<Search>> responseEntity = restTemplate.exchange(
-                   BASE_URL,
-                   // + "/"+user_id + "&",
-                   HttpMethod.GET,
-                   null,
-                   new ParameterizedTypeReference<List<Search>>() {
-               }
-           );
-         
-            // 검색 기능
-              Search search = new Search();
-              search.setUser_id(user_id);
-              search.setUrl_name(url_name);
-              
-              // 검색 정보를 db에 저장
-              searchMapper.insertSearch(search);
-              
-              model.addAttribute("user_id", user_id);
-              model.addAttribute("url_name", url_name);
-              
-              // 검색 결과를 가져옴 (flask에서 search_info 값 가져가서 dist_info에 넣어줌) 
-//              List<Search> searchList = searchMapper.searchList(search);
-//              model.addAttribute("searchList", searchList);
+          // 검색 기능
+          Search search = new Search();
+          search.setUser_id(user_id);
+          search.setUrl_name(url_name);
 
-              Dist vo = mapper.selectDist();
-              model2.addAttribute("vo", vo);
-              return "result"; 
-          }
+          // 검색 정보를 db에 저장
+          searchMapper.insertSearch(search);
+
+          // Flask 서버로 요청 보내기
+          ResponseEntity<Search> responseEntity = restTemplate.exchange(
+              BASE_URL,
+              HttpMethod.GET,
+              null,
+              Search.class
+          );
+
+          model.addAttribute("user_id", user_id);
+          model.addAttribute("url_name", url_name);
+
+          // 검색 결과를 가져옴 (flask에서 search_info 값 가져가서 dist_info에 넣어줌) 
+          // List<Search> searchList = searchMapper.searchList(search);
+          // model.addAttribute("searchList", searchList);
+
+          Dist vo = mapper.selectDist();
+          model2.addAttribute("vo", vo);
+          return "result"; 
+      }
+
    }

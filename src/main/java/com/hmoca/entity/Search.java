@@ -1,6 +1,9 @@
 package com.hmoca.entity;
 
+import java.util.List;
+
 public class Search {
+	List<Search> Searchs;
 	private int dist_idx;
 	private String user_id; 
 	private String url_name;
@@ -24,6 +27,12 @@ public class Search {
 		this.dist_idx = dist_idx;
 	}
 	
+	public List<Search> getSearchs() {
+		return Searchs;
+	}
+	public void setSearchs(List<Search> searchs) {
+		Searchs = searchs;
+	}
 	@Override
 	public String toString() {
 		return "Search [dist_idx=" + dist_idx + ", user_id=" + user_id + ", url_name=" + url_name + "]";

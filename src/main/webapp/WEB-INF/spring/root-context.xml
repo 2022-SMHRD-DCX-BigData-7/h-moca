@@ -44,8 +44,8 @@
 	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
 	<property name="requestFactory">
 		<bean class="org.springframework.http.client.SimpleClientHttpRequestFactory">
-			<property name="connectTimeout" value="5000" />
-			<property name="readTimeout" value="5000" />
+			<property name="connectTimeout" value="1800000" />
+			<property name="readTimeout" value="1800000" />
 		</bean>
 	</property>
 	<property name="messageConverters">
