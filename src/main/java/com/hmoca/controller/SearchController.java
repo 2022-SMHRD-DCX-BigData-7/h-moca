@@ -2,6 +2,8 @@ package com.hmoca.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -15,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.hmoca.entity.Dist;
 import com.hmoca.entity.Search;
+import com.hmoca.entity.User;
 import com.hmoca.mapper.SearchMapper;
 import com.hmoca.mapper.DistMapper;
 
@@ -32,8 +35,10 @@ public class SearchController {
       private final String BASE_URL = "http://localhost:9000/crawl";
 //http://127.0.0.1:9000/crawl
       @RequestMapping("/search.do")
-      public String searchResults(@RequestParam("user_id") String user_id, @RequestParam("url_name") String url_name, Model model, Model model2) {
-          // 검색 기능
+      public String searchResults(@RequestParam("user_id") String user_id, @RequestParam("url_name") String url_name, Model model, Model model2, HttpSession session) {
+    	  User loginUser = (User)session.getAttribute("loginUser");
+    	  
+    	  // 검색 기능
           Search search = new Search();
           search.setUser_id(user_id);
           search.setUrl_name(url_name);
