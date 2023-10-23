@@ -26,7 +26,7 @@
 	}
 	
 	#content img {
-		width : 500px;
+		width : 400px;
 		border-radius: 10px;
 	}
 	
@@ -298,7 +298,7 @@
 				datasets:[{
 					barThickness: 100,
 					label: 'metaScore',
-					data: [40],
+					data: metaScore,
 					backgroundColor: 'rgba(255, 189, 82, 0.2)',
 					borderColor: 'rgba(255, 189, 82, 0.8)',
 					borderWidth: 1
