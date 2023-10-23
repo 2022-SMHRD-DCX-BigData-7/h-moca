@@ -69,26 +69,35 @@
 		
 		if(${vo.dist_idx} != null){
 			resultvo();
-			getMeta();
+			
 		}
 		commentList();
 	});
 	
-	function getMeta(){
+	// 메타데이터 받아오기
+	/* function getMeta(){
 		$.ajax({
 			url: "${cpath}/getMeta.do",
 			type: "get",
+			data: {url_name:urlName},
 			dataType: "json",
-			seccess: metaBack,
+			success: metaBack,
 			error: function(){
 				alert("메타데이터 못가져옴");
 			}
 		});
-	}
+	} */
 	
-	function metaBack(data){
+	/* function metaBack(data){
 		console.log(data);
-	}
+		
+		var meta = "<div>";
+		
+		meta += "</div>";
+		
+		$("#meta").html(meta);
+	} */
+	
 	// 차트
 	function resultvo(){
 		$.ajax({
@@ -112,6 +121,7 @@
 	var videoScore = []; // 영상 판별 점수 (제목)
 	var metaScore = []; // 메타데이터 점수
 	var thumbScore = []; // 썸네일 점수
+	var urlName;
 	
 	function callBack(data){
 		console.log(data);
@@ -124,12 +134,14 @@
 		metaScore.push(Number(data[i].meta_score*100));
 		thumbScore.push(Number(data[i].thumb_nm_score*100));
 		thumbScore.push(Number(data[i].thumb_img_score*100));
+		urlName = (String(data[i].url_name));
 		}
 					
 		console.log("총점",totalScore);
 		console.log("데이터점수",metaScore);
 		console.log("영상점수",videoScore);
 		console.log("썸네일",thumbScore);
+		console.log("url주소",urlName);
 		
 		// result 페이지 
 		var resultpage = "<section class='url'>";
@@ -163,12 +175,9 @@
 				
 		// 통계화면
 		resultpage += '<section class="detail">';
-		resultpage += '<h3>영상 데이터</h3>';
-		resultpage += '<div>';
-		resultpage += '<div>';
-		resultpage += '<canvas id="meta"></canvas>';
-		resultpage += '</div>';
-		resultpage += '</div>';
+		//resultpage += '<h3>영상 데이터</h3>';
+		//resultpage += '<div id="meta">';
+		//resultpage += '</div>';
 		resultpage += '<h3>영상 점수</h3>';
 		resultpage += '<div>';
 		resultpage += '<div style="width: 45%;">';
@@ -188,7 +197,9 @@
 		
 		$("#scrap").html(resultpage);
 		
+		//getMeta();
 		getChart();
+		
 	}
 	
 	function getChart(){
@@ -232,9 +243,9 @@
 			data: {
 				labels: ['데이터점수'],
 				datasets:[{
-					barThickness: 100,
+					barThickness: 80,
 					label: 'metaScore',
-					data: [40],
+					data: metaScore,
 					backgroundColor: 'rgba(255, 189, 82, 0.2)',
 					borderColor: 'rgba(255, 189, 82, 0.8)',
 					borderWidth: 1
@@ -265,7 +276,7 @@
 			data: {
 				labels: ['영상점수'],
 				datasets:[{
-					barThickness: 100,
+					barThickness: 80,
 					label: 'videoScore',
 					data: videoScore,
 					backgroundColor: [
@@ -302,7 +313,7 @@
 			data: {
 				labels: ['썸네일(text)','썸네일(image)','썸네일(평균)'],
 				datasets:[{
-					barThickness: 100,
+					barThickness: 80,
 					label: 'thumbScore',
 					data: [thumbScore[0],thumbScore[1],((thumbScore[0]+thumbScore[1])/2)],
 					backgroundColor: [

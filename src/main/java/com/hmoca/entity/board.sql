@@ -188,6 +188,8 @@ insert into dist_info values (20,'user1','https://www.youtube.com/watch?v=RtT8ZY
 select * from search_info;
 select * from dist_info;
 
+update dist_info set title_score = 0.57, meta_score = 0.48, thumb_nm_score = 0.37, thumb_img_score = 0.65 where dist_idx=2;
+
 INSERT INTO search_info (user_id, url_name)
 values ('user99','https://www.youtube.com/watch?v=8FVRCZTqLzU')
 

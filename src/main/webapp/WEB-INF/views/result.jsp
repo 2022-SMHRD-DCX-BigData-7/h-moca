@@ -296,7 +296,7 @@
 			data: {
 				labels: ['데이터점수'],
 				datasets:[{
-					barThickness: 100,
+					barThickness: 80,
 					label: 'metaScore',
 					data: metaScore,
 					backgroundColor: 'rgba(255, 189, 82, 0.2)',
@@ -329,7 +329,7 @@
 			data: {
 				labels: ['영상점수'],
 				datasets:[{
-					barThickness: 100,
+					barThickness: 80,
 					label: 'videoScore',
 					data: videoScore,
 					backgroundColor: [
@@ -366,7 +366,7 @@
 			data: {
 				labels: ['썸네일(text)','썸네일(image)','썸네일(평균)'],
 				datasets:[{
-					barThickness: 100,
+					barThickness: 80,
 					label: 'thumbScore',
 					data: [thumbScore[0],thumbScore[1],((thumbScore[0]+thumbScore[1])/2)],
 					backgroundColor: [
