@@ -36,7 +36,6 @@ public class SearchController {
 //http://127.0.0.1:9000/crawl
       @RequestMapping("/search.do")
       public String searchResults(@RequestParam("user_id") String user_id, @RequestParam("url_name") String url_name, Model model, Model model2, HttpSession session) {
-    	  User loginUser = (User)session.getAttribute("loginUser");
     	  
     	  // 검색 기능
           Search search = new Search();
@@ -53,7 +52,9 @@ public class SearchController {
               null,
               Search.class
           );
-
+          
+          User loginUser = (User)session.getAttribute("loginUser");
+    	  
           model.addAttribute("user_id", user_id);
           model.addAttribute("url_name", url_name);
 
