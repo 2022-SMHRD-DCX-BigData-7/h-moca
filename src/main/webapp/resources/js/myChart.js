@@ -1,7 +1,5 @@
-	$(document).ready(function(){
-		resultvo();
-	});
-		// ajax -> distCon에 있는 result.do 실행하고 Dist vo를 받아옴
+
+	// ajax -> distCon에 있는 result.do 실행하고 Dist vo를 받아옴
 	function resultvo(){
   		$.ajax({
   			url : "${cpath}/distScore.do",
@@ -46,24 +44,16 @@
 		
 		
 		// result 페이지 
-		var resultpage = "<div class='container'>";
-		resultpage += "<div class='row'>";
+		var resultpage = "<section class='url'>";
 		
-		resultpage += "<div class='col-2'>";	
-		resultpage += "<h2>판별 결과</h2>";
-		resultpage += "</div>";
-		resultpage += '<div class="col-10">';
-		resultpage += '<button class="scrap" onclick="scrap()">스크랩</button>';
-		resultpage += '</div>';
-		resultpage += '<div class="col-12">';
 		
 		$.each(data, function(index, obj){
 			
-		resultpage += '<section class="url">';
 		resultpage += 'url주소 :<input value="'+obj.url_name+'" readonly>';
 		resultpage += '</section>';
 		resultpage += '</div>';
 		resultpage += '<div class="col-7 col-12-medium">';
+		
 		// 썸네일
 		resultpage += '<section class="thumb">';
 		resultpage += '<div>';
@@ -120,7 +110,7 @@
 		resultpage += "</div>";
 		resultpage += "</div>";
 		
-		$("#content").html(resultpage);
+		$("#scrap").html(resultpage);
 		
 		getChart();
 	}

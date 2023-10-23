@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hmoca.entity.Dist;
 import com.hmoca.entity.Post;
 import com.hmoca.entity.User;
+import com.hmoca.entity.Video;
 import com.hmoca.mapper.DistMapper;
 import com.hmoca.mapper.PostMapper;
 
@@ -64,7 +65,12 @@ public class DistController {
 		return score;
 	}
 	
-	
+	@RequestMapping("/getMeta.do")
+	public @ResponseBody List<Video> getMeta(Model model, Video vo) {
+		List<Video> video = mapper.getMeta(vo);
+		model.addAttribute("video", video);
+		return video;
+	}
 	
 	
 }

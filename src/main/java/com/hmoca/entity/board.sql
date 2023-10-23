@@ -193,3 +193,5 @@ values ('user99','https://www.youtube.com/watch?v=8FVRCZTqLzU')
 
 SELECT dist_idx, user_id, url_name
 FROM dist_info;
+
+select * from video_info;

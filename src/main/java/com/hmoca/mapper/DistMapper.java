@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hmoca.entity.Dist;
+import com.hmoca.entity.Video;
 
 @Mapper
 public interface DistMapper {
@@ -21,7 +22,9 @@ public interface DistMapper {
 	public List<Dist> distScore(Dist vo);
 	//
 	public List<Dist> selectDist(Dist vo);
+	public Dist scrapDist();
 	
+	public List<Video> getMeta(Video vo);
 	
 	
 }

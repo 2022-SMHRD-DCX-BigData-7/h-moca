@@ -53,7 +53,7 @@ public class PostController {
 	
 	
 	// 게시글 내용
-	@RequestMapping("/boardContent.do/{post_idx}")
+	@GetMapping("/boardContent.do/{post_idx}")
 	public String boardContent(@PathVariable("post_idx") int post_idx, Model model) {
 		
 		mapper.postCount(post_idx);	// 조회수 1증가	

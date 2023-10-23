@@ -32,5 +32,7 @@
 	    select * from dist_info where dist_idx=#{dist_idx}
 	</select>
 
-	
+	<select id="getMeta" resultType="com.hmoca.entity.Video">
+	    select * from video_info where url_name=#{url_name}
+	</select>
 </mapper>
