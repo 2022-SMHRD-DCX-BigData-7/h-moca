@@ -45,9 +45,9 @@
 							<div class="count">조회수</div>
 						</div>
 						<div>
-							<c:forEach items="${list}" var="vo">
+							<c:forEach items="${list}" var="vo" varStatus="loop">
 								<c:url var="contentLink" value="boardContent.do/${vo.post_idx}" />
-								<div class="num">${vo.post_idx }</div>
+								<div class="num">${list.size() - loop.index}</div>
 								<div class="title"><a href="${contentLink}">${vo.post_title}</a></div>
 								<div class="writer">${vo.user_id}</div>
 								<div class="date">${fn:split(vo.created_at," ")[0]}</div>

@@ -62,7 +62,7 @@
 		FROM (
 		    SELECT a.*, @rownum := @rownum+1 AS rnum 
 		    FROM (
-		        SELECT post_idx, post_title, user_id, created_at
+		        SELECT post_idx, post_title, user_id, created_at, post_views
 		        FROM post_info
 		        ORDER BY post_idx DESC
 		    ) a, (select @rownum := 0) r

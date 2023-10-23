@@ -23,7 +23,7 @@
    	
    	.text{
    		position: relative;
-   		top: 19.5vh;
+   		top: 17vh;
    		height: 40vh;
    		margin: 35px 0;
    		text-align: center;
