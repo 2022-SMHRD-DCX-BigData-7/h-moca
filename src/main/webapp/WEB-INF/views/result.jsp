@@ -143,9 +143,9 @@
   			error : function(){
   				alert("결과페이지 통신 실패");
   			}
-  				
-  		}); // ajax 끝 - 데이터 받아옴
+  		});
 	}	
+		
 	// 리스트(y값)
 	var totalScore = []; // 총점
 	var metaData = []; // 메타데이터 => 좋아요수, 댓글수, 조회수
@@ -336,10 +336,10 @@
 		new Chart(document.getElementById("Chart_video"),{
 			type: 'bar',
 			data: {
-				labels: ['영상점수'],
+				labels: ['제목점수'],
 				datasets:[{
 					barThickness: 80,
-					label: 'videoScore',
+					label: 'titleScore',
 					data: videoScore,
 					backgroundColor: [
 						'rgba(82, 122, 255, 0.2)'

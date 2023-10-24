@@ -10,7 +10,7 @@
    		position: relative;
    		margin: 0;
    		width: 100%;
-   		height: 65vh;
+   		height: 66vh;
    		background: url("resources/css/images/back.jpg");
    		opacity: 0.8;
    		background-size: cover;
@@ -19,42 +19,101 @@
    		font-weight: bold;
    		color: #373f42; */
    		text-align: center;
+   		
    	}
    	
-   	.text{
+   	#text{
    		position: relative;
-   		top: 17vh;
+   		top: 20vh;
+   		width: 100%;
    		height: 40vh;
-   		margin: 35px 0;
    		text-align: center;
-   		background: url("resources/css/images/bg04.png");
+   		background: #fff;
+   		opacity: 0.5;
    	}
    	
-   	.text h1{
-   		position: absolute;
-   		top: 30%;
+   	
+   	#text h1{
+   		position: relative;
+   		top: 45%;
    		right: 0;
    		left: 0;
-   		margin-top: 35px;
-   		font-size: 5rem;
+   		/* margin-top: 35px; */
+   		font-size: 8rem;
    		font-weight: 600;
-   		color: #fff;
+   		color: #000;
    	}
+   	
+   	#text h2{
+   		position: relative;
+   		top:25vh;
+   		font-size: 3rem;
+   	}
+   	
+   	h3{
+   		color: red;
+   		text-align: right;
+   	}
+	
+	@media screen and (max-width: 980px) {
+		#text{
+	   		position: relative;
+	   		top: 13vh;
+	   		width: 100%;
+	   		height: 45vh;
+	   		text-align: center;
+	   		background: #fff;
+	   		opacity: 0.5;
+   		}
+   	
+		#text h1{
+	   		position: relative;
+	   		top: 45%;
+	   		right: 0;
+	   		left: 0;
+	   		/* margin-top: 35px; */
+	   		font-size: 5rem;
+	   		font-weight: 600;
+	   		color: #000;
+	   	}
+   	
+	   	#text h2{
+	   		position: relative;
+	   		top:25vh;
+	   		font-size: 2rem;
+	   	}
+	}
 	   	
     </style>
+    <script>
+    	var banner = document.getElementById("banner");
+    	var text = document.getElementById("text");
+    	var text2 = document.getElementById("text2");
+    	var text3 = document.getElementById("text3");
+    	
+    	banner.addEventListener('scroll', function(e){
+    		var scrolled = banner.scrollTop;
+    		if (scrolled > 30) {
+    			text.style.fontSize = '4rem';
+    			text2.style.display = 'block';
+    			text3.style.display = 'block';
+    		} else {
+    			text.style.fontSize = '5rem';
+    			text2.style.display = 'none';
+    			text3.style.display = 'none';
+    		}
+    	});
+    </script>
 </head>
 <body>
 
 	<div id="banner" class="page">
-		
-		<div class="text">
-			<h1>FAKE? FACT!</h1>
-		</div>
+			<div id="text">
+				<h1>FAKE? FACT!</h1>
+				<h2>url검색으로 가짜에 가려진 진실을 찾아보세요!</h2>
+			</div>
 	</div>
-	
-	<script>
-		
-	</script>	
+	<h3>스포츠 정보 분야에 특화되어 있으며 다른 분야도 가능하지만 정확성이 떨어질 수 있습니다 </h3>
 	
 </body>
 </html>

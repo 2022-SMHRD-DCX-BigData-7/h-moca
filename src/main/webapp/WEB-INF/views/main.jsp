@@ -249,7 +249,6 @@
 			<div class="row aln-center">
 				<div class="col-12 col-12-medium">
 					<!-- Box #1 -->
-					<section id="loading"></section>
 					<section id="search">
 						<form action="${cpath}/search.do" class="search-box" method="post">
 							<input type="hidden" name="user_id" value="${loginUser.user_id}">

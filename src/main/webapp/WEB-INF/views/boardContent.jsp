@@ -282,10 +282,10 @@
 		new Chart(document.getElementById("Chart_video"),{
 			type: 'bar',
 			data: {
-				labels: ['영상점수'],
+				labels: ['제목점수'],
 				datasets:[{
 					barThickness: 80,
-					label: 'videoScore',
+					label: 'titleScore',
 					data: videoScore,
 					backgroundColor: [
 						'rgba(82, 122, 255, 0.2)'
