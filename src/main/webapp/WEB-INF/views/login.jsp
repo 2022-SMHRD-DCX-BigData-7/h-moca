@@ -117,7 +117,7 @@
 								</div>
 							</from>
 							<div class="notyet">
-								<a href="#">아직 회원이 아니신가요?</a>
+								<a href="${cpath}/UserInsertForm.do">아직 회원이 아니신가요?</a>
 							</div>
 						</section>
 
@@ -128,7 +128,7 @@
 		
 </div>
 
- <a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height:60px;width:auto;""></a>
+<!--  <a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height:60px;width:auto;""></a>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
         //e4c77f92564e5cf41fff7c7bfface8d2
@@ -153,7 +153,7 @@
             );
         }
 
-    </script>
+    </script> -->
 	
 <!-- Scripts -->
 <script src="${cpath}/resources/js/jquery.min.js"></script>

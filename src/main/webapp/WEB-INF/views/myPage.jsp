@@ -108,6 +108,7 @@
 	
 	.board_list>div.top>div{
 		font-weight: 600; 
+		text-align: center;
 	}
 	
 	.board_list .num{
@@ -148,6 +149,7 @@
 	
 	.board_list .dist_title {
 		width: 70%;
+		text-align: left;
 	}
 	
 	.board_list .score {
