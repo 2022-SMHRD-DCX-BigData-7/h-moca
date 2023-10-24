@@ -201,9 +201,6 @@
 			resultpage += '<button class="scrap" onclick="scrap()">스크랩</button>';
 			resultpage += '</div>';
 			
-			$('#detail').css({
-				'filter':'blur(0)'
-			});
 		}
 		
 		resultpage += '<div class="col-12">';
@@ -245,39 +242,41 @@
 		
 		if(loginUser == ''){
 			resultpage += '<div><span>🔎로그인하면 더 많은 정보를 확인할 수 있어요!</span></div>';
+		} else {
+			// 통계화면
+			resultpage += '<section id="detail" class="detail">';
+			
+			//resultpage += '<h3>영상 데이터</h3>';
+			//resultpage += '<div>';
+			//resultpage += '<div>';
+			//resultpage += '<canvas id="meta"></canvas>';
+			//resultpage += '</div>';
+			//resultpage += '</div>';
+			resultpage += '<h3>영상 점수</h3>';
+			resultpage += '<div>';
+			resultpage += '<div style="width: 50%;">';
+			resultpage += '<canvas id="Chart_meta" style="height:40vh; width:30vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '<div style="width: 50%;">';
+			resultpage += '<canvas id="Chart_video" style="height:40vh; width:30vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '</div>';
+			resultpage += '<h3>썸네일 점수</h3>';
+			resultpage += '<div>';
+			resultpage += '<div style="width: 100%;">';
+			resultpage += '<canvas id="Chart_thumb"  style="height:50vh; width:50vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '</div>';
+			resultpage += '</section>';
+			resultpage += '</div>';
+			
 		}
+			});
+			
+			resultpage += "</div>";
+			resultpage += "</div>";
 		
-		// 통계화면
-		resultpage += '<section id="detail" class="detail" style="filter:blur(5px)">';
 		
-		//resultpage += '<h3>영상 데이터</h3>';
-		//resultpage += '<div>';
-		//resultpage += '<div>';
-		//resultpage += '<canvas id="meta"></canvas>';
-		//resultpage += '</div>';
-		//resultpage += '</div>';
-		resultpage += '<h3>영상 점수</h3>';
-		resultpage += '<div>';
-		resultpage += '<div style="width: 50%;">';
-		resultpage += '<canvas id="Chart_meta" style="height:40vh; width:30vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '<div style="width: 50%;">';
-		resultpage += '<canvas id="Chart_video" style="height:40vh; width:30vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '</div>';
-		resultpage += '<h3>썸네일 점수</h3>';
-		resultpage += '<div>';
-		resultpage += '<div style="width: 100%;">';
-		resultpage += '<canvas id="Chart_thumb"  style="height:50vh; width:50vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '</div>';
-		resultpage += '</section>';
-		resultpage += '</div>';
-		
-		});
-		
-		resultpage += "</div>";
-		resultpage += "</div>";
 		
 		$("#content").html(resultpage);
 		
