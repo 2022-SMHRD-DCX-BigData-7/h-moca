@@ -162,12 +162,12 @@
 					
 		// 차트에 담을 값 리스트에 넣어주기
 		for(var i=0; i<data.length; i++){
-		totalScore.push(Number(data[i].video_score * 100));
-		totalScore.push(Number((1-data[i].video_score) * 100));
-		videoScore.push(Number(data[i].title_score*100));
-		metaScore.push(Number(data[i].meta_score*100));
-		thumbScore.push(Number(data[i].thumb_nm_score*100));
-		thumbScore.push(Number(data[i].thumb_img_score*100));
+		totalScore.push(Number((data[i].video_score * 100).toFixed(2)));
+		totalScore.push(Number(((1-data[i].video_score) * 100).toFixed(2)));
+		videoScore.push(Number((data[i].title_score*100).toFixed(2)));
+		metaScore.push(Number((data[i].meta_score*100).toFixed(2)));
+		thumbScore.push(Number((data[i].thumb_nm_score*100).toFixed(2)));
+		thumbScore.push(Number((data[i].thumb_img_score*100).toFixed(2)));
 		}
 					
 		console.log("총점",totalScore);
@@ -175,7 +175,7 @@
 		console.log("영상점수",videoScore);
 		console.log("썸네일",thumbScore);
 		
-		// 로그인하면 
+		// 로그인 유저 세션에서 가져오기
 		<%
 		String user_id = (loginUser != null) ? loginUser.getUser_id() : "";%>  
 		// String user_id = loginUser.getUser_id();%>
@@ -183,11 +183,6 @@
 		var loginUser = "<%=user_id%>";
 		console.log(loginUser);
 		
-		if(loginUser == null){
-			$('#detail').css({
-				
-			})
-		}
 		
 		// result 페이지 
 		var resultpage = "<div class='container'>";
@@ -239,9 +234,19 @@
 		resultpage += '</div>';
 		
 		// 로그인 하면 보여주는 페이지
+		
+
+		if(loginUser == null){
+			$('#detail').css({
+				'filter': 'blur(5px)'
+			});
+			resultpage += '<div><span>로그인하면 더 많은 정보를 확인할 수 있어요!</span></div>'
+		}
+		
 		resultpage += '<div class="col-12 on">';
 		// 통계화면
 		resultpage += '<section id="detail" class="detail">';
+		
 		//resultpage += '<h3>영상 데이터</h3>';
 		//resultpage += '<div>';
 		//resultpage += '<div>';
