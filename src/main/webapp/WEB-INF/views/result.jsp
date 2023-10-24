@@ -111,7 +111,8 @@
 		
 		font-size: 3rem;
 		position: relative;
-		bottom: 20vh;
+		bottom: 25vh;
+		color: darkgray;
 	
 	}
 	
@@ -174,12 +175,20 @@
 		console.log("영상점수",videoScore);
 		console.log("썸네일",thumbScore);
 		
+		// 로그인하면 
 		<%
 		String user_id = (loginUser != null) ? loginUser.getUser_id() : "";%>  
 		// String user_id = loginUser.getUser_id();%>
 		  
 		var loginUser = "<%=user_id%>";
 		console.log(loginUser);
+		
+		if(loginUser == null){
+			$('#detail').css({
+				
+			})
+		}
+		
 		// result 페이지 
 		var resultpage = "<div class='container'>";
 		resultpage += "<div class='row'>";
@@ -232,7 +241,7 @@
 		// 로그인 하면 보여주는 페이지
 		resultpage += '<div class="col-12 on">';
 		// 통계화면
-		resultpage += '<section class="detail">';
+		resultpage += '<section id="detail" class="detail">';
 		//resultpage += '<h3>영상 데이터</h3>';
 		//resultpage += '<div>';
 		//resultpage += '<div>';
