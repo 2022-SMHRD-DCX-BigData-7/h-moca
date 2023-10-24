@@ -194,7 +194,7 @@
 		resultpage += "<h2>판별 결과</h2>";
 		resultpage += "</div>";
 		
-		if(loginUser != null){
+		if(loginUser == obj.user_id){
 			resultpage += '<div class="col-10">';
 			resultpage += '<button class="scrap" onclick="scrap()">스크랩</button>';
 			resultpage += '</div>';
