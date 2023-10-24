@@ -63,7 +63,7 @@
 	
 	/* 검색순위 */
 	.ranklist {
-		width: 438px;
+		width: 440px;
 		border: solid 1px #061b41ba;
 		border-radius: 5px;
 		text-align: center;
@@ -99,6 +99,10 @@
 	.title {
 		width: 100%;
 		border-bottom: solid 1px #f0f0f0;
+	}
+	
+	.title p {
+		padding: 0 20px;
 	}
 		
 </style>
@@ -148,7 +152,7 @@
 			rList += "<td class='rank'>"+(idx+1)+"</td>";
 			rList += "<td class='title'>"
 			rList += "<p><img src='"+ob.video_thumb+"'></p>"
-			rList += "<p>"+ob.video_name+"</p>"
+			rList += "<p style='text-align:left'>"+ob.video_name+"</p>"
 			rList += "</td>"
 			rList += "</tr>";
 		})
@@ -172,7 +176,7 @@
 		$.each(data, function(index, obj){
 			bList += "<tr>";
 			bList += "<td class='rank'>"+(index+1)+"</td>";
-			bList += "<td class='title'><p>"+obj.post_title+"</p></td>";
+			bList += "<td class='title' style='text-align:left'><p>"+obj.post_title+"</p></td>";
 			bList += "</tr>";
 		})
 		$("#blist").html(bList);
