@@ -18,13 +18,15 @@ public class Page implements Serializable {
 	private int lastPage; // 페이지 리스트에서 마지막 페이지 번호
 	
 	public void pageSetting() {
-		totalPageCount = (totalPageCount-1)/rowSizePerPage +1;
+		totalPageCount = (totalRowCount-1)/rowSizePerPage +1;
 		firstRow = (curPage-1) * rowSizePerPage +1;
 		lastRow = firstRow + rowSizePerPage-1;
 		if(lastRow >= totalRowCount) {
 			lastRow = totalRowCount;
 		}
+		
 		firstPage =( (curPage-1)/pageSize )*pageSize +1;
+		
 		lastPage = firstPage + pageSize -1;
 		if(lastPage > totalPageCount) {
 			lastPage = totalPageCount;
@@ -32,10 +34,12 @@ public class Page implements Serializable {
 	}
 	
 
+	
 	/*
 	 * @Override public String toString() { return
 	 * ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE); }
 	 */
+	 
 	
 
 	public int getCurPage() {

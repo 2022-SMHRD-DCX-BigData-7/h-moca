@@ -60,12 +60,14 @@
 						<a href="boardList.do?curPage=1" class="btn first"><<</a>
 						<a href="boardList.do?curPage=${paging.curPage-1}" class="btn prev"><</a>
 						<c:forEach begin="${paging.firstPage}" end="${paging.lastPage}" var="i">
-							<c:if test="${i eq paging.curPage}">
-								<a href="boardList.do?curPage=${i}" class="num on">${i}</a>
-							</c:if>
-							<c:if test="${i ne paging.curPage}">
-								<a href="boardList.do?curPage=${i}" class="num">${i}</a>
-							</c:if>
+							<c:choose>
+								<c:when test="${i eq paging.curPage}">
+									<a href="boardList.do?curPage=${i}" class="num on">${i}</a>
+								</c:when>
+								<c:otherwise>
+									<a href="boardList.do?curPage=${i}" class="num">${i}</a>
+								</c:otherwise>
+							</c:choose>
 						</c:forEach>
 						<a href="boardList.do?curPage=${paging.curPage+1}" class="btn next">></a>
 						<a href="boardList.do?curPage=${paging.totalPageCount}" class="btn last">>></a>
