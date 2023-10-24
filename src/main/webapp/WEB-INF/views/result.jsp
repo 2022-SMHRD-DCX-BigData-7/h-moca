@@ -1,6 +1,8 @@
+<%@page import="com.hmoca.entity.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<% User loginUser = (User)session.getAttribute("loginUser"); %>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -143,9 +145,9 @@
   			error : function(){
   				alert("결과페이지 통신 실패");
   			}
-  		});
+  				
+  		}); // ajax 끝 - 데이터 받아옴
 	}	
-		
 	// 리스트(y값)
 	var totalScore = []; // 총점
 	var metaData = []; // 메타데이터 => 좋아요수, 댓글수, 조회수
@@ -172,10 +174,11 @@
 		console.log("영상점수",videoScore);
 		console.log("썸네일",thumbScore);
 		
-		<%User loginUser = (User)session.getAttribute("loginUser");
-		  String user_id = loginUser.getUser_id(); %>
+		<%
+		String user_id = (loginUser != null) ? loginUser.getUser_id() : "";%>  
+		// String user_id = loginUser.getUser_id();%>
 		  
-		var loginUser = '<%=user_id%>';
+		var loginUser = "<%=user_id%>";
 		console.log(loginUser);
 		// result 페이지 
 		var resultpage = "<div class='container'>";
