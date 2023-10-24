@@ -15,7 +15,7 @@
 	#content {
 		margin: 0 50px;
 		position: absolute;
-		top: 250px;
+		top: 100px;
 		right: 0;
 		left: 0;
 	}
@@ -60,6 +60,8 @@
 	.thumb div p:nth-child(2){
 		padding: 10px;
 		text-align: left;
+		height: 83px;
+		overflow: hidden;
 	}
 	
 	.scrap {
@@ -194,10 +196,11 @@
 		resultpage += "<h2>판별 결과</h2>";
 		resultpage += "</div>";
 		
-		if(loginUser == obj.user_id){
+		if(loginUser != ''){
 			resultpage += '<div class="col-10">';
 			resultpage += '<button class="scrap" onclick="scrap()">스크랩</button>';
 			resultpage += '</div>';
+			
 		}
 		
 		resultpage += '<div class="col-12">';
@@ -235,46 +238,45 @@
 		
 		// 로그인 하면 보여주는 페이지
 		
-
-		if(loginUser == null){
-			$('#detail').css({
-				'filter': 'blur(5px)'
-			});
-			resultpage += '<div><span>로그인하면 더 많은 정보를 확인할 수 있어요!</span></div>'
-		}
-		
 		resultpage += '<div class="col-12 on">';
-		// 통계화면
-		resultpage += '<section id="detail" class="detail">';
 		
-		//resultpage += '<h3>영상 데이터</h3>';
-		//resultpage += '<div>';
-		//resultpage += '<div>';
-		//resultpage += '<canvas id="meta"></canvas>';
-		//resultpage += '</div>';
-		//resultpage += '</div>';
-		resultpage += '<h3>영상 점수</h3>';
-		resultpage += '<div>';
-		resultpage += '<div style="width: 50%;">';
-		resultpage += '<canvas id="Chart_meta" style="height:40vh; width:30vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '<div style="width: 50%;">';
-		resultpage += '<canvas id="Chart_video" style="height:40vh; width:30vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '</div>';
-		resultpage += '<h3>썸네일 점수</h3>';
-		resultpage += '<div>';
-		resultpage += '<div style="width: 100%;">';
-		resultpage += '<canvas id="Chart_thumb"  style="height:50vh; width:50vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '</div>';
-		resultpage += '</section>';
-		resultpage += '</div>';
+		if(loginUser == ''){
+			resultpage += '<div><span>🔎로그인하면 더 많은 정보를 확인할 수 있어요!</span></div>';
+		} else {
+			// 통계화면
+			resultpage += '<section id="detail" class="detail">';
+			
+			//resultpage += '<h3>영상 데이터</h3>';
+			//resultpage += '<div>';
+			//resultpage += '<div>';
+			//resultpage += '<canvas id="meta"></canvas>';
+			//resultpage += '</div>';
+			//resultpage += '</div>';
+			resultpage += '<h3>영상 점수</h3>';
+			resultpage += '<div>';
+			resultpage += '<div style="width: 50%;">';
+			resultpage += '<canvas id="Chart_meta" style="height:40vh; width:30vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '<div style="width: 50%;">';
+			resultpage += '<canvas id="Chart_video" style="height:40vh; width:30vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '</div>';
+			resultpage += '<h3>썸네일 점수</h3>';
+			resultpage += '<div>';
+			resultpage += '<div style="width: 100%;">';
+			resultpage += '<canvas id="Chart_thumb"  style="height:50vh; width:50vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '</div>';
+			resultpage += '</section>';
+			resultpage += '</div>';
+			
+		}
+			});
+			
+			resultpage += "</div>";
+			resultpage += "</div>";
 		
-		});
 		
-		resultpage += "</div>";
-		resultpage += "</div>";
 		
 		$("#content").html(resultpage);
 		
