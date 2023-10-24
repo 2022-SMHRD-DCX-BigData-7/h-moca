@@ -172,7 +172,10 @@
 		console.log("영상점수",videoScore);
 		console.log("썸네일",thumbScore);
 		
-		var loginUser = '<%=session.getAttribute("loginUser")%>';
+		<%User loginUser = (User)session.getAttribute("loginUser");
+		  String user_id = loginUser.getUser_id(); %>
+		  
+		var loginUser = '<%=user_id%>';
 		console.log(loginUser);
 		// result 페이지 
 		var resultpage = "<div class='container'>";
