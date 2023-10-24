@@ -23,6 +23,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		background: #fbfbfb;
+		padding: 15px;
 	}
 	
 	.url {
@@ -38,8 +39,13 @@
 		width: 50%;
 	}
 	
+	.thumb p:first-child {
+		text-align: center;
+	}
+	
 	.thumb img {
-		width: 100%;
+		width: 90%;
+		border-radius: 5px;
 	}
 	
 	.simple {
@@ -52,9 +58,10 @@
 	}
 	
 	#data-label {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		position: relative;
-		bottom: 20vh;
+		bottom: 19vh;
+		color: #6a6a6a;
 	}
 		
 	.detail {
@@ -73,12 +80,9 @@
 <script>
 	// 차트데이터, 댓글 불러오기
 	$(document).ready(function(){
-		
-		if(${vo.dist_idx} != null){
-			resultvo();
-			
-		}
+		resultvo();
 		commentList();
+		
 	});
 	
 	// 메타데이터 받아오기
@@ -129,6 +133,7 @@
 	var metaScore = []; // 메타데이터 점수
 	var thumbScore = []; // 썸네일 점수
 	var urlName;
+	var distIdx;
 	
 	function callBack(data){
 		console.log(data);
@@ -142,6 +147,7 @@
 		thumbScore.push(Number(data[i].thumb_nm_score*100));
 		thumbScore.push(Number(data[i].thumb_img_score*100));
 		urlName = (String(data[i].url_name));
+		distIdx = (Number(data[i].dist_idx));
 		}
 					
 		console.log("총점",totalScore);
@@ -149,65 +155,68 @@
 		console.log("영상점수",videoScore);
 		console.log("썸네일",thumbScore);
 		console.log("url주소",urlName);
+		console.log("dist_idx", distIdx);
 		
-		// result 페이지 
-		var resultpage = "<section class='url'>";
-		
-		
-		$.each(data, function(index, obj){
+		if(distIdx != null){
+			$("#scrap").css({
+				'display':'flex'
+			});	
+			// result 페이지 
+			var resultpage = "<section class='url'>";
 			
-		resultpage += 'url주소 :<input value="'+obj.url_name+'" readonly>';
-		resultpage += '</section>';
-		
-		// 썸네일
-		resultpage += '<section class="thumb">';
-		resultpage += '<div>';
-		resultpage += "<p><img src='"+obj.video_thumb+"'></p>";
-		resultpage += '<p>'+obj.video_name+'</p>';
-		resultpage += '</div>';
-		resultpage += '</section>';
-		
-		
-		
-		// 결과화면1
-		resultpage += '<section class="simple">';
-		resultpage += '<h3>종합 점수</h3>';
-		resultpage += '<div>';
-		resultpage += '<div style="width: 300px; height: 250px">';
-		resultpage += '<canvas id="totalscore"></canvas>';
-		// if 문으로 기주 정하기.. .... . . .
-		resultpage += '<span id="data-label">'+(obj.video_score*100)+'점</span>';
-		resultpage += '</div>';
-		resultpage += '</div>';
-		resultpage += '</section>';
-		});		
-		// 통계화면
-		resultpage += '<section class="detail">';
-		//resultpage += '<h3>영상 데이터</h3>';
-		//resultpage += '<div id="meta">';
-		//resultpage += '</div>';
-		resultpage += '<h3>영상 점수</h3>';
-		resultpage += '<div>';
-		resultpage += '<div style="width: 45%;">';
-		resultpage += '<canvas id="Chart_meta" style="height:35vh; width:25vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '<div style="width: 45%;">';
-		resultpage += '<canvas id="Chart_video" style="height:35vh; width:25vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '</div>';
-		resultpage += '<h3>썸네일 점수</h3>';
-		resultpage += '<div>';
-		resultpage += '<div style="width: 100%;">';
-		resultpage += '<canvas id="Chart_thumb"  style="height:40vh; width:40vw"></canvas>';
-		resultpage += '</div>';
-		resultpage += '</div>';
-		resultpage += '</section>';
-		
+			$.each(data, function(index, obj){
+				
+			resultpage += 'url주소 :<input value="'+obj.url_name+'" readonly>';
+			resultpage += '</section>';
+			
+			// 썸네일
+			resultpage += '<section class="thumb">';
+			resultpage += '<div>';
+			resultpage += "<p><img src='"+obj.video_thumb+"'></p>";
+			resultpage += '<p>'+obj.video_name+'</p>';
+			resultpage += '</div>';
+			resultpage += '</section>';
+			
+			// 결과화면1
+			resultpage += '<section class="simple">';
+			resultpage += '<h3>종합 점수</h3>';
+			resultpage += '<div>';
+			resultpage += '<div style="width: 300px; height: 250px">';
+			resultpage += '<canvas id="totalscore"></canvas>';
+			// if 문으로 기주 정하기.. .... . . .
+			resultpage += '<span id="data-label">'+(obj.video_score*100)+'점</span>';
+			resultpage += '</div>';
+			resultpage += '</div>';
+			resultpage += '</section>';
+			});
+			
+			// 통계화면
+			resultpage += '<section class="detail">';
+			//resultpage += '<h3>영상 데이터</h3>';
+			//resultpage += '<div id="meta">';
+			//resultpage += '</div>';
+			resultpage += '<h3>영상 점수</h3>';
+			resultpage += '<div>';
+			resultpage += '<div style="width: 45%;">';
+			resultpage += '<canvas id="Chart_meta" style="height:35vh; width:25vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '<div style="width: 45%;">';
+			resultpage += '<canvas id="Chart_video" style="height:35vh; width:25vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '</div>';
+			resultpage += '<h3>썸네일 점수</h3>';
+			resultpage += '<div>';
+			resultpage += '<div style="width: 100%;">';
+			resultpage += '<canvas id="Chart_thumb"  style="height:40vh; width:40vw"></canvas>';
+			resultpage += '</div>';
+			resultpage += '</div>';
+			resultpage += '</section>';
+		}
+			
 		$("#scrap").html(resultpage);
 		
 		//getMeta();
 		getChart();
-		
 	}
 	
 	function getChart(){
@@ -465,10 +474,10 @@
 							${vo.post_title}
 						</div>
 						<div class="info">
-							<dl>
+							<%-- <dl>
 								<dt>번호</dt>
 								<dd>${vo.post_idx}</dd>
-							</dl>
+							</dl> --%>
 							<dl>
 								<dt>작성자</dt>
 								<dd>${vo.user_id}</dd>
@@ -483,7 +492,7 @@
 							</dl>
 						</div>
 						<div class="cont">
-							<div id="scrap" class="scrap"></div>
+							<div id="scrap" class="scrap" style="display:none;"></div>
 							${fn:replace(vo.post_content, newLine,"<br>")}
 						</div>
 					</div>	
