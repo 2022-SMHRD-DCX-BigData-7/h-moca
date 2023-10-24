@@ -181,7 +181,7 @@
 	function Loading(){
 		// 로딩중 이미지 불러오는 함수
 		LoadingWithMask();
-		setTimeOut("closeLoadingWithMask()", 5000);
+		setTimeOut("closeLoadingWithMask()", 15000);
 	}
 	
 	function LoadingWithMask(){
@@ -190,20 +190,17 @@
 	    var maskWidth  = window.document.body.clientWidth;
 	     
 	    //화면에 출력할 마스크를 설정해줍니다.
-	    var mask       = "<div id='mask' style='position:absolute; z-index:10000; background-color:#000000; display:none; left:0; top:0;'></div>";
+	    var mask       = "<div id='mask' style='position:absolute; z-index:100; background-color:#000000; display:none; left:0; top:0;'></div>";
 	    var loadingImg = '';
 	      
 	    loadingImg += "<div id='loadingImg'>";
-	    loadingImg += " <img src='resources/css/images/loading.gif' style='position: relative; display: block; margin: 0px auto;'/>";
-	    loadingImg += "</div>";  
+	    loadingImg += " <img src='resources/css/images/catload.gif' style='position: relative; display: block; margin: 0px auto;'/>";
+	    loadingImg += "</div>";
+	    
+	    
 	    //화면에 레이어 추가
-	    $('#loading')
-	        .append(mask)
-	        .append(loadingImg)
-	        
-	   	$('#search').css({
-	  		'display': none
-	  		})     
+	    $('body').append(mask);
+	    
 	 
 	    //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
 	    $('#mask').css({
@@ -217,6 +214,13 @@
 	  
 	    //로딩중 이미지 표시
 	    
+	    $('body').append(loadingImg);
+	    $('#loadingImg').css({
+	    	'position': 'absolute',
+	    	'top' : '25%',
+	    	'left' : '0',
+	    	'right':'0'
+	    });
 	    $('#loadingImg').show();
 	}
 	 
