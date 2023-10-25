@@ -11,17 +11,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet" href="${cpath}/resources/css/main.css">
 <link rel="stylesheet" href="${cpath}/resources/css/boardstyle.css">
-<style>
-	.scrap {
-		padding: 15px;
-		border-bottom: solid 1px #97a197;
-	}
-	
-	.scrap input{
-		width: 82.5%;
-		border-radius: 5px;
-	}
-</style>
 <script>
 	function checkField(){
 		var inputs = document.inputForm;
@@ -36,6 +25,11 @@
 	}
   	
 </script>
+<style>
+	.scarp {
+		width: 64.5%;
+	}
+</style>
 </head>
 <body>
 
@@ -72,11 +66,11 @@
 								<dt>판별고유번호</dt>
 								<dd><input type="text" id="dist_idx" name="dist_idx" value="${vo.dist_idx}"></dd>
 							</dl>
+							<dl>
+								<dd><input type="text" value="📑[스크랩 첨부]No.${vo.dist_idx}" class="scrap"></dd>
+							</dl>
 						</div>
 						<div class="cont">
-							<div id="scrap" class="scrap">
-							<input type="text" value="📑[스크랩 첨부]No.${vo.dist_idx}">
-							</div>
 							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요."></textarea>
 						</div>
 						<div class="btn_wrap">
