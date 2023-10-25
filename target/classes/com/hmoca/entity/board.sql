@@ -164,7 +164,7 @@ update dist_info set video_name = '툴루즈와 psg 2분 하이라이트'
 where dist_idx=9
 
 
-delete from comment_info where cmt_idx=14 and post_idx=19;
+delete from user_info where user_id='user00';
 
 select * from comment_info where post_idx=14;
 
