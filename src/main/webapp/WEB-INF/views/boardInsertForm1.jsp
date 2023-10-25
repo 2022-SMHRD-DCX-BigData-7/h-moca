@@ -26,7 +26,7 @@
   	
 </script>
 <style>
-	.scarp {
+	.scrap {
 		width: 64.5%;
 	}
 </style>
@@ -67,7 +67,7 @@
 								<dd><input type="text" id="dist_idx" name="dist_idx" value="${vo.dist_idx}"></dd>
 							</dl>
 							<dl>
-								<dd><input type="text" value="📑[스크랩 첨부]No.${vo.dist_idx}" class="scrap"></dd>
+								<input type="text" value="📑[스크랩 첨부]No.${vo.dist_idx}" class="scrap">
 							</dl>
 						</div>
 						<div class="cont">
