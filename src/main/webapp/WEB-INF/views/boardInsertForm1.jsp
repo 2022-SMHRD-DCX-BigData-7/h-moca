@@ -14,6 +14,12 @@
 <style>
 	.scrap {
 		padding: 15px;
+		border-bottom: solid 1px #97a197;
+	}
+	
+	.scrap input{
+		width: 82.5%;
+		border-radius: 5px;
 	}
 </style>
 <script>
@@ -62,14 +68,14 @@
 								<dt>작성자</dt>
 								<dd><input type="text" id="user_id" name="user_id" readonly="readonly" value="${loginUser.user_id}"></dd>
 							</dl>
-							<dl>
+							<dl style="display:none">
 								<dt>판별고유번호</dt>
 								<dd><input type="text" id="dist_idx" name="dist_idx" value="${vo.dist_idx}"></dd>
 							</dl>
 						</div>
 						<div class="cont">
 							<div id="scrap" class="scrap">
-							<input type="text" value="<스크랩 첨부>">	
+							<input type="text" value="📑[스크랩 첨부]No.${vo.dist_idx}">
 							</div>
 							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요."></textarea>
 						</div>
