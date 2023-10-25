@@ -69,7 +69,7 @@
 						</div>
 						<div class="cont">
 							<div id="scrap" class="scrap">
-								
+							<input type="text" value="<스크랩 첨부>">	
 							</div>
 							<textarea id="post_content" name="post_content" placeholder="내용을 입력하세요."></textarea>
 						</div>

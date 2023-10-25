@@ -32,6 +32,9 @@
    		opacity: 0.5;
    	}
    	
+   	#text:hover{
+   		box-shadow: 10px 10px 10px 10px black;
+   	}
    	
    	#text h1{
    		position: relative;

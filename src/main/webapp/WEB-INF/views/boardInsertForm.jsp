@@ -67,7 +67,7 @@
 								<dt>작성자</dt>
 								<dd><input type="text" id="user_id" name="user_id" readonly="readonly" value="${loginUser.user_id}"></dd>
 							</dl>
-							<dl>
+							<dl style="display:none;">
 								<dt>판별고유번호</dt>
 								<dd><input type="text" id="dist_idx" name="dist_idx" value="15"></dd>
 							</dl>
