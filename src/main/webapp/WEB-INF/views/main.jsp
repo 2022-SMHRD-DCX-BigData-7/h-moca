@@ -104,7 +104,11 @@
 	.title p {
 		padding: 0 20px;
 	}
-		
+	
+	.title p:nth-child(2) {
+		height: 70px;
+		overflow: hidden;
+	}	
 </style>
 
 <script>
